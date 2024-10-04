@@ -26,8 +26,6 @@ class CategoryController extends Controller {
         $last = Category::orderBy('order', 'desc')->first()->order;
         if($last) {
             $category->order = $last + 1;
-        } else {
-            $category->order = 1;
         }
         return $this->data($request, $category);
     }

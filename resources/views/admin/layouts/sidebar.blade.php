@@ -84,10 +84,10 @@
                     </a>
                     <ul aria-expanded="false" class="collapse">
                         <li>
-                            <a href="javascript:void(0)">
+                            <a href="{{ route('admin.services.index_' . session('locale')) }}">
                                 {{ __('Services') }}
                             </a>
-                            <a href="javascript:void(0)">
+                            <a href="{{ route('admin.services.create_' . session('locale')) }}">
                                 {{ __('New service') }}
                             </a>
                         </li>
