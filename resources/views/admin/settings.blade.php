@@ -159,14 +159,14 @@
                         {{ __('Logo')}}
                     </label>
                     <input type="file" name="logo" id="logo" class="dropify" data-show-remove="false"
-                           accept="image/*" data-default-file="{{ asset(Storage::url($settings->logo)) }}"/>
+                           accept="image/*" data-default-file="{{ asset('storage/' . $settings->logo) }}"/>
                 </div>
                 <div class="mb-3">
                     <label for="favicon" class="form-label text-white-50">
                         {{ __('Favicon')}}
                     </label>
                     <input type="file" name="favicon" id="favicon" class="dropify" data-show-remove="false"
-                           accept="image/*" data-default-file="{{ asset(Storage::url($settings->favicon)) }}"/>
+                           accept="image/*" data-default-file="{{ asset('storage/' . $settings->favicon) }}"/>
                 </div>
                 <button type="submit" class="btn btn-primary float-end">
                     {{ __('Update') }}

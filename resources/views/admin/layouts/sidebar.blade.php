@@ -58,6 +58,15 @@
                         </span>
                     </a>
                 </li>
+                <li>
+                    <a class="waves-effect waves-dark" href="{{ route('admin.about_' . session('locale')) }}"
+                       aria-expanded="false">
+                        <i class="ti ti-info-alt"></i>
+                        <span class="hide-menu">
+                            {{ __('About') }}
+                        </span>
+                    </a>
+                </li>
             </ul>
         </nav>
         <!-- End Sidebar navigation -->

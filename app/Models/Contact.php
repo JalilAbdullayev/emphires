@@ -21,7 +21,9 @@ class Contact extends Model {
         'banner_text',
         'banner_status',
         'form_status',
-        'bg_status'
+        'bg_status',
+        'work_hours',
+        'background'
     ];
 
     protected array $translatable = [
@@ -30,6 +32,7 @@ class Contact extends Model {
         'form_title',
         'form_subtitle',
         'form_description',
-        'banner_text'
+        'banner_text',
+        'work_hours'
     ];
 }

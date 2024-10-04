@@ -20,7 +20,8 @@ class DatabaseSeeder extends Seeder {
         ]);*/
         $this->call([
 //            SettingsSeeder::class,
-            ContactSeeder::class
+//            ContactSeeder::class,
+            AboutSeeder::class
         ]);
     }
 }

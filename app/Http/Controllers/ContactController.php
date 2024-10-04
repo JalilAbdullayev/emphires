@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Contact;
+use App\Traits\UploadImage;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -10,11 +11,14 @@ use Illuminate\Support\Str;
 use Illuminate\View\View;
 
 class ContactController extends Controller {
+    use UploadImage;
+
     public function index(): View {
         $langs = [['code' => 'en', 'url' => '/admin/contact'],
             ['code' => 'az', 'url' => '/az/admin/elaqe'],
             ['code' => 'ru', 'url' => '/ru/admin/svyaz']];
-        return view('admin.contact', compact('langs'));
+        $languages = ['en', 'az', 'ru'];
+        return view('admin.contact', compact('langs', 'languages'));
     }
 
     public function update(Request $request): RedirectResponse {
@@ -56,16 +60,7 @@ class ContactController extends Controller {
         $contact->form_status = $request->form_status ? 1 : 0;
         $contact->banner_status = $request->banner_status ? 1 : 0;
         $contact->bg_status = $request->bg_status ? 1 : 0;
-        if($request->file('background')) {
-            if($contact->background && Storage::exists('public/' . $contact->background)) {
-                Storage::delete('public/' . $contact->background);
-            }
-            $name = explode('.', $request->background->getClientOriginalName());
-            $date = date('Y_m_d_H_i_s');
-            $img = Str::slug($name[0]) . '_' . $date . '.' . $request->background->extension();
-            $request->background->move('storage/', $img);
-            $contact->background = $img;
-        }
+        $this->singleImg($request, 'background', 'contact', $contact);
         $contact->save();
         return redirect()->back();
     }

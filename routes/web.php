@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AboutController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\SettingsController;
@@ -36,6 +37,12 @@ Route::group(['prefix' => $locale, function($locale = null) {
             Route::get('elaqe', 'index')->name('_az');
             Route::get('svyaz', 'index')->name('_ru');
             Route::post('contact', 'update');
+        });
+        Route::controller(AboutController::class)->name('about')->group(function() {
+            Route::get('about', 'index')->name('_en');
+            Route::get('haqqimizda', 'index')->name('_az');
+            Route::get('o-nas', 'index')->name('_ru');
+            Route::post('about', 'update');
         });
     });
 });
