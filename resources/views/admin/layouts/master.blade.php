@@ -152,12 +152,11 @@
         })
     }
 
-    function deletePrompt(prompt, route, name) {
+    function deletePrompt(route) {
         $('.btn-outline-danger').click(function() {
             let id = $(this).closest('tr').attr('id');
             Swal.fire({
-                title: 'Əminsiniz?',
-                text: `Bu ${prompt} silmək istədiyinizdən əminsiniz?`,
+                title: '{{ __('Are you sure')}}?',
                 icon: 'warning',
                 showCancelButton: true,
                 confirmButtonColor: '#6F42C1',
@@ -174,11 +173,11 @@
                         },
                         async: false,
                         success: function() {
-                            successAlert(`${name} uğurla silindi`)
+                            successAlert(`{{__('Operation successful')}}.`)
                             $('tr#' + id + '').remove();
                         },
                         error: function() {
-                            errorAlert(`${name} silinərkən xəta baş verdi.`)
+                            errorAlert(`{{  __('Error while deleting')}}.`)
                         }
                     });
                 }
@@ -187,7 +186,7 @@
     }
 
     function statusAlert(route) {
-        $('.js-switch').change(function() {
+        $('.form-check-input').change(function() {
             let id = $(this).closest('tr').attr('id');
             $.ajax({
                 url: route,
@@ -197,10 +196,10 @@
                     id: id
                 },
                 success: function() {
-                    successAlert('Status dəyişdirildi.')
+                    successAlert('{{ __('Status updated')}}.')
                 },
                 error: function() {
-                    errorAlert('Status dəyişdirilərkən xəta baş verdi.')
+                    errorAlert('{{ __('Error while updating status.') }}.')
                 }
             })
         })

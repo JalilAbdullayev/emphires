@@ -3,6 +3,7 @@
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\SettingsController;
 use App\Http\Middleware\SetLocale;
 use Illuminate\Support\Facades\Auth;
@@ -43,6 +44,27 @@ Route::group(['prefix' => $locale, function($locale = null) {
             Route::get('haqqimizda', 'index')->name('_az');
             Route::get('o-nas', 'index')->name('_ru');
             Route::post('about', 'update');
+        });
+        Route::controller(CategoryController::class)->name('categories.')->group(function() {
+            Route::post('store', 'store')->name('store');
+            Route::post('update/{id}', 'update')->name('update');
+            Route::delete('delete/{id}', 'delete')->name('delete');
+            Route::post('status', 'status')->name('status');
+
+            Route::prefix('categories')->group(function() {
+                Route::get('/', 'index')->name('index_en');
+                Route::get('edit/{id}', 'edit')->name('edit_en');
+            });
+
+            Route::prefix('kateqoriyalar')->group(function() {
+                Route::get('/', 'index')->name('index_az');
+                Route::get('redakte/{id}', 'edit')->name('edit_az');
+            });
+
+            Route::prefix('kateqori')->group(function() {
+                Route::get('/', 'index')->name('index_ru');
+                Route::get('izmenit/{id}', 'edit')->name('edit_ru');
+            });
         });
     });
 });

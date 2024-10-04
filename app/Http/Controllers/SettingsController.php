@@ -45,6 +45,6 @@ class SettingsController extends Controller {
         $this->singleImg($request, 'logo', null, $settings);
         $this->singleImg($request, 'favicon', null, $settings);
         $settings->save();
-        return redirect()->back();
+        return redirect()->back()->withSuccess(__('Operation successful.'));
     }
 }

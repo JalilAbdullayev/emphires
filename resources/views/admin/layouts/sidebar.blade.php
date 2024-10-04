@@ -61,11 +61,37 @@
                 <li>
                     <a class="waves-effect waves-dark" href="{{ route('admin.about_' . session('locale')) }}"
                        aria-expanded="false">
-                        <i class="ti ti-info-alt"></i>
+                        <i class="ti-info-alt"></i>
                         <span class="hide-menu">
                             {{ __('About') }}
                         </span>
                     </a>
+                </li>
+                <li>
+                    <a class="waves-effect waves-dark" href="{{ route('admin.categories.index_' . session('locale')) }}"
+                       aria-expanded="false">
+                        <i class="ti-folder"></i>
+                        <span class="hide-menu">
+                            {{ __('Categories') }}
+                        </span>
+                    </a>
+                </li>
+                <li>
+                    <a class="has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false">
+                        <i class="ti-briefcase"></i><span class="hide-menu">
+                            {{ __('Services') }}
+                        </span>
+                    </a>
+                    <ul aria-expanded="false" class="collapse">
+                        <li>
+                            <a href="javascript:void(0)">
+                                {{ __('Services') }}
+                            </a>
+                            <a href="javascript:void(0)">
+                                {{ __('New service') }}
+                            </a>
+                        </li>
+                    </ul>
                 </li>
             </ul>
         </nav>
