@@ -111,6 +111,6 @@ class AboutController extends Controller {
         $this->singleImg($request, 'banner_bg', 'about', $about);
         $this->singleImg($request, 'testimonials_img', 'about', $about);
         $about->save();
-        return redirect()->back();
+        return redirect()->back()->withSuccess(__('Operation successful.'));
     }
 }

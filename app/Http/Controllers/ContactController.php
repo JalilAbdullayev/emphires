@@ -53,6 +53,11 @@ class ContactController extends Controller {
             'az' => $request->banner_text_az,
             'ru' => $request->banner_text_ru
         ];
+        $contact->banner_button = [
+            'en' => $request->banner_button_en,
+            'az' => $request->banner_button_az,
+            'ru' => $request->banner_button_ru
+        ];
         $contact->email = $request->email;
         $contact->phone = $request->phone;
         $contact->map = $request->map;
@@ -62,6 +67,6 @@ class ContactController extends Controller {
         $contact->bg_status = $request->bg_status ? 1 : 0;
         $this->singleImg($request, 'background', 'contact', $contact);
         $contact->save();
-        return redirect()->back();
+        return redirect()->back()->withSuccess(__('Operation successful.'));
     }
 }
