@@ -11,6 +11,7 @@ return new class extends Migration {
     public function up(): void {
         Schema::table('contacts', function(Blueprint $table) {
             $table->json('banner_button')->after('banner_text')->nullable();
+            $table->string('banner_icon')->after('banner_button')->nullable();
         });
     }
 
@@ -19,7 +20,7 @@ return new class extends Migration {
      */
     public function down(): void {
         Schema::table('contacts', function(Blueprint $table) {
-            $table->dropColumn('banner_button');
+            $table->dropColumn(['banner_button', 'banner_icon']);
         });
     }
 };

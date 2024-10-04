@@ -50,6 +50,7 @@ Route::group(['prefix' => $locale, function($locale = null) {
             Route::post('update/{id}', 'update')->name('update');
             Route::delete('delete/{id}', 'delete')->name('delete');
             Route::post('status', 'status')->name('status');
+            Route::post('sort', 'sort')->name('sort');
 
             Route::prefix('categories')->group(function() {
                 Route::get('/', 'index')->name('index_en');

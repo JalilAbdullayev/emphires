@@ -95,9 +95,9 @@
                         </th>
                     </tr>
                     </thead>
-                    <tbody>
+                    <tbody id="sortable-tbody" data-route="{{ route('admin.categories.sort') }}">
                     @foreach($categories as $category)
-                        <tr id="{{ $category->id }}">
+                        <tr id="{{ $category->id }}" data-id="{{ $category->id }}" data-order="{{ $category->order }}">
                             <td>
                                 {{ $category->title }}
                             </td>

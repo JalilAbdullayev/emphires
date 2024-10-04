@@ -128,6 +128,13 @@
                     @endforeach
                 </div>
                 <div class="form-floating my-3">
+                    <input class="form-control" name="banner_icon" id="banner_icon"
+                           placeholder="{{ __('Banner icon') }}" type="text" value="{{ $contact->banner_icon }}"/>
+                    <label class="form-label text-white-50" for="banner_icon">
+                        {{ __('Banner icon')}}
+                    </label>
+                </div>
+                <div class="form-floating my-3">
                     <input class="form-control" name="email" id="email" placeholder="{{ __('Email')}}" type="email"
                            value="{{ $contact->email }}"/>
                     <label class="form-label text-white-50" for="email">

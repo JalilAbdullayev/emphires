@@ -20,6 +20,7 @@ class Contact extends Model {
         'form_description',
         'banner_text',
         'banner_button',
+        'banner_icon',
         'banner_status',
         'form_status',
         'bg_status',
