@@ -81,49 +81,48 @@
                                     {{ __('Address')}}
                                 </label>
                                 <textarea class="form-control ckeditor" name="address_{{ $language }}"
-                                          placeholder="{{ __('Address')}}"
-                                          id="address">{{ $contact->getTranslation('address', $language) }}</textarea>
+                                          placeholder="{{ __('Address')}}" id="address"
+                                >{{ $contact->getTranslation('address', $language) }}</textarea>
                             </div>
                             <div class="mb-3">
                                 <label class="form-label text-white-50" for="form_title">
                                     {{ __('Form Title')}}
                                 </label>
                                 <textarea class="form-control ckeditor" placeholder="{{ __('Form Title')}}"
-                                          id="form_title"
-                                          name="form_title_{{ $language }}">{{ $contact->getTranslation('form_title',
-                                          $language)
-                                          }}</textarea>
+                                          id="form_title" name="form_title_{{ $language }}"
+                                >{{ $contact->getTranslation('form_title', $language) }}</textarea>
                             </div>
                             <div class="mb-3">
                                 <label class="form-label text-white-50" for="form_subtitle">
                                     {{ __('Form Subtitle')}}
                                 </label>
                                 <textarea class="form-control ckeditor" placeholder="{{ __('Form Subtitle')}}"
-                                          id="form_subtitle"
-                                          name="form_subtitle_{{ $language }}">{{ $contact->getTranslation('form_subtitle',
-                                          $language)
-                                      }}</textarea>
+                                          id="form_subtitle" name="form_subtitle_{{ $language }}"
+                                >{{ $contact->getTranslation('form_subtitle', $language) }}</textarea>
                             </div>
                             <div class="mb-3">
                                 <label class="form-label text-white-50" for="form_description">
                                     {{ __('Form Description')}}
                                 </label>
                                 <textarea class="form-control ckeditor" placeholder="{{ __('Form Description')}}"
-                                          id="form_description"
-                                          name="form_description_{{ $language }}">{{ $contact->getTranslation
-                                          ('form_description',
-                                          $language)
-                                      }}</textarea>
+                                          id="form_description" name="form_description_{{ $language }}"
+                                >{{ $contact->getTranslation('form_description', $language) }}</textarea>
                             </div>
                             <div class="mb-3">
                                 <label class="form-label text-white-50" for="banner_text">
                                     {{ __('Banner Text')}}
                                 </label>
                                 <textarea class="form-control ckeditor" placeholder="{{ __('Banner Text')}}"
-                                          id="banner_text"
-                                          name="banner_text_{{ $language }}">{{ $contact->getTranslation('banner_text',
-                                          $language)
-                                      }}</textarea>
+                                          id="banner_text" name="banner_text_{{ $language }}"
+                                >{{ $contact->getTranslation('banner_text', $language) }}</textarea>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label text-white-50" for="banner_text">
+                                    {{ __('Banner button')}}
+                                </label>
+                                <textarea class="form-control ckeditor" placeholder="{{ __('Banner button')}}"
+                                          id="banner_button" name="banner_button_{{ $language }}"
+                                >{{ $contact->getTranslation('banner_button', $language) }}</textarea>
                             </div>
                         </div>
                     @endforeach

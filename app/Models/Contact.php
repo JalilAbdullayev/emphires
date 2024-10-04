@@ -19,6 +19,7 @@ class Contact extends Model {
         'form_subtitle',
         'form_description',
         'banner_text',
+        'banner_button',
         'banner_status',
         'form_status',
         'bg_status',
@@ -33,6 +34,7 @@ class Contact extends Model {
         'form_subtitle',
         'form_description',
         'banner_text',
+        'banner_button',
         'work_hours'
     ];
 }
