@@ -17,7 +17,8 @@ class SettingsController extends Controller {
         $langs = [['code' => 'en', 'url' => '/admin/settings'],
             ['code' => 'az', 'url' => '/az/admin/parametrler'],
             ['code' => 'ru', 'url' => '/ru/admin/parametry']];
-        return view('admin.settings', compact('langs'));
+        $languages = ['en', 'az', 'ru'];
+        return view('admin.settings', compact('langs', 'languages'));
     }
 
     public function update(Request $request): RedirectResponse {

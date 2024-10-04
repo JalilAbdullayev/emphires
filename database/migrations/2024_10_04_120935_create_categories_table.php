@@ -13,7 +13,7 @@ return new class extends Migration {
             $table->id();
             $table->json('title')->nullable();
             $table->json('slug')->nullable();
-            $table->unsignedTinyInteger('order')->default(0);
+            $table->unsignedTinyInteger('order')->default(1);
             $table->boolean('status')->default(1);
             $table->softDeletes();
             $table->timestamps();

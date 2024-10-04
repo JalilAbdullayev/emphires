@@ -63,96 +63,40 @@
             <form action="{{ route('admin.settings') }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="tab-content tabcontent-border">
-                    <div class="tab-pane active" id="en" role="tabpanel">
-                        <div class="form-floating my-3">
-                            <input class="form-control" name="title_en" id="title" placeholder="{{ __('Title')}}"
-                                   type="text" value="{{ $settings->getTranslation('title', 'en') }}" required/>
-                            <label class="form-label" for="title">
-                                {{ __('Title')}}
-                            </label>
+                    @foreach($languages as $language)
+                        <div @class(['tab-pane', 'active' => $loop->first]) id="{{ $language }}" role="tabpanel">
+                            <div class="form-floating my-3">
+                                <input class="form-control" name="title_{{ $language }}" id="title"
+                                       placeholder="{{ __('Title')}}" type="text"
+                                       value="{{ $settings->getTranslation('title', $language) }}" required/>
+                                <label class="form-label" for="title">
+                                    {{ __('Title')}}
+                                </label>
+                            </div>
+                            <div class="form-floating mb-3">
+                                <input class="form-control" name="author_{{ $language }}"
+                                       placeholder="{{ __('Author')}}" type="text" id="author"
+                                       value="{{ $settings->getTranslation('author', $language) }}"/>
+                                <label class="form-label" for="author">
+                                    {{ __('Author')}}
+                                </label>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label" for="description">
+                                    {{ __('Description')}}
+                                </label>
+                                <textarea class="form-control" placeholder="{{ __('Description')}}" id="description"
+                                          name="description_{{ $language }}">{{ $settings->getTranslation('description', $language) }}</textarea>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label" for="keywords">
+                                    {{ __('Keywords')}}
+                                </label>
+                                <textarea class="form-control" placeholder="{{ __('Keywords')}}" id="keywords"
+                                          name="keywords_{{ $language }}">{{ $settings->getTranslation('keywords', $language) }}</textarea>
+                            </div>
                         </div>
-                        <div class="form-floating mb-3">
-                            <input class="form-control" name="author_en" placeholder="{{ __('Author')}}" type="text"
-                                   id="author" value="{{ $settings->getTranslation('author', 'en') }}"/>
-                            <label class="form-label" for="author">
-                                {{ __('Author')}}
-                            </label>
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label" for="description">
-                                {{ __('Description')}}
-                            </label>
-                            <textarea class="form-control" placeholder="{{ __('Description')}}" id="description"
-                                      name="description_en">{{ $settings->getTranslation('description', 'en') }}</textarea>
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label" for="keywords">
-                                {{ __('Keywords')}}
-                            </label>
-                            <textarea class="form-control" placeholder="{{ __('Keywords')}}" id="keywords"
-                                      name="keywords_en">{{ $settings->getTranslation('keywords', 'en') }}</textarea>
-                        </div>
-                    </div>
-                    <div class="tab-pane" id="az" role="tabpanel">
-                        <div class="form-floating my-3">
-                            <input class="form-control" name="title_az" id="title" placeholder="{{ __('Title')}}"
-                                   type="text" value="{{ $settings->getTranslation('title', 'az') }}" required/>
-                            <label class="form-label" for="title">
-                                {{ __('Title')}}
-                            </label>
-                        </div>
-                        <div class="form-floating mb-3">
-                            <input class="form-control" name="author_az" placeholder="{{ __('Author')}}" type="text"
-                                   id="author" value="{{ $settings->getTranslation('author', 'az') }}"/>
-                            <label class="form-label" for="author">
-                                {{ __('Author')}}
-                            </label>
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label" for="description">
-                                {{ __('Description')}}
-                            </label>
-                            <textarea class="form-control" placeholder="{{ __('Description')}}" id="description"
-                                      name="description_az">{{ $settings->getTranslation('description', 'az') }}</textarea>
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label" for="keywords">
-                                {{ __('Keywords')}}
-                            </label>
-                            <textarea class="form-control" placeholder="{{ __('Keywords')}}" id="keywords"
-                                      name="keywords_az">{{ $settings->getTranslation('keywords', 'az') }}</textarea>
-                        </div>
-                    </div>
-                    <div class="tab-pane" id="ru" role="tabpanel">
-                        <div class="form-floating my-3">
-                            <input class="form-control" name="title_ru" id="title" placeholder="{{ __('Title')}}"
-                                   type="text" value="{{ $settings->getTranslation('title', 'ru') }}" required/>
-                            <label class="form-label" for="title">
-                                {{ __('Title')}}
-                            </label>
-                        </div>
-                        <div class="form-floating mb-3">
-                            <input class="form-control" name="author_ru" placeholder="{{ __('Author')}}" type="text"
-                                   id="author" value="{{ $settings->getTranslation('author', 'ru') }}"/>
-                            <label class="form-label" for="author">
-                                {{ __('Author')}}
-                            </label>
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label" for="description">
-                                {{ __('Description')}}
-                            </label>
-                            <textarea class="form-control" placeholder="{{ __('Description')}}" id="description"
-                                      name="description_ru">{{ $settings->getTranslation('description', 'ru') }}</textarea>
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label" for="keywords">
-                                {{ __('Keywords')}}
-                            </label>
-                            <textarea class="form-control" placeholder="{{ __('Keywords')}}" id="keywords"
-                                      name="keywords_ru">{{ $settings->getTranslation('keywords', 'ru') }}</textarea>
-                        </div>
-                    </div>
+                    @endforeach
                 </div>
                 <div class="mb-3">
                     <label for="logo" class="form-label text-white-50">
