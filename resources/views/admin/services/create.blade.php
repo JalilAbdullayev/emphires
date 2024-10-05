@@ -28,6 +28,11 @@
                             {{ __('Home') }}
                         </a>
                     </li>
+                    <li class="breadcrumb-item">
+                        <a href="{{ route('admin.services.index_' . session('locale') }}">
+                            {{ __('Services') }}
+                        </a>
+                    </li>
                     <li class="breadcrumb-item active">
                         @yield('title')
                     </li>

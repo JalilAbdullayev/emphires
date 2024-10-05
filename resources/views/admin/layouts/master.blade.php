@@ -290,10 +290,10 @@
                     data: orderData
                 }),
                 success: function() {
-                    successAlert('Sıra uğurla dəyidirildi.')
+                    successAlert('{{__('Order updated')}}.')
                 },
                 error: function() {
-                    errorAlert('Sıra dəyişdirilərkən xəta baş verdi.')
+                    errorAlert('{{__('Error while updating order')}}.')
                 }
             });
         }

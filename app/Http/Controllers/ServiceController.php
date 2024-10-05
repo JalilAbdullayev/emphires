@@ -29,7 +29,7 @@ class ServiceController extends Controller {
             ['code' => 'az', 'url' => '/az/admin/xidmetler/yarat'],
             ['code' => 'ru', 'url' => '/ru/admin/uslugi/sozdat']];
         $languages = ['en', 'az', 'ru'];
-        $categories = Category::whereStatus(1)->get();
+        $categories = Category::whereStatus(1)->orderBy('order')->get();
         return view('admin.services.create', compact('langs', 'languages', 'categories'));
     }
 

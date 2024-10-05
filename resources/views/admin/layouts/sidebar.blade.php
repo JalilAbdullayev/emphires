@@ -93,6 +93,23 @@
                         </li>
                     </ul>
                 </li>
+                <li>
+                    <a class="has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false">
+                        <i class="icon-people"></i><span class="hide-menu">
+                            {{ __('Team') }}
+                        </span>
+                    </a>
+                    <ul aria-expanded="false" class="collapse">
+                        <li>
+                            <a href="{{ route('admin.team.index_' . session('locale')) }}">
+                                {{ __('Team') }}
+                            </a>
+                            <a href="{{ route('admin.team.create_' . session('locale')) }}">
+                                {{ __('New member') }}
+                            </a>
+                        </li>
+                    </ul>
+                </li>
             </ul>
         </nav>
         <!-- End Sidebar navigation -->
