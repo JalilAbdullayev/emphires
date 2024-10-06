@@ -14,6 +14,7 @@ use Illuminate\Http\RedirectResponse;
 class QualityController extends Controller
 {
     use SetData;
+    public array $languages = ['en', 'az', 'ru'];
     public function index(): View
     {
         $langs = [
@@ -32,8 +33,9 @@ class QualityController extends Controller
             ['code' => 'az', 'url' => '/az/admin/keyfiyyetler/yarat'],
             ['code' => 'ru', 'url' => '/ru/admin/kachestva/sozdat']
         ];
-        $languages = ['en', 'az', 'ru'];
-        return view('admin.qualities.create', compact('languages', 'langs'));
+        return view('admin.qualities.create', compact('langs'), [
+            'languages' => $this->languages
+        ]);
     }
 
     public function store(Request $request): RedirectResponse
@@ -52,7 +54,9 @@ class QualityController extends Controller
             ['code' => 'ru', 'url' => '/ru/admin/kachestva/izmenit/' . $id]
         ];
         $languages = ['en', 'az', 'ru'];
-        return view('admin.qualities.edit', compact('quality', 'languages', 'langs'));
+        return view('admin.qualities.edit', compact('quality', 'langs'), [
+            'languages' => $this->languages
+        ]);
     }
 
     public function update(int $id, Request $request): RedirectResponse

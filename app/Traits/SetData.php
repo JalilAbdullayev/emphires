@@ -8,18 +8,17 @@ use Illuminate\Support\Facades\Request;
 
 trait SetData
 {
+    public array $languages = ['en', 'az', 'ru'];
     public function setTranslated($model, string $field): void
     {
-        $languages = ['en', 'az', 'ru'];
-        foreach ($languages as $language) {
+        foreach ($this->languages as $language) {
             $model->setTranslation($field, $language, Request::input($field . '_' . $language));
         }
     }
 
     public function setSlug(Model $model): void
     {
-        $languages = ['en', 'az', 'ru'];
-        foreach ($languages as $language) {
+        foreach ($this->languages as $language) {
             $model->setTranslation('slug', $language, Str::slug(Request::input('slug_' . $language)));
         }
     }

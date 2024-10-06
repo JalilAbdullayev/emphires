@@ -4,18 +4,19 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use App\Models\Service;
+use App\Traits\SetData;
 use App\Traits\UploadImage;
 use Exception;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Str;
 use Illuminate\View\View;
 
 class ServiceController extends Controller
 {
-    use UploadImage;
+    use UploadImage, SetData;
+    public array $languages = ['en', 'az', 'ru'];
 
     public function index(): View
     {
@@ -35,19 +36,16 @@ class ServiceController extends Controller
             ['code' => 'az', 'url' => '/az/admin/xidmetler/yarat'],
             ['code' => 'ru', 'url' => '/ru/admin/uslugi/sozdat']
         ];
-        $languages = ['en', 'az', 'ru'];
-        $categories = Category::whereStatus(1)->orderBy('order')->get();
-        return view('admin.services.create', compact('langs', 'languages', 'categories'));
+        $categories = Category::orderBy('order')->get();
+        return view('admin.services.create', compact('langs', 'categories'), [
+            'languages' => $this->languages
+        ]);
     }
 
     public function store(Request $request): RedirectResponse
     {
         $service = new Service;
-        $order = Service::latest('order')->first()->order;
-        if ($order > 1) {
-            $last = $order + 1;
-        }
-        $service->order = $last ?? 1;
+        $service->order = Service::count() > 0 ? Service::latest('order')->first()->order + 1 : 1;
         return $this->data($request, $service);
     }
 
@@ -59,9 +57,10 @@ class ServiceController extends Controller
             ['code' => 'ru', 'url' => '/ru/admin/uslugi/izmenit/' . $id]
         ];
         $service = Service::findOrFail($id);
-        $categories = Category::whereStatus(1)->orderBy('order')->get();
-        $languages = ['en', 'az', 'ru'];
-        return view('admin.services.edit', compact('service', 'categories', 'languages', 'langs'));
+        $categories = Category::orderBy('order')->get();
+        return view('admin.services.edit', compact('service', 'categories', 'langs'), [
+            'languages' => $this->languages
+        ]);
     }
 
     public function update(int $id, Request $request): RedirectResponse
@@ -106,31 +105,11 @@ class ServiceController extends Controller
     private function data($request, $service): RedirectResponse
     {
         $service->category_id = $request->category_id;
-        $service->title = [
-            'en' => $request->title_en,
-            'az' => $request->title_az,
-            'ru' => $request->title_ru
-        ];
-        $service->slug = [
-            'en' => Str::slug($request->title_en),
-            'az' => Str::slug($request->title_az),
-            'ru' => Str::slug($request->title_ru)
-        ];
-        $service->description = [
-            'en' => $request->description_en,
-            'az' => $request->description_az,
-            'ru' => $request->description_ru
-        ];
-        $service->text = [
-            'en' => $request->text_en,
-            'az' => $request->text_az,
-            'ru' => $request->text_ru
-        ];
-        $service->keywords = [
-            'en' => $request->keywords_en,
-            'az' => $request->keywords_az,
-            'ru' => $request->keywords_ru
-        ];
+        $this->setTranslated($service, 'title');
+        $this->setTranslated($service, 'description');
+        $this->setTranslated($service, 'text');
+        $this->setTranslated($service, 'keywords');
+        $this->setSlug($service);
         $service->icon = $request->icon;
         $this->singleImg($request, 'image', 'services', $service);
         $this->singleImg($request, 'background', 'services', $service);

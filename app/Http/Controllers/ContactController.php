@@ -3,61 +3,37 @@
 namespace App\Http\Controllers;
 
 use App\Models\Contact;
+use App\Traits\SetData;
 use App\Traits\UploadImage;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Storage;
-use Illuminate\Support\Str;
 use Illuminate\View\View;
 
-class ContactController extends Controller {
-    use UploadImage;
+class ContactController extends Controller
+{
+    use UploadImage, SetData;
 
-    public function index(): View {
-        $langs = [['code' => 'en', 'url' => '/admin/contact'],
+    public function index(): View
+    {
+        $langs = [
+            ['code' => 'en', 'url' => '/admin/contact'],
             ['code' => 'az', 'url' => '/az/admin/elaqe'],
-            ['code' => 'ru', 'url' => '/ru/admin/svyaz']];
+            ['code' => 'ru', 'url' => '/ru/admin/svyaz']
+        ];
         $languages = ['en', 'az', 'ru'];
         return view('admin.contact', compact('langs', 'languages'));
     }
 
-    public function update(Request $request): RedirectResponse {
+    public function update(Request $request): RedirectResponse
+    {
         $contact = Contact::firstOrFail();
-        $contact->title = [
-            'en' => $request->title_en,
-            'az' => $request->title_az,
-            'ru' => $request->title_ru
-        ];
-        $contact->form_title = [
-            'en' => $request->form_title_en,
-            'az' => $request->form_title_az,
-            'ru' => $request->form_title_ru
-        ];
-        $contact->form_subtitle = [
-            'en' => $request->form_subtitle_en,
-            'az' => $request->form_subtitle_az,
-            'ru' => $request->form_subtitle_ru
-        ];
-        $contact->form_description = [
-            'en' => $request->form_description_en,
-            'az' => $request->form_description_az,
-            'ru' => $request->form_description_ru
-        ];
-        $contact->address = [
-            'en' => $request->address_en,
-            'az' => $request->address_az,
-            'ru' => $request->address_ru
-        ];
-        $contact->banner_text = [
-            'en' => $request->banner_text_en,
-            'az' => $request->banner_text_az,
-            'ru' => $request->banner_text_ru
-        ];
-        $contact->banner_button = [
-            'en' => $request->banner_button_en,
-            'az' => $request->banner_button_az,
-            'ru' => $request->banner_button_ru
-        ];
+        $this->setTranslated($contact, 'title');
+        $this->setTranslated($contact, 'form_title');
+        $this->setTranslated($contact, 'form_subtitle');
+        $this->setTranslated($contact, 'form_description');
+        $this->setTranslated($contact, 'banner_text');
+        $this->setTranslated($contact, 'banner_button');
+        $this->setTranslated($contact, 'address');
         $contact->email = $request->email;
         $contact->phone = $request->phone;
         $contact->map = $request->map;
