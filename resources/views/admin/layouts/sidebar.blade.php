@@ -110,6 +110,24 @@
                         </li>
                     </ul>
                 </li>
+                </li>
+                <li>
+                    <a class="has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false">
+                        <i class="icon-star"></i><span class="hide-menu">
+                            {{ __('Qualities') }}
+                        </span>
+                    </a>
+                    <ul aria-expanded="false" class="collapse">
+                        <li>
+                            <a href="{{ route('admin.qualities.index_' . session('locale')) }}">
+                                {{ __('Qualities') }}
+                            </a>
+                            <a href="{{ route('admin.qualities.create_' . session('locale')) }}">
+                                {{ __('New quality') }}
+                            </a>
+                        </li>
+                    </ul>
+                </li>
             </ul>
         </nav>
         <!-- End Sidebar navigation -->
