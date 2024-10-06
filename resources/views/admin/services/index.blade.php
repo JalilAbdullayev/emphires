@@ -1,9 +1,8 @@
 @extends('admin.layouts.master')
 @section('title', __('Services'))
 @section('css')
-    <link rel="stylesheet" href="{{ asset('back/node_modules/datatables.net-bs4/css/dataTables.bootstrap4.css') }}"/>
-    <link rel="stylesheet"
-          href="{{ asset('back/node_modules/datatables.net-bs4/css/responsive.dataTables.min.css') }}"/>
+    <link rel="stylesheet" href="{{ asset('back/node_modules/datatables.net-bs4/css/dataTables.bootstrap4.css') }}" />
+    <link rel="stylesheet" href="{{ asset('back/node_modules/datatables.net-bs4/css/responsive.dataTables.min.css') }}" />
 @endsection
 @section('content')
     <!-- ============================================================== -->
@@ -28,7 +27,7 @@
                     </li>
                 </ol>
                 <a href="{{ route('admin.services.create_' . session('locale')) }}"
-                   class="btn btn-success d-none d-lg-block m-l-15 text-white">
+                    class="btn btn-success d-none d-lg-block m-l-15 text-white">
                     <i class="ti-plus"></i> {{ __('New service') }}
                 </a>
             </div>
@@ -40,53 +39,60 @@
     <div class="table-responsive">
         <table id="myTable" class="table table-striped border">
             <thead>
-            <tr>
-                <th>
-                    {{ __('Title') }}
-                </th>
-                <th>
-                    {{ __('Status') }}
-                </th>
-                <th>
-                    {{ __('Image') }}
-                </th>
-                <th>
-                    {{ __('Actions') }}
-                </th>
-            </tr>
+                <tr>
+                    <th>
+                        {{ __('Title') }}
+                    </th>
+                    <th>
+                        {{ __('Status') }}
+                    </th>
+                    <th>
+                        {{ __('Icon') }}
+                    </th>
+                    </th>
+                    <th>
+                        {{ __('Image') }}
+                    </th>
+                    <th>
+                        {{ __('Actions') }}
+                    </th>
+                </tr>
             </thead>
             <tbody id="sortable-tbody" data-route="{{ route('admin.services.sort') }}">
-            @foreach($services as $service)
-                <tr id="{{ $service->id }}" data-id="{{ $service->id }}" data-order="{{ $service->order }}">
-                    <td>
-                        {{ $service->title }}
-                    </td>
-                    <td>
-                        <div class="form-check form-switch">
-                            <input type="checkbox" @checked($service->status) class="form-check-input"/>
-                        </div>
-                    </td>
-                    <td>
-                        <img src="{{ asset('storage/services/' . $service->image) }}" alt="" class="w-25"/>
-                    </td>
-                    <td>
-                        <a href="{{ route('admin.services.edit_' . session('locale'), $service->id) }}"
-                           class="btn btn-outline-warning">
-                            <i class="ti-pencil-alt"></i>
-                        </a>
-                        <button class="btn btn-outline-danger">
-                            <i class="ti-trash"></i>
-                        </button>
-                    </td>
-                </tr>
-            @endforeach
+                @foreach ($services as $service)
+                    <tr id="{{ $service->id }}" data-id="{{ $service->id }}" data-order="{{ $service->order }}">
+                        <td>
+                            {{ $service->title }}
+                        </td>
+                        <td>
+                            <div class="form-check form-switch">
+                                <input type="checkbox" @checked($service->status) class="form-check-input" />
+                            </div>
+                        </td>
+                        <td>
+                            {!! $service->icon !!}
+                        </td>
+                        <td>
+                            <img src="{{ asset('storage/services/' . $service->image) }}" alt="" class="w-25" />
+                        </td>
+                        <td>
+                            <a href="{{ route('admin.services.edit_' . session('locale'), $service->id) }}"
+                                class="btn btn-outline-warning">
+                                <i class="ti-pencil-alt"></i>
+                            </a>
+                            <button class="btn btn-outline-danger">
+                                <i class="ti-trash"></i>
+                            </button>
+                        </td>
+                    </tr>
+                @endforeach
             </tbody>
         </table>
     </div>
 @endsection
 @section('js')
-    <script src="{{asset("back/node_modules/datatables.net/js/jquery.dataTables.min.js")}}"></script>
-    <script src="{{asset("back/node_modules/datatables.net-bs4/js/dataTables.responsive.min.js")}}"></script>
+    <script src="{{ asset('back/node_modules/datatables.net/js/jquery.dataTables.min.js') }}"></script>
+    <script src="{{ asset('back/node_modules/datatables.net-bs4/js/dataTables.responsive.min.js') }}"></script>
     <script>
         $('#myTable').DataTable({
             ordering: false

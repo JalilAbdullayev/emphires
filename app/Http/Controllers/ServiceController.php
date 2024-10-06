@@ -13,58 +13,72 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 use Illuminate\View\View;
 
-class ServiceController extends Controller {
+class ServiceController extends Controller
+{
     use UploadImage;
 
-    public function index(): View {
-        $langs = [['code' => 'en', 'url' => '/admin/services'],
+    public function index(): View
+    {
+        $langs = [
+            ['code' => 'en', 'url' => '/admin/services'],
             ['code' => 'az', 'url' => '/az/admin/xidmetler'],
-            ['code' => 'ru', 'url' => '/ru/admin/uslugi']];
+            ['code' => 'ru', 'url' => '/ru/admin/uslugi']
+        ];
         $services = Service::orderBy('order')->get();
         return view('admin.services.index', compact('services', 'langs'));
     }
 
-    public function create(): View {
-        $langs = [['code' => 'en', 'url' => '/admin/services/create'],
+    public function create(): View
+    {
+        $langs = [
+            ['code' => 'en', 'url' => '/admin/services/create'],
             ['code' => 'az', 'url' => '/az/admin/xidmetler/yarat'],
-            ['code' => 'ru', 'url' => '/ru/admin/uslugi/sozdat']];
+            ['code' => 'ru', 'url' => '/ru/admin/uslugi/sozdat']
+        ];
         $languages = ['en', 'az', 'ru'];
         $categories = Category::whereStatus(1)->orderBy('order')->get();
         return view('admin.services.create', compact('langs', 'languages', 'categories'));
     }
 
-    public function store(Request $request): RedirectResponse {
+    public function store(Request $request): RedirectResponse
+    {
         $service = new Service;
         $order = Service::latest('order')->first()->order;
-        if($order > 1) {
+        if ($order > 1) {
             $last = $order + 1;
         }
         $service->order = $last ?? 1;
         return $this->data($request, $service);
     }
 
-    public function edit(int $id): View {
-        $langs = [['code' => 'en', 'url' => '/admin/services/edit/' . $id],
+    public function edit(int $id): View
+    {
+        $langs = [
+            ['code' => 'en', 'url' => '/admin/services/edit/' . $id],
             ['code' => 'az', 'url' => '/az/admin/xidmetler/redakte/' . $id],
-            ['code' => 'ru', 'url' => '/ru/admin/uslugi/izmenit/' . $id]];
+            ['code' => 'ru', 'url' => '/ru/admin/uslugi/izmenit/' . $id]
+        ];
         $service = Service::findOrFail($id);
         $categories = Category::whereStatus(1)->orderBy('order')->get();
         $languages = ['en', 'az', 'ru'];
         return view('admin.services.edit', compact('service', 'categories', 'languages', 'langs'));
     }
 
-    public function update(int $id, Request $request): RedirectResponse {
+    public function update(int $id, Request $request): RedirectResponse
+    {
         $service = Service::findOrFail($id);
         return $this->data($request, $service);
     }
 
-    public function delete(int $id): JsonResponse {
+    public function delete(int $id): JsonResponse
+    {
         $service = Service::findOrFail($id);
         $service->delete();
         return response()->json(['success' => true]);
     }
 
-    public function status(Request $request): JsonResponse {
+    public function status(Request $request): JsonResponse
+    {
         $service = Service::findOrFail($request->id);
         $status = $service->status;
         $service->status = $status ? 0 : 1;
@@ -72,23 +86,25 @@ class ServiceController extends Controller {
         return response()->json(['success' => true]);
     }
 
-    public function sort(Request $request): JsonResponse {
+    public function sort(Request $request): JsonResponse
+    {
         $order_data = $request['data'];
         try {
             DB::beginTransaction();
-            foreach($order_data as $data) {
+            foreach ($order_data as $data) {
                 Service::whereId($data['id'])->update(['order' => $data['order']]);
             }
 
             DB::commit();
             return response()->json('sort_success');
-        } catch(Exception $e) {
+        } catch (Exception $e) {
             DB::rollBack();
             return response()->json($e->getMessage(), 500);
         }
     }
 
-    private function data($request, $service): RedirectResponse {
+    private function data($request, $service): RedirectResponse
+    {
         $service->category_id = $request->category_id;
         $service->title = [
             'en' => $request->title_en,
@@ -115,6 +131,7 @@ class ServiceController extends Controller {
             'az' => $request->keywords_az,
             'ru' => $request->keywords_ru
         ];
+        $service->icon = $request->icon;
         $this->singleImg($request, 'image', 'services', $service);
         $this->singleImg($request, 'background', 'services', $service);
         $service->status = $request->status ? 1 : 0;
