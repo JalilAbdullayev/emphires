@@ -5,6 +5,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\ClientController;
 use App\Http\Controllers\QualityController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\SettingsController;
@@ -234,6 +235,29 @@ Route::group([
             Route::prefix('kto-mi')->group(function () {
                 Route::get('/', 'index')->name('index_ru');
                 Route::get('sozdat', 'create')->name('create_ru');
+                Route::get('izmenit/{id}', 'edit')->name('edit_ru');
+            });
+        });
+
+        Route::controller(ClientController::class)->name('clients.')->group(function () {
+            Route::prefix('clients')->group(function () {
+                Route::post('store', 'store')->name('store');
+                Route::post('update/{id}', 'update')->name('update');
+                Route::delete('delete/{id}', 'delete')->name('delete');
+                Route::post('status', 'status')->name('status');
+                Route::post('sort', 'sort')->name('sort');
+
+                Route::get('/', 'index')->name('index_en');
+                Route::get('edit/{id}', 'edit')->name('edit_en');
+            });
+
+            Route::prefix('mushteriler')->group(function () {
+                Route::get('/', 'index')->name('index_az');
+                Route::get('redakte/{id}', 'edit')->name('edit_az');
+            });
+
+            Route::prefix('kliyenti')->group(function () {
+                Route::get('/', 'index')->name('index_ru');
                 Route::get('izmenit/{id}', 'edit')->name('edit_ru');
             });
         });

@@ -7,12 +7,12 @@
             <div class="user-pro-body">
                 <div class="dropdown">
                     <a href="javascript:void(0)" class="dropdown-toggle u-dropdown link hide-menu"
-                       data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                        data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
                         {{ Auth::user()->name }} <span class="caret"></span>
                     </a>
                     <div class="dropdown-menu animated flipInY">
                         <!-- text-->
-                        <a href="{{--{{ route('admin.profile.index') }}--}}" class="dropdown-item">
+                        <a href="{{-- {{ route('admin.profile.index') }} --}}" class="dropdown-item">
                             <i class="ti-user"></i> @lang('Profile')
                         </a>
                         <!-- text-->
@@ -42,7 +42,7 @@
                 </li>
                 <li>
                     <a class="waves-effect waves-dark" href="{{ route('admin.settings_' . session('locale')) }}"
-                       aria-expanded="false">
+                        aria-expanded="false">
                         <i class="icons-Gears"></i>
                         <span class="hide-menu">
                             @lang('Settings')
@@ -51,7 +51,7 @@
                 </li>
                 <li>
                     <a class="waves-effect waves-dark" href="{{ route('admin.contact_' . session('locale')) }}"
-                       aria-expanded="false">
+                        aria-expanded="false">
                         <i class="icons-Phone-2"></i>
                         <span class="hide-menu">
                             @lang('Contact')
@@ -60,7 +60,7 @@
                 </li>
                 <li>
                     <a class="waves-effect waves-dark" href="{{ route('admin.about_' . session('locale')) }}"
-                       aria-expanded="false">
+                        aria-expanded="false">
                         <i class="ti-info-alt"></i>
                         <span class="hide-menu">
                             @lang('About')
@@ -69,7 +69,7 @@
                 </li>
                 <li>
                     <a class="waves-effect waves-dark" href="{{ route('admin.categories.index_' . session('locale')) }}"
-                       aria-expanded="false">
+                        aria-expanded="false">
                         <i class="ti-folder"></i>
                         <span class="hide-menu">
                             @lang('Categories')
@@ -177,6 +177,15 @@
                             </a>
                         </li>
                     </ul>
+                </li>
+                <li>
+                    <a class="waves-effect waves-dark" href="{{ route('admin.clients.index_' . session('locale')) }}"
+                        aria-expanded="false">
+                        <i class="mdi mdi-account-card-details"></i>
+                        <span class="hide-menu">
+                            @lang('Clients')
+                        </span>
+                    </a>
                 </li>
             </ul>
         </nav>
