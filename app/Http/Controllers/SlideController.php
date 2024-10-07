@@ -2,14 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use Exception;
 use App\Models\Slide;
 use App\Traits\SetData;
 use Illuminate\View\View;
 use App\Traits\UploadImage;
 use Illuminate\Http\Request;
 use Illuminate\Http\JsonResponse;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Http\RedirectResponse;
 
 class SlideController extends Controller
@@ -73,27 +71,12 @@ class SlideController extends Controller
 
     public function status(Request $request): JsonResponse
     {
-        $slide = Slide::findOrFail($request->id);
-        $status = $slide->status;
-        $slide->status = $status ? 0 : 1;
-        $slide->save();
-        return response()->json(['success' => true]);
+        return $this->changeStatus($request, Slide::class);
     }
 
-    public function sort(): JsonResponse
+    public function sort(Request $request): JsonResponse
     {
-        $order_data = request('data');
-        try {
-            DB::beginTransaction();
-            foreach ($order_data as $data) {
-                Slide::where('id', $data['id'])->update(['order' => $data['order']]);
-            }
-            DB::commit();
-            return response()->json('sort_success');
-        } catch (Exception $e) {
-            DB::rollBack();
-            return response()->json($e->getMessage(), 500);
-        }
+        return $this->changeOrder($request, Slide::class);
     }
 
     private function data($slide, $request): RedirectResponse

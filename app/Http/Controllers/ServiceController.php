@@ -6,11 +6,9 @@ use App\Models\Category;
 use App\Models\Service;
 use App\Traits\SetData;
 use App\Traits\UploadImage;
-use Exception;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 use Illuminate\View\View;
 
 class ServiceController extends Controller
@@ -77,28 +75,12 @@ class ServiceController extends Controller
 
     public function status(Request $request): JsonResponse
     {
-        $service = Service::findOrFail($request->id);
-        $status = $service->status;
-        $service->status = $status ? 0 : 1;
-        $service->save();
-        return response()->json(['success' => true]);
+        return $this->changeStatus($request, Service::class);
     }
 
     public function sort(Request $request): JsonResponse
     {
-        $order_data = $request['data'];
-        try {
-            DB::beginTransaction();
-            foreach ($order_data as $data) {
-                Service::whereId($data['id'])->update(['order' => $data['order']]);
-            }
-
-            DB::commit();
-            return response()->json('sort_success');
-        } catch (Exception $e) {
-            DB::rollBack();
-            return response()->json($e->getMessage(), 500);
-        }
+        return $this->changeOrder($request, Service::class);
     }
 
     private function data($request, $service): RedirectResponse

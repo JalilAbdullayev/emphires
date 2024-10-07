@@ -3,12 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Traits\SetData;
-use Exception;
 use App\Models\Quality;
 use Illuminate\View\View;
 use Illuminate\Http\Request;
 use Illuminate\Http\JsonResponse;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Http\RedirectResponse;
 
 class QualityController extends Controller
@@ -73,28 +71,12 @@ class QualityController extends Controller
 
     public function status(Request $request): JsonResponse
     {
-        $quality = Quality::findOrFail($request->id);
-        $status = $quality->status;
-        $quality->status = $status ? 0 : 1;
-        $quality->save();
-        return response()->json(['success' => true]);
+        return $this->changeStatus($request, Quality::class);
     }
 
     public function sort(Request $request): JsonResponse
     {
-        $order_data = $request['data'];
-        try {
-            DB::beginTransaction();
-            foreach ($order_data as $data) {
-                Quality::whereId($data['id'])->update(['order' => $data['order']]);
-            }
-
-            DB::commit();
-            return response()->json('sort_success');
-        } catch (Exception $e) {
-            DB::rollBack();
-            return response()->json($e->getMessage(), 500);
-        }
+        return $this->changeOrder($request, Quality::class);
     }
 
     private function data($request, $quality): RedirectResponse

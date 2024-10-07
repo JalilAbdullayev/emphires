@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\BlogController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\QualityController;
@@ -178,6 +179,32 @@ Route::group([
             });
 
             Route::prefix('slayder')->group(function () {
+                Route::get('/', 'index')->name('index_ru');
+                Route::get('sozdat', 'create')->name('create_ru');
+                Route::get('izmenit/{id}', 'edit')->name('edit_ru');
+            });
+        });
+
+        Route::controller(BlogController::class)->name('blog.')->group(function () {
+            Route::prefix('blog')->group(function () {
+                Route::post('store', 'store')->name('store');
+                Route::post('update/{id}', 'update')->name('update');
+                Route::delete('delete/{id}', 'delete')->name('delete');
+                Route::post('status', 'status')->name('status');
+                Route::post('sort', 'sort')->name('sort');
+
+                Route::get('/', 'index')->name('index_en');
+                Route::get('create', 'create')->name('create_en');
+                Route::get('edit/{id}', 'edit')->name('edit_en');
+            });
+
+            Route::prefix('bloq')->group(function () {
+                Route::get('/', 'index')->name('index_az');
+                Route::get('yarat', 'create')->name('create_az');
+                Route::get('redakte/{id}', 'edit')->name('edit_az');
+            });
+
+            Route::prefix('stati')->group(function () {
                 Route::get('/', 'index')->name('index_ru');
                 Route::get('sozdat', 'create')->name('create_ru');
                 Route::get('izmenit/{id}', 'edit')->name('edit_ru');

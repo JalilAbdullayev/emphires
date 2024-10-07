@@ -5,11 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\Team;
 use App\Traits\SetData;
 use App\Traits\UploadImage;
-use Exception;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 use Illuminate\View\View;
 
 class TeamController extends Controller
@@ -79,27 +77,12 @@ class TeamController extends Controller
 
     public function status(Request $request): JsonResponse
     {
-        $member = Team::findOrFail($request->id);
-        $status = $member->status;
-        $member->status = $status ? 0 : 1;
-        $member->save();
-        return response()->json(['success' => true]);
+        return $this->changeStatus($request, Team::class);
     }
 
-    public function sort(): JsonResponse
+    public function sort(Request $request): JsonResponse
     {
-        $order_data = request('data');
-        try {
-            DB::beginTransaction();
-            foreach ($order_data as $data) {
-                Team::whereId($data['id'])->update(['order' => $data['order']]);
-            }
-            DB::commit();
-            return response()->json('sort_success');
-        } catch (Exception $e) {
-            DB::rollBack();
-            return response()->json($e->getMessage(), 500);
-        }
+        return $this->changeOrder($request, Team::class);
     }
 
     private function data($request, $member): RedirectResponse
