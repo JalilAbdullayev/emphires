@@ -19,6 +19,7 @@ return new class extends Migration {
             $table->string('video_link')->nullable();
             $table->boolean('status')->default(1);
             $table->unsignedTinyInteger('order')->default(1);
+            $table->softDeletes();
             $table->timestamps();
         });
     }
