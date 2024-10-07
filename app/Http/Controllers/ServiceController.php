@@ -16,7 +16,6 @@ use Illuminate\View\View;
 class ServiceController extends Controller
 {
     use UploadImage, SetData;
-    public array $languages = ['en', 'az', 'ru'];
 
     public function index(): View
     {

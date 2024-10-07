@@ -14,7 +14,6 @@ use Illuminate\View\View;
 class CategoryController extends Controller
 {
     use SetData;
-    public array $languages = ['en', 'az', 'ru'];
     public function index(): View
     {
         $langs = [

@@ -15,14 +15,15 @@ class AboutController extends Controller
 
     public function index(): View
     {
-        $languages = ['en', 'az', 'ru'];
         $langs = [
             ['code' => 'en', 'url' => '/admin/about'],
             ['code' => 'az', 'url' => '/az/admin/haqqimizda'],
             ['code' => 'ru', 'url' => '/ru/admin/o-nas']
         ];
         $about = About::firstOrFail();
-        return view('admin.about', compact('about', 'langs', 'languages'));
+        return view('admin.about', compact('about', 'langs'), [
+            'languages' => $this->languages
+        ]);
     }
 
     public function update(Request $request): RedirectResponse

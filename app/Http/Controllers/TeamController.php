@@ -15,7 +15,6 @@ use Illuminate\View\View;
 class TeamController extends Controller
 {
     use UploadImage, SetData;
-    public array $languages = ['en', 'az', 'ru'];
     public function index(): View
     {
         $langs = [

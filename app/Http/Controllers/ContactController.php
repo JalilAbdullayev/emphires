@@ -20,8 +20,9 @@ class ContactController extends Controller
             ['code' => 'az', 'url' => '/az/admin/elaqe'],
             ['code' => 'ru', 'url' => '/ru/admin/svyaz']
         ];
-        $languages = ['en', 'az', 'ru'];
-        return view('admin.contact', compact('langs', 'languages'));
+        return view('admin.contact', compact('langs'), [
+            'languages' => $this->languages
+        ]);
     }
 
     public function update(Request $request): RedirectResponse
