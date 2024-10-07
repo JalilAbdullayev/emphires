@@ -23,12 +23,12 @@
                 <ol class="breadcrumb justify-content-end">
                     <li class="breadcrumb-item">
                         <a href="{{ route('admin.index') }}">
-                            {{ __('Home') }}
+                            @lang('Home')
                         </a>
                     </li>
                     <li class="breadcrumb-item">
                         <a href="{{ route('admin.qualities.index_' . session('locale')) }}">
-                            {{ __('Qualities') }}
+                            @lang('Qualities')
                         </a>
                     </li>
                     <li class="breadcrumb-item active">
@@ -46,21 +46,21 @@
                 <li class="nav-item">
                     <a class="nav-link active" data-bs-toggle="tab" href="#en" role="tab">
                         <span class="hidden-xs-down">
-                            {{ __('en') }}
+                            @lang('en')
                         </span>
                     </a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" data-bs-toggle="tab" href="#az" role="tab">
                         <span class="hidden-xs-down">
-                            {{ __('az') }}
+                            @lang('az')
                         </span>
                     </a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" data-bs-toggle="tab" href="#ru" role="tab">
                         <span class="hidden-xs-down">
-                            {{ __('ru') }}
+                            @lang('ru')
                         </span>
                     </a>
                 </li>
@@ -73,38 +73,38 @@
                         <div @class(['tab-pane', 'active' => $loop->first]) id="{{ $language }}" role="tabpanel">
                             <div class="form-floating my-3">
                                 <input class="form-control" name="title_{{ $language }}" id="title"
-                                    placeholder="{{ __('Title') }}" type="text"
+                                    placeholder="@lang('Title')" type="text"
                                     value="{{ $quality->getTranslation('title', $language) }}" />
                                 <label class="form-label text-white-50" for="title">
-                                    {{ __('Title') }}
+                                    @lang('Title')
                                 </label>
                             </div>
                             <div class="mb-3">
                                 <label class="form-label text-white-50" for="description">
-                                    {{ __('Description') }}
+                                    @lang('Description')
                                 </label>
-                                <textarea class="form-control ckeditor" placeholder="{{ __('Description') }}" id="description"
+                                <textarea class="form-control ckeditor" placeholder="@lang('Description')" id="description"
                                     name="description_{{ $language }}">{{ $quality->getTranslation('description', $language) }}</textarea>
                             </div>
                         </div>
                     @endforeach
                 </div>
                 <div class="form-floating my-3">
-                    <input class="form-control" name="icon" id="icon" placeholder="{{ __('Icon') }}"
+                    <input class="form-control" name="icon" id="icon" placeholder="@lang('Icon')"
                         type="text" maxlength="255" value="{{ $quality->icon }}" />
                     <label class="form-label text-white-50" for="icon">
-                        {{ __('Icon') }}
+                        @lang('Icon')
                     </label>
                 </div>
                 <div class="form-check form-switch mb-3">
                     <input type="checkbox" class="form-check-input" name="status" id="status" value="1"
                         @checked($quality->status) />
                     <label class="form-check-label text-white-50" for="status">
-                        {{ __('Status') }}
+                        @lang('Status')
                     </label>
                 </div>
                 <button type="submit" class="btn btn-primary float-end">
-                    {{ __('Update') }}
+                    @lang('Update')
                 </button>
             </form>
         </div>
@@ -114,12 +114,10 @@
     <script src="{{ asset('back/node_modules/dropify/dist/js/dropify.min.js') }}"></script>
     <script src="{{ asset('back/ckeditor/ckeditor.js') }}"></script>
     <script src="{{ asset('back/ckeditor/samples/js/sample.js') }}"></script>
-    <script src="{{ asset('back/node_modules/select2/dist/js/select2.full.min.js') }}"></script>
     <script>
         $(document).ready(function() {
             $('.dropify').dropify();
         });
-        $("#category_id").select2();
 
         function createCKEditor(id) {
             CKEDITOR.replace(id, {
