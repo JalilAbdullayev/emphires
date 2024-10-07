@@ -49,6 +49,13 @@ class ClientController extends Controller
         return $this->data($request, $client);
     }
 
+    public function delete(int $id): JsonResponse
+    {
+        $client = Client::findOrFail($id);
+        $client->delete();
+        return response()->json(['success' => true]);
+    }
+
     public function status(Request $request): JsonResponse
     {
         return $this->changeStatus($request, Client::class);

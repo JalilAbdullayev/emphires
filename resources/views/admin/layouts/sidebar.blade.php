@@ -187,6 +187,15 @@
                         </span>
                     </a>
                 </li>
+                <li>
+                    <a class="waves-effect waves-dark" href="{{ route('admin.skills.index_' . session('locale')) }}"
+                        aria-expanded="false">
+                        <i class="mdi mdi-chart-bar"></i>
+                        <span class="hide-menu">
+                            @lang('Skills')
+                        </span>
+                    </a>
+                </li>
             </ul>
         </nav>
         <!-- End Sidebar navigation -->

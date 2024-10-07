@@ -1,21 +1,22 @@
 <?php
 
-use App\Http\Controllers\AboutController;
-use App\Http\Controllers\AdminController;
-use App\Http\Controllers\BlogController;
-use App\Http\Controllers\ContactController;
-use App\Http\Controllers\CategoryController;
-use App\Http\Controllers\ClientController;
-use App\Http\Controllers\QualityController;
-use App\Http\Controllers\ServiceController;
-use App\Http\Controllers\SettingsController;
-use App\Http\Controllers\SlideController;
-use App\Http\Controllers\TeamController;
-use App\Http\Controllers\WhyusController;
 use App\Http\Middleware\SetLocale;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Request;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Request;
+use App\Http\Controllers\BlogController;
+use App\Http\Controllers\TeamController;
+use App\Http\Controllers\AboutController;
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\SkillController;
+use App\Http\Controllers\SlideController;
+use App\Http\Controllers\WhyusController;
+use App\Http\Controllers\ClientController;
+use App\Http\Controllers\ContactController;
+use App\Http\Controllers\QualityController;
+use App\Http\Controllers\ServiceController;
+use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\SettingsController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -258,6 +259,32 @@ Route::group([
 
             Route::prefix('kliyenti')->group(function () {
                 Route::get('/', 'index')->name('index_ru');
+                Route::get('izmenit/{id}', 'edit')->name('edit_ru');
+            });
+        });
+
+        Route::controller(SkillController::class)->name('skills.')->group(function () {
+            Route::prefix('skills')->group(function () {
+                Route::post('store', 'store')->name('store');
+                Route::post('update/{id}', 'update')->name('update');
+                Route::delete('delete/{id}', 'delete')->name('delete');
+                Route::post('status', 'status')->name('status');
+                Route::post('sort', 'sort')->name('sort');
+
+                Route::get('/', 'index')->name('index_en');
+                Route::get('create', 'create')->name('create_en');
+                Route::get('edit/{id}', 'edit')->name('edit_en');
+            });
+
+            Route::prefix('bacariqlar')->group(function () {
+                Route::get('/', 'index')->name('index_az');
+                Route::get('yarat', 'create')->name('create_az');
+                Route::get('redakte/{id}', 'edit')->name('edit_az');
+            });
+
+            Route::prefix('naviki')->group(function () {
+                Route::get('/', 'index')->name('index_ru');
+                Route::get('sozdat', 'create')->name('create_ru');
                 Route::get('izmenit/{id}', 'edit')->name('edit_ru');
             });
         });
