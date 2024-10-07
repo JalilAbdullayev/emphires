@@ -38,10 +38,10 @@
             <form action="{{ route('admin.clients.update', $client->id) }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="form-floating my-3">
-                    <input class="form-control" name="url" id="title" placeholder="@lang('Link')" type="url"
+                    <input class="form-control" name="url" id="link" placeholder="@lang('Link')" type="url"
                         value="{{ $client->url }}" required />
-                    <label class="form-label text-white-50" for="title">
-                        @lang('Title')
+                    <label class="form-label text-white-50" for="link">
+                        @lang('Link')
                     </label>
                 </div>
                 <div class="form-check form-switch mb-3">

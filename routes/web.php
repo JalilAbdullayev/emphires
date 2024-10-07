@@ -16,6 +16,7 @@ use App\Http\Controllers\ContactController;
 use App\Http\Controllers\QualityController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\MessageController;
 use App\Http\Controllers\SettingsController;
 
 Route::get('/', function () {
@@ -286,6 +287,25 @@ Route::group([
                 Route::get('/', 'index')->name('index_ru');
                 Route::get('sozdat', 'create')->name('create_ru');
                 Route::get('izmenit/{id}', 'edit')->name('edit_ru');
+            });
+        });
+
+        Route::controller(MessageController::class)->name('messages.')->group(function () {
+            Route::prefix('messages')->group(function () {
+                Route::delete('delete/{id}', 'delete')->name('delete');
+
+                Route::get('/', 'index')->name('index_en');
+                Route::get('show/{id}', 'show')->name('show_en');
+            });
+
+            Route::prefix('mesajlar')->group(function () {
+                Route::get('/', 'index')->name('index_az');
+                Route::get('bax/{id}', 'show')->name('show_az');
+            });
+
+            Route::prefix('soobsheniya')->group(function () {
+                Route::get('/', 'index')->name('index_ru');
+                Route::get('smotret/{id}', 'show')->name('show_ru');
             });
         });
     });

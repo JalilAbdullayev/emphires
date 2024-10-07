@@ -196,6 +196,15 @@
                         </span>
                     </a>
                 </li>
+                <li>
+                    <a class="waves-effect waves-dark"
+                        href="{{ route('admin.messages.index_' . session('locale')) }}" aria-expanded="false">
+                        <i class="ti-email"></i>
+                        <span class="hide-menu">
+                            @lang('Messages')
+                        </span>
+                    </a>
+                </li>
             </ul>
         </nav>
         <!-- End Sidebar navigation -->
