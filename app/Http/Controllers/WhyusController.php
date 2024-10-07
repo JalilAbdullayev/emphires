@@ -61,6 +61,12 @@ class WhyusController extends Controller
         return $this->data($request, $advantage);
     }
 
+    public function delete(int $id): JsonResponse {
+        $advantage = Whyus::findOrFail($id);
+        $advantage->delete();
+        return response()->json(['success' => true]);
+    }
+
     public function status(Request $request): JsonResponse
     {
         return $this->changeStatus($request, Whyus::class);

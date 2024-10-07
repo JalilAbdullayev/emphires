@@ -66,6 +66,13 @@ class BlogController extends Controller
         return $this->data($article, $request);
     }
 
+    public function delete(int $id): JsonResponse
+    {
+        $article = Blog::findOrFail($id);
+        $article->delete();
+        return response()->json(['success' => true]);
+    }
+
     public function status(Request $request): JsonResponse
     {
         return $this->changeStatus($request, Blog::class);
