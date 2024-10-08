@@ -18,6 +18,7 @@ use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CourseController;
 use App\Http\Controllers\MessageController;
+use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SettingsController;
 
 Route::get('/', function () {
@@ -334,6 +335,15 @@ Route::group([
                 Route::get('sozdat', 'create')->name('create_ru');
                 Route::get('izmenit/{id}', 'edit')->name('edit_ru');
             });
+        });
+        Route::controller(ProfileController::class)->group(function () {
+            Route::prefix('profile')->name('profile_')->group(function () {
+                Route::get('/', 'index')->name('en');
+                Route::patch('/', 'update')->name('update');
+            });
+            Route::get('profile/delete', 'delete')->name('profile.delete');
+            Route::get('profil', 'índex')->name('profile_az');
+            Route::get('akkaunt', 'index')->name('profile_ru');
         });
     });
 });
