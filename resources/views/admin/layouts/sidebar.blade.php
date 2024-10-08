@@ -77,6 +77,15 @@
                     </a>
                 </li>
                 <li>
+                    <a class="waves-effect waves-dark" href="{{ route('admin.social.index_' . session('locale')) }}"
+                        aria-expanded="false">
+                        <i class="icons-Affiliate"></i>
+                        <span class="hide-menu">
+                            @lang('Social media')
+                        </span>
+                    </a>
+                </li>
+                <li>
                     <a class="waves-effect waves-dark" href="{{ route('admin.categories.index_' . session('locale')) }}"
                         aria-expanded="false">
                         <i class="ti-folder"></i>

@@ -22,6 +22,7 @@ use App\Http\Controllers\HomeSectionController;
 use App\Http\Controllers\MessageController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SettingsController;
+use App\Http\Controllers\SocialController;
 use App\Http\Controllers\TestimonialController;
 
 Route::get('/', function () {
@@ -405,6 +406,29 @@ Route::group([
             Route::get('ana-sehife-bolmeleri', 'index')->name('_az');
             Route::get('razdely-domashney-stranitsy', 'index')->name('_ru');
             Route::post('homepage-sections', 'update');
+        });
+
+        Route::controller(SocialController::class)->name('social.')->group(function () {
+            Route::prefix('social-media')->group(function () {
+                Route::post('store', 'store')->name('store');
+                Route::post('update/{id}', 'update')->name('update');
+                Route::delete('delete/{id}', 'delete')->name('delete');
+                Route::post('status', 'status')->name('status');
+                Route::post('sort', 'sort')->name('sort');
+
+                Route::get('/', 'index')->name('index_en');
+                Route::get('edit/{id}', 'edit')->name('edit_en');
+            });
+
+            Route::prefix('sosial-media')->group(function () {
+                Route::get('/', 'index')->name('index_az');
+                Route::get('redakte/{id}', 'edit')->name('edit_az');
+            });
+
+            Route::prefix('sotsialnyye-seti')->group(function () {
+                Route::get('/', 'index')->name('index_ru');
+                Route::get('izmenit/{id}', 'edit')->name('edit_ru');
+            });
         });
     });
 });

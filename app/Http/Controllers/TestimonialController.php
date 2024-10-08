@@ -62,6 +62,13 @@ class TestimonialController extends Controller
         return $this->data($request, $testimonial);
     }
 
+    public function delete(int $id): JsonResponse
+    {
+        $testimonial = Testimonial::findOrFail($id);
+        $testimonial->delete();
+        return response()->json(['success' => true]);
+    }
+
     public function status(Request $request): JsonResponse
     {
         return $this->changeStatus($request, Testimonial::class);
