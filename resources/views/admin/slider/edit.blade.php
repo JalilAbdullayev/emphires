@@ -76,21 +76,21 @@
                                 <label class="form-label text-white-50" for="title">
                                     @lang('Title')
                                 </label>
-                                <textarea class="form-control ckeditor" placeholder="@lang('Title')" id="title" name="title_{{ $language }}">{{ $slide->getTranslation('title', $language) }}</textarea>
+                                <textarea class="form-control ckeditor" placeholder="@lang('Title')" id="title" name="title_{{ $language }}">{!! $slide->getTranslation('title', $language) !!}</textarea>
                             </div>
                             <div class="mb-3">
                                 <label class="form-label text-white-50" for="subtitle">
                                     @lang('Subtitle')
                                 </label>
                                 <textarea class="form-control ckeditor" placeholder="@lang('Subtitle')" id="subtitle"
-                                    name="subtitle_{{ $language }}">{{ $slide->getTranslation('subtitle', $language) }}</textarea>
+                                    name="subtitle_{{ $language }}">{!! $slide->getTranslation('subtitle', $language) !!}</textarea>
                             </div>
                             <div class="mb-3">
                                 <label class="form-label text-white-50" for="button_text">
                                     @lang('Button text')
                                 </label>
                                 <textarea class="form-control ckeditor" placeholder="@lang('Button text')" id="button_text"
-                                    name="button_text_{{ $language }}">{{ $slide->getTranslation('button_text', $language) }}</textarea>
+                                    name="button_text_{{ $language }}">{!! $slide->getTranslation('button_text', $language) !!}</textarea>
                             </div>
                         </div>
                     @endforeach

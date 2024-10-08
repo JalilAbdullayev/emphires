@@ -1,9 +1,9 @@
 @extends('admin.layouts.master')
 @section('title', __('Contact'))
 @section('css')
-    <link rel="stylesheet" href="{{ asset('back/node_modules/dropify/dist/css/dropify.min.css') }}"/>
-    <link rel="stylesheet" href="{{ asset('back/ckeditor/samples/css/samples.css') }}"/>
-    <link rel="stylesheet" href="{{ asset('back/ckeditor/samples/toolbarconfigurator/lib/codemirror/neo.css') }}"/>
+    <link rel="stylesheet" href="{{ asset('back/node_modules/dropify/dist/css/dropify.min.css') }}" />
+    <link rel="stylesheet" href="{{ asset('back/ckeditor/samples/css/samples.css') }}" />
+    <link rel="stylesheet" href="{{ asset('back/ckeditor/samples/toolbarconfigurator/lib/codemirror/neo.css') }}" />
     <style>
         textarea {
             display: block;
@@ -65,136 +65,128 @@
             <form action="{{ route('admin.contact') }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="tab-content tabcontent-border">
-                    @foreach($languages as $language)
-                        <div @class(['tab-pane', 'active' => $loop->first]) id="{{ $language }}"
-                             role="tabpanel">
+                    @foreach ($languages as $language)
+                        <div @class(['tab-pane', 'active' => $loop->first]) id="{{ $language }}" role="tabpanel">
                             <div class="form-floating my-3">
                                 <input class="form-control" name="title_{{ $language }}" id="title"
-                                       placeholder="{{ __('Title')}}" type="text"
-                                       value="{{ $contact->getTranslation('title', $language) }}"/>
+                                    placeholder="{{ __('Title') }}" type="text"
+                                    value="{{ $contact->getTranslation('title', $language) }}" />
                                 <label class="form-label text-white-50" for="title">
-                                    {{ __('Title')}}
+                                    {{ __('Title') }}
                                 </label>
                             </div>
                             <div class="mb-3">
                                 <label class="form-label text-white-50" for="address">
-                                    {{ __('Address')}}
+                                    {{ __('Address') }}
                                 </label>
-                                <textarea class="form-control ckeditor" name="address_{{ $language }}"
-                                          placeholder="{{ __('Address')}}" id="address"
-                                >{{ $contact->getTranslation('address', $language) }}</textarea>
+                                <textarea class="form-control ckeditor" name="address_{{ $language }}" placeholder="{{ __('Address') }}"
+                                    id="address">{!! $contact->getTranslation('address', $language) !!}</textarea>
                             </div>
                             <div class="mb-3">
                                 <label class="form-label text-white-50" for="form_title">
-                                    {{ __('Form Title')}}
+                                    {{ __('Form Title') }}
                                 </label>
-                                <textarea class="form-control ckeditor" placeholder="{{ __('Form Title')}}"
-                                          id="form_title" name="form_title_{{ $language }}"
-                                >{{ $contact->getTranslation('form_title', $language) }}</textarea>
+                                <textarea class="form-control ckeditor" placeholder="{{ __('Form Title') }}" id="form_title"
+                                    name="form_title_{{ $language }}">{!! $contact->getTranslation('form_title', $language) !!}</textarea>
                             </div>
                             <div class="mb-3">
                                 <label class="form-label text-white-50" for="form_subtitle">
-                                    {{ __('Form Subtitle')}}
+                                    {{ __('Form Subtitle') }}
                                 </label>
-                                <textarea class="form-control ckeditor" placeholder="{{ __('Form Subtitle')}}"
-                                          id="form_subtitle" name="form_subtitle_{{ $language }}"
-                                >{{ $contact->getTranslation('form_subtitle', $language) }}</textarea>
+                                <textarea class="form-control ckeditor" placeholder="{{ __('Form Subtitle') }}" id="form_subtitle"
+                                    name="form_subtitle_{{ $language }}">{!! $contact->getTranslation('form_subtitle', $language) !!}</textarea>
                             </div>
                             <div class="mb-3">
                                 <label class="form-label text-white-50" for="form_description">
-                                    {{ __('Form Description')}}
+                                    {{ __('Form Description') }}
                                 </label>
-                                <textarea class="form-control ckeditor" placeholder="{{ __('Form Description')}}"
-                                          id="form_description" name="form_description_{{ $language }}"
-                                >{{ $contact->getTranslation('form_description', $language) }}</textarea>
+                                <textarea class="form-control ckeditor" placeholder="{{ __('Form Description') }}" id="form_description"
+                                    name="form_description_{{ $language }}">{!! $contact->getTranslation('form_description', $language) !!}</textarea>
                             </div>
                             <div class="mb-3">
                                 <label class="form-label text-white-50" for="banner_text">
-                                    {{ __('Banner Text')}}
+                                    {{ __('Banner Text') }}
                                 </label>
-                                <textarea class="form-control ckeditor" placeholder="{{ __('Banner Text')}}"
-                                          id="banner_text" name="banner_text_{{ $language }}"
-                                >{{ $contact->getTranslation('banner_text', $language) }}</textarea>
+                                <textarea class="form-control ckeditor" placeholder="{{ __('Banner Text') }}" id="banner_text"
+                                    name="banner_text_{{ $language }}">{!! $contact->getTranslation('banner_text', $language) !!}</textarea>
                             </div>
                             <div class="mb-3">
                                 <label class="form-label text-white-50" for="banner_text">
-                                    {{ __('Banner button')}}
+                                    {{ __('Banner button') }}
                                 </label>
-                                <textarea class="form-control ckeditor" placeholder="{{ __('Banner button')}}"
-                                          id="banner_button" name="banner_button_{{ $language }}"
-                                >{{ $contact->getTranslation('banner_button', $language) }}</textarea>
+                                <textarea class="form-control ckeditor" placeholder="{{ __('Banner button') }}" id="banner_button"
+                                    name="banner_button_{{ $language }}">{!! $contact->getTranslation('banner_button', $language) !!}</textarea>
                             </div>
                         </div>
                     @endforeach
                 </div>
                 <div class="form-floating my-3">
-                    <input class="form-control" name="banner_icon" id="banner_icon"
-                           placeholder="{{ __('Banner icon') }}" type="text" value="{{ $contact->banner_icon }}"/>
+                    <input class="form-control" name="banner_icon" id="banner_icon" placeholder="{{ __('Banner icon') }}"
+                        type="text" value="{{ $contact->banner_icon }}" />
                     <label class="form-label text-white-50" for="banner_icon">
-                        {{ __('Banner icon')}}
+                        {{ __('Banner icon') }}
                     </label>
                 </div>
                 <div class="form-floating my-3">
-                    <input class="form-control" name="email" id="email" placeholder="{{ __('Email')}}" type="email"
-                           value="{{ $contact->email }}"/>
+                    <input class="form-control" name="email" id="email" placeholder="{{ __('Email') }}"
+                        type="email" value="{{ $contact->email }}" />
                     <label class="form-label text-white-50" for="email">
-                        {{ __('Email')}}
+                        {{ __('Email') }}
                     </label>
                 </div>
                 <div class="form-floating my-3">
-                    <input class="form-control" name="phone" id="phone" placeholder="{{ __('Phone')}}" type="tel"
-                           value="{{ $contact->phone }}"/>
+                    <input class="form-control" name="phone" id="phone" placeholder="{{ __('Phone') }}"
+                        type="tel" value="{{ $contact->phone }}" />
                     <label class="form-label text-white-50" for="phone">
-                        {{ __('Phone')}}
+                        {{ __('Phone') }}
                     </label>
                 </div>
                 <div class="mb-3">
                     <label class="form-label text-white-50" for="map">
-                        {{ __('Map')}}
+                        {{ __('Map') }}
                     </label>
-                    <textarea class="form-control" placeholder="{{ __('Map')}}" id="map"
-                              name="map">{{ $contact->map }}</textarea>
+                    <textarea class="form-control" placeholder="{{ __('Map') }}" id="map" name="map">{{ $contact->map }}</textarea>
                 </div>
                 <div class="d-flex justify-content-around">
                     <div>
                         <div class="form-check form-switch mb-3">
                             <input type="checkbox" class="form-check-input" name="status" id="status"
-                                   @checked($contact->status) value="1"/>
+                                @checked($contact->status) value="1" />
                             <label class="form-check-label text-white-50" for="status">
-                                {{  __('Page Status')}}
+                                {{ __('Page Status') }}
                             </label>
                         </div>
                         <div class="form-check form-switch mb-3">
                             <input type="checkbox" class="form-check-input" name="form_status" id="form_status"
-                                   @checked($contact->form_status) value="1"/>
+                                @checked($contact->form_status) value="1" />
                             <label class="form-check-label text-white-50" for="form_status">
-                                {{  __('Form Status')}}
+                                {{ __('Form Status') }}
                             </label>
                         </div>
                     </div>
                     <div>
                         <div class="form-check form-switch mb-3">
                             <input type="checkbox" class="form-check-input" name="banner_status" id="banner_status"
-                                   @checked($contact->banner_status) value="1"/>
+                                @checked($contact->banner_status) value="1" />
                             <label class="form-check-label text-white-50" for="banner_status">
-                                {{  __('Banner Status')}}
+                                {{ __('Banner Status') }}
                             </label>
                         </div>
                         <div class="form-check form-switch mb-3">
                             <input type="checkbox" class="form-check-input" name="bg_status" id="bg_status"
-                                   @checked($contact->bg_status) value="1"/>
+                                @checked($contact->bg_status) value="1" />
                             <label class="form-check-label text-white-50" for="bg_status">
-                                {{  __('Background Image Status')}}
+                                {{ __('Background Image Status') }}
                             </label>
                         </div>
                     </div>
                 </div>
                 <div class="mb-3">
                     <label for="background" class="form-label text-white-50">
-                        {{ __('Background Image')}}
+                        {{ __('Background Image') }}
                     </label>
                     <input type="file" name="background" id="background" class="dropify" data-show-remove="false"
-                           accept="image/*" data-default-file="{{ asset('storage/contact/' . $contact->background) }}"/>
+                        accept="image/*" data-default-file="{{ asset('storage/contact/' . $contact->background) }}" />
                 </div>
                 <button type="submit" class="btn btn-primary float-end">
                     {{ __('Update') }}
@@ -204,7 +196,7 @@
     </div>
 @endsection
 @section('js')
-    <script src="{{ asset("back/node_modules/dropify/dist/js/dropify.min.js") }}"></script>
+    <script src="{{ asset('back/node_modules/dropify/dist/js/dropify.min.js') }}"></script>
     <script src="{{ asset('back/ckeditor/ckeditor.js') }}"></script>
     <script src="{{ asset('back/ckeditor/samples/js/sample.js') }}"></script>
     <script>

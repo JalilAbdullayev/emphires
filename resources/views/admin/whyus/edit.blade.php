@@ -84,7 +84,7 @@
                                     @lang('Description')
                                 </label>
                                 <textarea class="form-control ckeditor" placeholder="@lang('Description')" id="description"
-                                    name="description_{{ $language }}">{{ $advantage->getTranslation('description', $language) }}</textarea>
+                                    name="description_{{ $language }}">{!! $advantage->getTranslation('description', $language) !!}</textarea>
                             </div>
                         </div>
                     @endforeach

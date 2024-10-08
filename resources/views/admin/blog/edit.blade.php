@@ -99,7 +99,7 @@
                                     {{ __('Text') }}
                                 </label>
                                 <textarea class="form-control ckeditor" placeholder="{{ __('Text') }}" id="text"
-                                    name="text_{{ $language }}">{{ $article->getTranslation('text', $language) }}</textarea>
+                                    name="text_{{ $language }}">{!! $article->getTranslation('text', $language) !!}</textarea>
                             </div>
                         </div>
                     @endforeach
