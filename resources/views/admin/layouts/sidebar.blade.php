@@ -239,6 +239,23 @@
                         </li>
                     </ul>
                 </li>
+                <li>
+                    <a class="has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false">
+                        <i class="mdi mdi-comment-account"></i><span class="hide-menu">
+                            @lang('Testimonials')
+                        </span>
+                    </a>
+                    <ul aria-expanded="false" class="collapse">
+                        <li>
+                            <a href="{{ route('admin.testimonials.index_' . session('locale')) }}">
+                                @lang('Testimonials')
+                            </a>
+                            <a href="{{ route('admin.testimonials.create_' . session('locale')) }}">
+                                @lang('New testimonial')
+                            </a>
+                        </li>
+                    </ul>
+                </li>
             </ul>
         </nav>
         <!-- End Sidebar navigation -->

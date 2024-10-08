@@ -21,6 +21,7 @@ use App\Http\Controllers\CourseController;
 use App\Http\Controllers\MessageController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SettingsController;
+use App\Http\Controllers\TestimonialController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -366,6 +367,32 @@ Route::group([
             });
 
             Route::prefix('polzovateli')->group(function () {
+                Route::get('/', 'index')->name('index_ru');
+                Route::get('sozdat', 'create')->name('create_ru');
+                Route::get('izmenit/{id}', 'edit')->name('edit_ru');
+            });
+        });
+
+        Route::controller(TestimonialController::class)->name('testimonials.')->group(function () {
+            Route::prefix('testimonials')->group(function () {
+                Route::post('store', 'store')->name('store');
+                Route::post('update/{id}', 'update')->name('update');
+                Route::delete('delete/{id}', 'delete')->name('delete');
+                Route::post('status', 'status')->name('status');
+                Route::post('sort', 'sort')->name('sort');
+
+                Route::get('/', 'index')->name('index_en');
+                Route::get('create', 'create')->name('create_en');
+                Route::get('edit/{id}', 'edit')->name('edit_en');
+            });
+
+            Route::prefix('sherhler')->group(function () {
+                Route::get('/', 'index')->name('index_az');
+                Route::get('yarat', 'create')->name('create_az');
+                Route::get('redakte/{id}', 'edit')->name('edit_az');
+            });
+
+            Route::prefix('kommentariy')->group(function () {
                 Route::get('/', 'index')->name('index_ru');
                 Route::get('sozdat', 'create')->name('create_ru');
                 Route::get('izmenit/{id}', 'edit')->name('edit_ru');
