@@ -92,6 +92,7 @@ class BlogController extends Controller
         $this->setTranslated($article, 'keywords');
         $this->singleImg($request, 'image', 'blog', $article);
         $this->singleImg($request, 'background', 'blog', $article);
+        $article->date = $request->date;
         $article->status = $request->status ? 1 : 0;
         $article->category_id = $request->category_id;
         $article->author_id = Auth::user()->id;

@@ -104,31 +104,44 @@
                         </div>
                     @endforeach
                 </div>
-                <div class="form-check form-switch mb-3">
-                    <input type="checkbox" class="form-check-input" name="status" id="status" value="1"
-                        @checked($article->status) />
-                    <label class="form-check-label text-white-50" for="status">
-                        {{ __('Status') }}
-                    </label>
-                </div>
-                <div class="form-check form-switch mb-3">
-                    <input type="checkbox" class="form-check-input" name="bg_status" id="bg_status" value="1"
-                        @checked($article->bg_status) />
-                    <label class="form-check-label text-white-50" for="bg_status">
-                        {{ __('Background Image Status') }}
-                    </label>
-                </div>
-                <div class="mb-3">
-                    <label for="category_id" class="form-label text-white-50">
-                        {{ __('Category') }}
-                    </label>
-                    <select name="category_id" id="category_id" class="w-100">
-                        @foreach ($categories as $category)
-                            <option value="{{ $category->id }}" @selected($category->id === $article->category_id)>
-                                {{ $category->title }}
-                            </option>
-                        @endforeach
-                    </select>
+                <div class="row">
+                    <div class="col-6">
+                        <div class="mb-3">
+                            <label class="form-label text-white-50" for="date">
+                                @lang('Date')
+                            </label>
+                            <input type="date" class="form-control" placeholder="@lang('Date')" id="date"
+                                name="date" value="{{ $article->date }}" />
+                        </div>
+                        <div class="form-check form-switch mb-3">
+                            <input type="checkbox" class="form-check-input" name="status" id="status" value="1"
+                                @checked($article->status) />
+                            <label class="form-check-label text-white-50" for="status">
+                                {{ __('Status') }}
+                            </label>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="mb-3">
+                            <label for="category_id" class="form-label text-white-50">
+                                {{ __('Category') }}
+                            </label>
+                            <select name="category_id" id="category_id" class="w-100">
+                                @foreach ($categories as $category)
+                                    <option value="{{ $category->id }}" @selected($category->id === $article->category_id)>
+                                        {{ $category->title }}
+                                    </option>
+                                @endforeach
+                            </select>
+                        </div>
+                        <div class="form-check form-switch mb-3">
+                            <input type="checkbox" class="form-check-input" name="bg_status" id="bg_status"
+                                value="1" @checked($article->bg_status) />
+                            <label class="form-check-label text-white-50" for="bg_status">
+                                {{ __('Background Image Status') }}
+                            </label>
+                        </div>
+                    </div>
                 </div>
                 <div class="mb-3">
                     <label for="image" class="form-label text-white-50">
