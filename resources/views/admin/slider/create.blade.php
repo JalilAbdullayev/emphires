@@ -24,12 +24,12 @@
                 <ol class="breadcrumb justify-content-end">
                     <li class="breadcrumb-item">
                         <a href="{{ route('admin.index') }}">
-                            {{ __('Home') }}
+                            @lang('Home')
                         </a>
                     </li>
                     <li class="breadcrumb-item">
                         <a href="{{ route('admin.slider.index_' . session('locale')) }}">
-                            {{ __('Slider') }}
+                            @lang('Slider')
                         </a>
                     </li>
                     <li class="breadcrumb-item active">
@@ -47,21 +47,21 @@
                 <li class="nav-item">
                     <a class="nav-link active" data-bs-toggle="tab" href="#en" role="tab">
                         <span class="hidden-xs-down">
-                            {{ __('en') }}
+                            @lang('en')
                         </span>
                     </a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" data-bs-toggle="tab" href="#az" role="tab">
                         <span class="hidden-xs-down">
-                            {{ __('az') }}
+                            @lang('az')
                         </span>
                     </a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" data-bs-toggle="tab" href="#ru" role="tab">
                         <span class="hidden-xs-down">
-                            {{ __('ru') }}
+                            @lang('ru')
                         </span>
                     </a>
                 </li>
@@ -74,43 +74,49 @@
                         <div @class(['tab-pane', 'active' => $loop->first]) id="{{ $language }}" role="tabpanel">
                             <div class="mb-3">
                                 <label class="form-label text-white-50" for="title">
-                                    {{ __('Title') }}
+                                    @lang('Title')
                                 </label>
-                                <textarea class="form-control ckeditor" placeholder="{{ __('Title') }}" id="title"
-                                    name="title_{{ $language }}"></textarea>
+                                <textarea class="form-control ckeditor" placeholder="@lang('Title')" id="title" name="title_{{ $language }}"></textarea>
                             </div>
                             <div class="mb-3">
                                 <label class="form-label text-white-50" for="subtitle">
-                                    {{ __('Subtitle') }}
+                                    @lang('Subtitle')
                                 </label>
-                                <textarea class="form-control ckeditor" placeholder="{{ __('Subtitle') }}" id="subtitle"
+                                <textarea class="form-control ckeditor" placeholder="@lang('Subtitle')" id="subtitle"
                                     name="subtitle_{{ $language }}"></textarea>
                             </div>
                             <div class="mb-3">
                                 <label class="form-label text-white-50" for="button_text">
-                                    {{ __('Button text') }}
+                                    @lang('Button text')
                                 </label>
-                                <textarea class="form-control ckeditor" placeholder="{{ __('Button text') }}" id="button_text"
+                                <textarea class="form-control ckeditor" placeholder="@lang('Button text')" id="button_text"
                                     name="button_text_{{ $language }}"></textarea>
                             </div>
                         </div>
                     @endforeach
                 </div>
+                <div class="mb-3">
+                    <label class="form-label text-white-50" for="video_link">
+                        @lang('Video link')
+                    </label>
+                    <input type="url" class="form-control" placeholder="@lang('Video link')" id="video_link"
+                        name="video_link" />
+                </div>
                 <div class="form-check form-switch mb-3">
                     <input type="checkbox" class="form-check-input" name="status" id="status" value="1" />
                     <label class="form-check-label text-white-50" for="status">
-                        {{ __('Status') }}
+                        @lang('Status')
                     </label>
                 </div>
                 <div class="mb-3">
                     <label for="image" class="form-label text-white-50">
-                        {{ __('Image') }}
+                        @lang('Image')
                     </label>
                     <input type="file" name="image" id="image" class="dropify" data-show-remove="false"
                         accept="image/*" />
                 </div>
                 <button type="submit" class="btn btn-primary float-end">
-                    {{ __('Create') }}
+                    @lang('Create')
                 </button>
             </form>
         </div>

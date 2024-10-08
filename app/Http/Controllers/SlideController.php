@@ -85,6 +85,7 @@ class SlideController extends Controller
         $this->setTranslated($slide, 'subtitle');
         $this->setTranslated($slide, 'button_text');
         $this->singleImg($request, 'image', 'slider', $slide);
+        $slide->video_link = $request->video_link;
         $slide->status = $request->status ? 1 : 0;
         $slide->save();
         return redirect()->route('admin.slider.index_' . session('locale'))->withSuccess(__('Operation successful.'));
