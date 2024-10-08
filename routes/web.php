@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Request;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\TeamController;
 use App\Http\Controllers\AboutController;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\SkillController;
 use App\Http\Controllers\SlideController;
@@ -336,6 +337,7 @@ Route::group([
                 Route::get('izmenit/{id}', 'edit')->name('edit_ru');
             });
         });
+
         Route::controller(ProfileController::class)->group(function () {
             Route::prefix('profile')->name('profile_')->group(function () {
                 Route::get('/', 'index')->name('en');
@@ -344,6 +346,30 @@ Route::group([
             Route::get('profile/delete', 'delete')->name('profile.delete');
             Route::get('profil', 'índex')->name('profile_az');
             Route::get('akkaunt', 'index')->name('profile_ru');
+        });
+
+        Route::controller(UserController::class)->name('users.')->group(function () {
+            Route::prefix('users')->group(function () {
+                Route::post('store', 'store')->name('store');
+                Route::patch('update/{id}', 'update')->name('update');
+                Route::delete('delete/{id}', 'delete')->name('delete');
+
+                Route::get('/', 'index')->name('index_en');
+                Route::get('create', 'create')->name('create_en');
+                Route::get('edit/{id}', 'edit')->name('edit_en');
+            });
+
+            Route::prefix('istifadechiler')->group(function () {
+                Route::get('/', 'index')->name('index_az');
+                Route::get('yarat', 'create')->name('create_az');
+                Route::get('redakte/{id}', 'edit')->name('edit_az');
+            });
+
+            Route::prefix('polzovateli')->group(function () {
+                Route::get('/', 'index')->name('index_ru');
+                Route::get('sozdat', 'create')->name('create_ru');
+                Route::get('izmenit/{id}', 'edit')->name('edit_ru');
+            });
         });
     });
 });

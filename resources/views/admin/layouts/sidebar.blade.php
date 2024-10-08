@@ -95,6 +95,23 @@
                 </li>
                 <li>
                     <a class="has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false">
+                        <i class="mdi mdi-account-multiple"></i><span class="hide-menu">
+                            @lang('Users')
+                        </span>
+                    </a>
+                    <ul aria-expanded="false" class="collapse">
+                        <li>
+                            <a href="{{ route('admin.users.index_' . session('locale')) }}">
+                                @lang('Users')
+                            </a>
+                            <a href="{{ route('admin.users.create_' . session('locale')) }}">
+                                @lang('New user')
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a class="has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false">
                         <i class="icon-people"></i><span class="hide-menu">
                             @lang('Team')
                         </span>
