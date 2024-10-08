@@ -42,6 +42,7 @@ class BlogController extends Controller
     public function store(Request $request): RedirectResponse
     {
         $article = new Blog;
+        $article->author_id = Auth::user()->id;
         $article->order = Blog::count() > 0 ? Blog::latest('order')->first()->order + 1 : 1;
         return $this->data($article, $request);
     }
@@ -95,7 +96,6 @@ class BlogController extends Controller
         $article->date = $request->date;
         $article->status = $request->status ? 1 : 0;
         $article->category_id = $request->category_id;
-        $article->author_id = Auth::user()->id;
         $article->save();
         return redirect()->route('admin.blog.index_' . session('locale'))->withSuccess(__('Operation successful.'));
     }

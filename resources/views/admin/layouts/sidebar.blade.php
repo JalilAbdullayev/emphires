@@ -205,6 +205,23 @@
                         </span>
                     </a>
                 </li>
+                <li>
+                    <a class="has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false">
+                        <i class="mdi mdi-school"></i><span class="hide-menu">
+                            @lang('Courses')
+                        </span>
+                    </a>
+                    <ul aria-expanded="false" class="collapse">
+                        <li>
+                            <a href="{{ route('admin.courses.index_' . session('locale')) }}">
+                                @lang('Courses')
+                            </a>
+                            <a href="{{ route('admin.courses.create_' . session('locale')) }}">
+                                @lang('New course')
+                            </a>
+                        </li>
+                    </ul>
+                </li>
             </ul>
         </nav>
         <!-- End Sidebar navigation -->

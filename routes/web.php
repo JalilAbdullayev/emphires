@@ -16,6 +16,7 @@ use App\Http\Controllers\ContactController;
 use App\Http\Controllers\QualityController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\CourseController;
 use App\Http\Controllers\MessageController;
 use App\Http\Controllers\SettingsController;
 
@@ -306,6 +307,32 @@ Route::group([
             Route::prefix('soobsheniya')->group(function () {
                 Route::get('/', 'index')->name('index_ru');
                 Route::get('smotret/{id}', 'show')->name('show_ru');
+            });
+        });
+
+        Route::controller(CourseController::class)->name('courses.')->group(function () {
+            Route::prefix('courses')->group(function () {
+                Route::post('store', 'store')->name('store');
+                Route::post('update/{id}', 'update')->name('update');
+                Route::delete('delete/{id}', 'delete')->name('delete');
+                Route::post('status', 'status')->name('status');
+                Route::post('sort', 'sort')->name('sort');
+
+                Route::get('/', 'index')->name('index_en');
+                Route::get('create', 'create')->name('create_en');
+                Route::get('edit/{id}', 'edit')->name('edit_en');
+            });
+
+            Route::prefix('kurslar')->group(function () {
+                Route::get('/', 'index')->name('index_az');
+                Route::get('yarat', 'create')->name('create_az');
+                Route::get('redakte/{id}', 'edit')->name('edit_az');
+            });
+
+            Route::prefix('kursi')->group(function () {
+                Route::get('/', 'index')->name('index_ru');
+                Route::get('sozdat', 'create')->name('create_ru');
+                Route::get('izmenit/{id}', 'edit')->name('edit_ru');
             });
         });
     });
