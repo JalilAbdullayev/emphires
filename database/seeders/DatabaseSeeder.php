@@ -23,8 +23,9 @@ class DatabaseSeeder extends Seeder
         $this->call([
                 //SettingsSeeder::class,
                 //ContactSeeder::class,
-                // AboutSeeder::class,
-            MessageSeeder::class
+                //AboutSeeder::class,
+                //MessageSeeder::class,
+            HomeSectionSeeder::class
         ]);
     }
 }

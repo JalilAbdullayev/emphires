@@ -18,6 +18,7 @@ use App\Http\Controllers\QualityController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CourseController;
+use App\Http\Controllers\HomeSectionController;
 use App\Http\Controllers\MessageController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SettingsController;
@@ -397,6 +398,13 @@ Route::group([
                 Route::get('sozdat', 'create')->name('create_ru');
                 Route::get('izmenit/{id}', 'edit')->name('edit_ru');
             });
+        });
+
+        Route::controller(HomeSectionController::class)->name('homepage')->group(function () {
+            Route::get('homepage-sections', 'index')->name('_en');
+            Route::get('ana-sehife-bolmeleri', 'index')->name('_az');
+            Route::get('razdely-domashney-stranitsy', 'index')->name('_ru');
+            Route::post('homepage-sections', 'update');
         });
     });
 });

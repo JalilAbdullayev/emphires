@@ -68,6 +68,15 @@
                     </a>
                 </li>
                 <li>
+                    <a class="waves-effect waves-dark" href="{{ route('admin.homepage_' . session('locale')) }}"
+                        aria-expanded="false">
+                        <i class="ti-home"></i>
+                        <span class="hide-menu">
+                            @lang('Home sections')
+                        </span>
+                    </a>
+                </li>
+                <li>
                     <a class="waves-effect waves-dark" href="{{ route('admin.categories.index_' . session('locale')) }}"
                         aria-expanded="false">
                         <i class="ti-folder"></i>
