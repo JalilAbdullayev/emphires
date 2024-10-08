@@ -17,6 +17,7 @@ return new class extends Migration {
             $table->json('quote_author')->nullable();
             $table->json('second_section_text')->nullable();
             $table->boolean('second_section')->default(1);
+            $table->boolean('second_section_services')->default(1);
             $table->json('who_us_title')->nullable();
             $table->json('who_us_subtitle')->nullable();
             $table->json('who_us_text')->nullable();
@@ -41,9 +42,9 @@ return new class extends Migration {
             $table->json('skills_text')->nullable();
             $table->boolean('skills')->default(1);
             $table->boolean('contact_form')->default(1);
-            $table->json('qualtities_title')->nullable();
-            $table->json('qualtities_subtitle')->nullable();
-            $table->json('qualtities_text')->nullable();
+            $table->json('qualities_title')->nullable();
+            $table->json('qualities_subtitle')->nullable();
+            $table->json('qualities_text')->nullable();
             $table->boolean('services_slider')->default(1);
             $table->json('testimonials_title')->nullable();
             $table->json('testimonials_subtitle')->nullable();

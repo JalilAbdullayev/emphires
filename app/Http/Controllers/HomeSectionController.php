@@ -33,6 +33,7 @@ class HomeSectionController extends Controller
         $this->setTranslated($home, 'quote');
         $this->setTranslated($home, 'quote_author');
         $home->second_section = $request->second_section ? 1 : 0;
+        $home->second_section_services = $request->second_section_services ? 1 : 0;
         $this->setTranslated($home, 'second_section_text');
         $this->setTranslated($home, 'who_us_title');
         $this->setTranslated($home, 'who_us_subtitle');
@@ -61,7 +62,7 @@ class HomeSectionController extends Controller
         $this->setTranslated($home, 'qualities_title');
         $this->setTranslated($home, 'qualities_subtitle');
         $this->setTranslated($home, 'qualities_text');
-        $home->service_slider = $request->service_slider ? 1 : 0;
+        $home->services_slider = $request->services_slider ? 1 : 0;
         $this->setTranslated($home, 'testimonials_title');
         $this->setTranslated($home, 'testimonials_subtitle');
         $this->setTranslated($home, 'testimonials_text');
