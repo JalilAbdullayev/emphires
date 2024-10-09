@@ -66,7 +66,7 @@
                             </div>
                         </td>
                         <td>
-                            {!! $quality->icon !!}
+                            <img src="{{ asset('storage/qualities/' . $quality->icon) }}" alt="" class="w-25" />
                         </td>
                         <td>
                             <a href="{{ route('admin.qualities.edit_' . session('locale'), $quality->id) }}"

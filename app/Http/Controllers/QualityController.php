@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Traits\SetData;
 use App\Models\Quality;
+use App\Traits\UploadImage;
 use Illuminate\View\View;
 use Illuminate\Http\Request;
 use Illuminate\Http\JsonResponse;
@@ -11,7 +12,7 @@ use Illuminate\Http\RedirectResponse;
 
 class QualityController extends Controller
 {
-    use SetData;
+    use SetData, UploadImage;
     public function index(): View
     {
         $langs = [
@@ -83,7 +84,7 @@ class QualityController extends Controller
     {
         $this->setTranslated($quality, 'title');
         $this->setTranslated($quality, 'description');
-        $quality->icon = $request->icon;
+        $this->singleImg($request, 'icon', 'qualities', $quality);
         $quality->status = $request->status ? 1 : 0;
         $quality->save();
         return redirect()->route('admin.qualities.index_' . session('locale'))->withSuccess(__('Operation successful.'));

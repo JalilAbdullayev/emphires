@@ -1,6 +1,7 @@
 @extends('admin.layouts.master')
 @section('title', __('Edit quality'))
 @section('css')
+    <link rel="stylesheet" href="{{ asset('back/node_modules/dropify/dist/css/dropify.min.css') }}" />
     <link rel="stylesheet" href="{{ asset('back/ckeditor/samples/css/samples.css') }}" />
     <link rel="stylesheet" href="{{ asset('back/ckeditor/samples/toolbarconfigurator/lib/codemirror/neo.css') }}" />
     <style>
@@ -66,7 +67,7 @@
                 </li>
             </ul>
             <!-- Tab panes -->
-            <form action="{{ route('admin.qualities.update', $quality->id) }}" method="POST">
+            <form action="{{ route('admin.qualities.update', $quality->id) }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="tab-content tabcontent-border">
                     @foreach ($languages as $language)
@@ -89,12 +90,12 @@
                         </div>
                     @endforeach
                 </div>
-                <div class="form-floating my-3">
-                    <input class="form-control" name="icon" id="icon" placeholder="@lang('Icon')"
-                        type="text" maxlength="255" value="{{ $quality->icon }}" />
-                    <label class="form-label text-white-50" for="icon">
-                        @lang('Icon')
+                <div class="mb-3">
+                    <label for="icon" class="form-label text-white-50">
+                        {{ __('Icon') }}
                     </label>
+                    <input type="file" name="icon" id="icon" class="dropify" data-show-remove="false"
+                        accept="image/*" data-default-file="{{ asset('storage/qualities/' . $quality->icon) }}" />
                 </div>
                 <div class="form-check form-switch mb-3">
                     <input type="checkbox" class="form-check-input" name="status" id="status" value="1"

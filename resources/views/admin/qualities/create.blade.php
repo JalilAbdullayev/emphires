@@ -3,6 +3,7 @@
 @section('css')
     <link rel="stylesheet" href="{{ asset('back/ckeditor/samples/css/samples.css') }}" />
     <link rel="stylesheet" href="{{ asset('back/ckeditor/samples/toolbarconfigurator/lib/codemirror/neo.css') }}" />
+    <link rel="stylesheet" href="{{ asset('back/node_modules/dropify/dist/css/dropify.min.css') }}" />
     <style>
         textarea {
             display: block;
@@ -66,14 +67,14 @@
                 </li>
             </ul>
             <!-- Tab panes -->
-            <form action="{{ route('admin.qualities.store') }}" method="POST">
+            <form action="{{ route('admin.qualities.store') }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="tab-content tabcontent-border">
                     @foreach ($languages as $language)
                         <div @class(['tab-pane', 'active' => $loop->first]) id="{{ $language }}" role="tabpanel">
                             <div class="form-floating my-3">
-                                <input class="form-control" name="title_{{ $language }}" id="title" placeholder="{{ __('Title') }}"
-                                    type="text" />
+                                <input class="form-control" name="title_{{ $language }}" id="title"
+                                    placeholder="{{ __('Title') }}" type="text" />
                                 <label class="form-label text-white-50" for="title">
                                     {{ __('Title') }}
                                 </label>
@@ -88,12 +89,12 @@
                         </div>
                     @endforeach
                 </div>
-                <div class="form-floating my-3">
-                    <input class="form-control" name="icon" id="icon" placeholder="{{ __('Icon') }}"
-                        type="text" maxlength="255" />
-                    <label class="form-label text-white-50" for="icon">
+                <div class="mb-3">
+                    <label for="icon" class="form-label text-white-50">
                         {{ __('Icon') }}
                     </label>
+                    <input type="file" name="icon" id="icon" class="dropify" data-show-remove="false"
+                        accept="image/*" />
                 </div>
                 <div class="form-check form-switch mb-3">
                     <input type="checkbox" class="form-check-input" name="status" id="status" value="1" />
@@ -111,7 +112,12 @@
 @section('js')
     <script src="{{ asset('back/ckeditor/ckeditor.js') }}"></script>
     <script src="{{ asset('back/ckeditor/samples/js/sample.js') }}"></script>
+    <script src="{{ asset('back/node_modules/dropify/dist/js/dropify.min.js') }}"></script>
     <script>
+        $(document).ready(function() {
+            $('.dropify').dropify();
+        });
+
         function createCKEditor(id) {
             CKEDITOR.replace(id, {
                 extraAllowedContent: 'div',

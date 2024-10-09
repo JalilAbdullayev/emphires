@@ -112,6 +112,13 @@
                                             name="who_us_text_{{ $language }}">{!! $home->getTranslation('who_us_text', $language) !!}</textarea>
                                     </div>
                                     <div class="mb-3">
+                                        <label class="form-label text-white" for="second_section_text">
+                                            {{ __('Second section text') }}
+                                        </label>
+                                        <textarea class="form-control ckeditor" placeholder="{{ __('Second section text') }}" id="second_section_text"
+                                            name="second_section_text_{{ $language }}">{!! $home->getTranslation('second_section_text', $language) !!}</textarea>
+                                    </div>
+                                    <div class="mb-3">
                                         <label class="form-label text-white" for="courses_title">
                                             {{ __('Courses title') }}
                                         </label>
@@ -182,6 +189,13 @@
                                         </label>
                                         <textarea class="form-control ckeditor" placeholder="{{ __('Who us link title') }}" id="who_us_link_title"
                                             name="who_us_link_title_{{ $language }}">{!! $home->getTranslation('who_us_link_title', $language) !!}</textarea>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="form-label text-white" for="skills_text">
+                                            {{ __('Skills text') }}
+                                        </label>
+                                        <textarea class="form-control ckeditor" placeholder="{{ __('Skills text') }}" id="skills_text"
+                                            name="skills_text_{{ $language }}">{!! $home->getTranslation('skills_text', $language) !!}</textarea>
                                     </div>
                                     <div class="mb-3">
                                         <label class="form-label text-white" for="quote">
