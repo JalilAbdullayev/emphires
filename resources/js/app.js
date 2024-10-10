@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const mobile = document.querySelector("#mobile-button");
     const nav = document.querySelector("#mobile-nav");
     const navbar = document.querySelector("#navbar");
-
+    const navItem = navbar.querySelectorAll("a");
     const modal = () => {
         searchMdl.classList.toggle("opacity-0");
         searchMdl.classList.toggle("invisible");
@@ -36,15 +36,17 @@ document.addEventListener("DOMContentLoaded", () => {
     window.addEventListener("scroll", () => {
         if (window.scrollY > 0) {
             navbar.classList.add("sticky-header");
-            navbar
-                .querySelectorAll("a")
-                .forEach((el) => el.classList.remove("text-white"));
+            navItem.forEach((el) => el.classList.remove("text-white"));
         } else {
             navbar.classList.remove("sticky-header");
             if (window.location.pathname === "/") {
                 navbar
                     .querySelectorAll("a")
-                    .forEach((el) => el.classList.add("text-white"));
+                    .forEach((el) =>
+                        !el.classList.contains("text-green-800")
+                            ? el.classList.add("text-white")
+                            : ""
+                    );
             }
         }
     });

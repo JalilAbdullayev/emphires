@@ -6,9 +6,9 @@
                     <img src="{{ asset('storage/slider/' . $slide->image) }}" alt=""
                         class="min-h-screen object-cover object-[70%]" />
                     <div class="absolute top-96 left-10 xl:left-48 right-0">
-                        <h6 class="uppercase text-sm font-bold leading-6 mb-4 text-white">
+                        <div class="uppercase text-sm font-bold leading-6 mb-4 text-white">
                             {!! $slide->title !!}
-                        </h6>
+                        </div>
                         <h1 class="text-7xl font-['Nunito'] mb-8 mt-4 text-white">
                             {!! $slide->subtitle !!}
                         </h1>

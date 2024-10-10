@@ -1,7 +1,6 @@
 <header @class([
-    'bg-white text-dark',
-    'absolute top-0 left-0 right-0 z-50 text-white bg-transparent' => Route::is(
-        'home'),
+    'bg-white text-dark' => !Route::is('home'),
+    'absolute top-0 left-0 right-0 z-50 text-white' => Route::is('home'),
 ])>
     <nav
         class="flex justify-between text-sm font-semibold leading-[50px] px-9 border-b border-[#ffffff21] max-xl:hidden">
@@ -45,7 +44,7 @@
         </a>
         <div
             class="flex gap-8 font-extrabold [&>a:hover]:text-green-800 [&>a:hover]:duration-500 max-xl:opacity-0 max-xl:hidden">
-            <a href="/" @class(['text-white', 'text-green-800' => Route::is('home')])">
+            <a href="/" @class(['text-green-800' => Route::is('home')])>
                 Home
             </a>
             @if ($about->status)
@@ -77,7 +76,7 @@
         <div class="flex justify-between gap-3 max-xl:hidden">
             <i class="fa-regular fa-comments text-5xl text-green-800"></i>
             <div>
-                <div @class(['mb-1', 'text-white' => Route::is('home')])>
+                <div class="mb-1">
                     Have any Questions?
                 </div>
                 <a href="tel:{{ preg_replace('/[\s\(\)\-]+/', '', $contact->phone) }}" class="mb-1 text-white">
