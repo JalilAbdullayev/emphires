@@ -48,6 +48,12 @@ Route::group([
 ], function () {
     Route::controller(SiteController::class)->group(function () {
         Route::get('/', 'index')->name('home');
+
+        Route::name('about_')->group(function () {
+            Route::get('about', 'about')->name('en');
+            Route::get('haqqimizda', 'about')->name('az');
+            Route::get('o-nas', 'about')->name('ru');
+        });
     });
 
     Route::post('message', [MessageController::class, 'store'])->name('message');

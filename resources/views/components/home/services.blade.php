@@ -10,7 +10,7 @@
                 </div>
                 <a href=""
                     class="link font-extrabold text-sm tracking-wider uppercase mb-7 hover:text-green-800 inline-block">
-                    <span class="pr-7 [&>p]:mb-0 [&>p]:inline">
+                    <span class="pr-7 [&>*]:mb-0 [&>*]:inline">
                         {!! $home->services_link_text !!}
                     </span>
                     <i class="fa-solid fa-arrow-right"></i>

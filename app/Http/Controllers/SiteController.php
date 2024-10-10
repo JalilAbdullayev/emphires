@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\About;
 use Illuminate\View\View;
 use App\Models\HomeSection;
-use App\Models\Whyus;
-use Illuminate\Http\Request;
+use Illuminate\Http\RedirectResponse;
 
 class SiteController extends Controller
 {
@@ -18,5 +18,20 @@ class SiteController extends Controller
         ];
         $home = HomeSection::first();
         return view('index', compact('langs', 'home', ));
+    }
+
+    public function about(): View|RedirectResponse
+    {
+        $langs = [
+            ['code' => 'en', 'url' => '/about'],
+            ['code' => 'az', 'url' => '/az/haqqimizda'],
+            ['code' => 'ru', 'url' => '/ru/o-nas']
+        ];
+        $about = About::first();
+        if ($about->status) {
+            return view('about', compact('about', 'langs'));
+        } else {
+            return redirect()->back();
+        }
     }
 }

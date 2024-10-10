@@ -13,7 +13,7 @@
                     {!! $home->testimonials_text !!}
                 </div>
                 <a href="" class="uppercase link hover:text-white px-7 font-extrabold text-xs tracking-wider">
-                    <span class="mr-5 [&>p]:mb-0 [&>p]:inline">
+                    <span class="mr-5 [&>*]:mb-0 [&>*]:inline">
                         {!! $home->testimonials_link_text !!}
                     </span>
                     <i class="fa-solid fa-arrow-right"></i>

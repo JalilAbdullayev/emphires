@@ -1,18 +1,18 @@
 <section class="section text-center container">
     <div class="mb-14">
         <h4 class="subtitle">
-            {!! $home->qualities_subtitle !!}
+            {!! $subtitle !!}
         </h4>
         <div class="text-6xxl">
-            {!! $home->qualities_title !!}
+            {!! $title !!}
         </div>
         <div class="text-lg leading-relaxed mx-auto max-w-[800px]">
-            {!! $home->qualities_text !!}
+            {!! $text !!}
         </div>
     </div>
     <div id="approach-qualities" class="col-xl-3 grid-cols-2 items-center">
         @foreach ($qualities as $quality)
-            <div class="${index === 2 ? 'max-xl:col-span-full' : ''}">
+            <div @class(['max-xl:col-span-full' => $loop->index === 2])>
                 <div class="mb-9 relative w-fit mx-auto">
                     <div
                         class="bg-white size-36 shadow-[0_0_24px_0_rgba(26,47,106,0.13)] leading-[110px] rounded-md mx-auto">

@@ -1,5 +1,10 @@
 import "./bootstrap";
 
+const clientSlider = document.querySelector(".clients-glide");
+const heroSlider = document.querySelector(".hero-glide");
+const testimonialSlider = document.querySelector(".testimonial-glide");
+const aboutTestimonialSlider = document.querySelector(".about-testimonial");
+
 document.addEventListener("DOMContentLoaded", () => {
     const searchBtn = document.querySelector("#search-button");
     const searchMdl = document.querySelector("#search-modal");
@@ -53,19 +58,27 @@ document.addEventListener("DOMContentLoaded", () => {
             .querySelectorAll("a")
             .forEach((el) => el.classList.remove("text-white"));
     }
+});
 
+if (clientSlider) {
     new Glide(".clients-glide", {
         perView: 5,
         gap: 60,
     }).mount();
+}
 
+if (heroSlider) {
     new Glide(".hero-glide").mount();
+}
 
+if (testimonialSlider) {
     new Glide(".testimonial-glide", {
         gap: 30,
     }).mount();
-});
+}
 
-/* new Glide(".about-testimonial", {
-    gap: 30,
-}).mount(); */
+if (aboutTestimonialSlider) {
+    new Glide(".about-testimonial", {
+        gap: 30,
+    }).mount();
+}

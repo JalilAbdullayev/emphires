@@ -4,12 +4,12 @@
         <div class="bg-white size-16 rounded-full text-center">
             <i class="fa-regular fa-calendar-days text-dark text-[32px] leading-[70px] font-medium"></i>
         </div>
-        <h3 class="text-2xl font-bold text-white col-span-2">
-            Call adviser for Emphires HR outsourcing service business
-        </h3>
+        <div class="text-2xl font-bold text-white col-span-2">
+            {!! $contact->banner_text !!}
+        </div>
         <a href=""
-            class="uppercase text-white py-4 px-11 border-2 border-white rounded-md hover:bg-white hover:text-[#0C121D] font-extrabold font-nunito-sans tracking-wider md:w-fit">
-            BOOK A CONSULTANT
+            class="uppercase text-white py-4 px-11 border-2 border-white rounded-md hover:bg-white hover:text-[#0C121D] font-extrabold font-nunito-sans tracking-wider md:w-fit [&>*]:mb-0 [&>*]:inline]">
+            {!! $contact->banner_button !!}
         </a>
     </div>
 </section>

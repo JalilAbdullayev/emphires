@@ -78,10 +78,6 @@ a {
     @apply bg-[#0C121D];
 }
 
-.text-primary {
-    @apply text-green-800;
-}
-
 .text-secondary {
     @apply text-[#6D7A8C];
 }
@@ -314,7 +310,7 @@ a {
         }
 
         span {
-            @apply block text-sm font-bold text-primary leading-[17px] mt-[5px];
+            @apply block text-sm font-bold text-green-800 leading-[17px] mt-[5px];
         }
     }
 }

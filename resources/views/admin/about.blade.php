@@ -261,7 +261,7 @@
                 </div>
                 <div class="mb-3">
                     <label for="specialties_bg" class="form-label text-white-50">
-                        {{ __('Specialties background') }}
+                        {{ __('Specialties Background') }}
                     </label>
                     <input type="file" name="specialties_bg" id="specialties_bg" class="dropify"
                         data-show-remove="false" accept="image/*"
@@ -269,7 +269,7 @@
                 </div>
                 <div class="mb-3">
                     <label for="banner_bg" class="form-label text-white-50">
-                        {{ __('Banner background') }}
+                        {{ __('Banner Background') }}
                     </label>
                     <input type="file" name="banner_bg" id="banner_bg" class="dropify" data-show-remove="false"
                         accept="image/*" data-default-file="{{ asset('storage/about/' . $about->banner_bg) }}" />

@@ -33,18 +33,25 @@
 </head>
 
 <body>
-    <header class="absolute top-0 left-0 right-0 z-50 text-white">
+    <header @class([
+        'bg-white text-dark',
+        'absolute top-0 left-0 right-0 z-50 text-white bg-transparent' => Route::is(
+            'home'),
+    ])>
         <nav
             class="flex justify-between text-sm font-semibold leading-[50px] px-9 border-b border-[#ffffff21] max-xl:hidden">
             <div class="flex">
                 <div class="flex items-center border-x border-[#ffffff21] px-4">
                     <a href="mailto:{{ $contact->email }}" @class(['text-white' => Route::is('home')])>
-                        <i class="fa-solid fa-envelope-open-text text-primary mr-3"></i> Email Address :
+                        <i class="fa-solid fa-envelope-open-text text-green-800 mr-3"></i> Email Address :
                         {{ $contact->email }}
                     </a>
                 </div>
-                <div class="flex items-center border-e border-[#ffffff21] px-4 [&>p]:mb-0">
-                    <i class="fa-solid fa-map-location-dot mr-3 text-primary"></i> <span class="mr-3">Office Address
+                <div @class([
+                    'flex items-center border-e border-[#ffffff21] px-4 [&>*]:mb-0',
+                    'text-white' => Route::is('home'),
+                ])>
+                    <i class="fa-solid fa-map-location-dot mr-3 text-green-800"></i> <span class="mr-3">Office Address
                         :</span> {!! $contact->address !!}
                 </div>
             </div>
@@ -53,21 +60,14 @@
                     'border-x border-[#ffffff21] px-4 flex gap-8 [&>a]:duration-500',
                     '[&>a]:text-white' => Route::is('home'),
                 ])>
-                    <a href="" target="_blank" class="mx-1 hover:text-green-800">
-                        <i class="fa-brands fa-square-facebook"></i>
-                    </a>
-                    <a href="" target="_blank" class="mx-1 hover:text-green-800">
-                        <i class="fa-brands fa-x-twitter"></i>
-                    </a>
-                    <a href="" target="_blank" class="mx-1 hover:text-green-800">
-                        <i class="fa-brands fa-instagram"></i>
-                    </a>
-                    <a href="" target="_blank" class="mx-1 hover:text-green-800">
-                        <i class="fa-brands fa-youtube"></i>
-                    </a>
+                    @foreach ($socials as $social)
+                        <a href="{{ $social->url }}" target="_blank" class="mx-1 hover:text-green-800">
+                            {!! $social->icon !!}
+                        </a>
+                    @endforeach
                 </div>
                 <div>
-                    <button class="mx-4" id="search-button">
+                    <button @class(['mx-4', 'text-white' => Route::is('home')]) id="search-button">
                         <i class="fa-solid fa-magnifying-glass"></i>
                     </button>
                 </div>
@@ -80,10 +80,13 @@
             </a>
             <div
                 class="flex gap-8 font-extrabold [&>a:hover]:text-green-800 [&>a:hover]:duration-500 max-xl:opacity-0 max-xl:hidden">
-                <a href="/" @class(['text-white', 'text-primary' => Route::is('home')])">
+                <a href="/" @class(['text-white', 'text-green-800' => Route::is('home')])">
                     Home
                 </a>
-                <a href="/about.html" @class(['text-white'])>
+                <a href="{{ route('about_' . session('locale')) }}" @class([
+                    'text-white',
+                    'text-green-800' => Route::is('about_' . session('locale')),
+                ])>
                     About Us
                 </a>
                 <a href="" @class(['text-white'])>
@@ -102,10 +105,10 @@
             <div class="flex justify-between gap-3 max-xl:hidden">
                 <i class="fa-regular fa-comments text-5xl text-green-800"></i>
                 <div>
-                    <div class="mb-1">
+                    <div @class(['mb-1', 'text-white' => Route::is('home')])>
                         Have any Questions?
                     </div>
-                    <a href="tel:{{ preg_replace('/\s+/', '', $contact->phone) }}" class="mb-1 text-white">
+                    <a href="tel:{{ preg_replace('/[\s\(\)\-]+/', '', $contact->phone) }}" class="mb-1 text-white">
                         {{ $contact->phone }}
                     </a>
                 </div>
@@ -118,12 +121,12 @@
                 <ul
                     class="[&>li]:text-[#0C121D] [&>li]:py-2.5 [&>li]:px-4 [&>li]:border-b border-[#09162a26] [&>li]:font-extrabold duration-500">
                     <li>
-                        <a href="/" @class(['text-primary' => Route::is('home')])>
+                        <a href="/" @class(['text-green-800' => Route::is('home')])>
                             Home
                         </a>
                     </li>
                     <li>
-                        <a href="/about.html">
+                        <a href="{{ route('about_' . session('locale')) }}" @class(['text-green-800' => Route::is('about_' . session('locale'))])>
                             About Us
                         </a>
                     </li>
@@ -169,7 +172,7 @@
                                 {{ $contact->phone }}
                             </a>
                         </h5>
-                        <i class="fa-solid fa-phone-volume text-5xl text-primary"></i>
+                        <i class="fa-solid fa-phone-volume text-5xl text-green-800"></i>
                     </div>
                 </div>
                 <div class="mx-3.5">
@@ -200,7 +203,7 @@
                                     <a href="" class="font-bold hover:text-green-800">
                                         {{ $article->title }}
                                     </a>
-                                    <div class="text-primary">
+                                    <div class="text-green-800">
                                         {{ Carbon\Carbon::parse($article->date)->format('j F Y') }}
                                     </div>
                                 </div>
@@ -238,7 +241,7 @@
             <section
                 class="bg-white flex justify-between items-center py-7 pr-4 pl-6 rounded-lg shadow-[0_9px_30px_0_rgba(26,47,106,0.07)] relative">
                 <p class="text-sm leading-relaxed text-dark">
-                    Copyright © 2022 <a href="/" class="text-primary">{{ $settings->title }}</a> All Rights
+                    Copyright © 2022 <a href="/" class="text-green-800">{{ $settings->title }}</a> All Rights
                     Reserved.
                 </p>
                 <a href="#"

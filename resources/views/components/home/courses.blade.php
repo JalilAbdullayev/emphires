@@ -23,10 +23,10 @@
                 <div class="p-8">
                     <div class="mb-4 text-sm tracking-[0.5px] font-semibold">
                         <a href="" title="Posted by admin" class="hover:text-green-800">
-                            <i class="fa-regular fa-user text-primary"></i> {{ $course->author->name }}
+                            <i class="fa-regular fa-user text-green-800"></i> {{ $course->author->name }}
                         </a>
                         <a href="" class="hover:text-green-800 ml-2.5">
-                            <i class="fa-regular fa-folder-open text-primary"></i> {{ $course->category->title }}
+                            <i class="fa-regular fa-folder-open text-green-800"></i> {{ $course->category->title }}
                         </a>
                     </div>
                     <h3 class="duration-500 hover:text-green-800 text-[22px] leading-7 mb-4">

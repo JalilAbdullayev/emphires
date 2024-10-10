@@ -17,7 +17,7 @@
                     <svg class="size-full -rotate-90" viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg">
                         <circle cx="18" cy="18" r="16" fill="none"
                             class="stroke-current text-[#B5E6F9]" stroke-width="2"></circle>
-                        <circle cx="18" cy="18" r="16" fill="none" class="stroke-current text-primary"
+                        <circle cx="18" cy="18" r="16" fill="none" class="stroke-current text-green-800"
                             stroke-width="2" stroke-dasharray="100"
                             stroke-dashoffset="{{ 100 - $home->who_us_percent }}" stroke-linecap="round">
                         </circle>
@@ -41,7 +41,7 @@
             </p>
             @foreach ($advantages as $advantage)
                 <div class="xl:mt-12 xl:mb-7 col-xl-5 grid-cols-8">
-                    <i class="fa-regular fa-handshake text-primary text-[68px] leading-[68px]"></i>
+                    <i class="fa-regular fa-handshake text-green-800 text-[68px] leading-[68px]"></i>
                     <div class="xl:col-span-4 col-span-7">
                         <h2 class="text-lg leading-5">
                             {!! $advantage->title !!}

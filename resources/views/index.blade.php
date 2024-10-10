@@ -15,17 +15,19 @@
     @if ($home->video)
         <x-home.video :home="$home" />
     @endif
-    <section class="max-xl:container">
-        <div class="flex max-xl:flex-col">
-            @if ($home->contact_form)
-                <x-home.contact-form :home="$home" />
-            @endif
-            @if ($home->skills)
-                <x-home.skills :home="$home" />
-            @endif
-        </div>
-    </section>
-    <x-home.qualities :home="$home" />
+    @if ($home->contact_form || $home->skills)
+        <section class="max-xl:container">
+            <div class="flex max-xl:flex-col">
+                @if ($home->contact_form)
+                    <x-home.contact-form :home="$home" />
+                @endif
+                @if ($home->skills)
+                    <x-home.skills :home="$home" />
+                @endif
+            </div>
+        </section>
+    @endif
+    <x-qualities :title="$home->qualities_title" :subtitle="$home->qualities_subtitle" :text="$home->qualities_text" />
     @if ($home->testimonials)
         <x-home.testimonials :home="$home" />
     @endif
