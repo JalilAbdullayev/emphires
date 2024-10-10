@@ -79,7 +79,7 @@ a {
 }
 
 .text-primary {
-    @apply text-[#0AADEB];
+    @apply text-green-800;
 }
 
 .text-secondary {
@@ -87,7 +87,7 @@ a {
 }
 
 .bg-primary {
-    @apply bg-[#0AADEB];
+    @apply bg-green-800;
 }
 
 .text-6xxl {
@@ -107,7 +107,7 @@ a {
 }
 
 .selected-primary {
-    @apply text-[#0AADEB] not-italic;
+    @apply text-green-800 not-italic;
 }
 
 .selected-dark {
@@ -170,7 +170,7 @@ a {
     @apply mb-9 text-lg border-b border-[#0000001a] pb-2.5 leading-7 uppercase font-extrabold tracking-wide text-dark relative;
 
     &::after {
-        @apply content-[''] absolute w-12 h-0.5 -bottom-0.5 left-0 z-10 bg-[#0AADEB];
+        @apply content-[''] absolute w-12 h-0.5 -bottom-0.5 left-0 z-10 bg-green-800;
     }
 }
 
@@ -178,7 +178,7 @@ a {
     @apply size-12 border-2 border-[#0C121D] leading-[48px] inline-block rounded-md text-center duration-500;
 
     &:hover {
-        @apply text-white bg-[#0AADEB] border-[#0AADEB];
+        @apply text-white bg-green-800 border-green-800;
     }
 }
 
@@ -193,7 +193,7 @@ a {
         }
 
         .contact-card-icon {
-            @apply bg-[#0AADEB] rounded-full size-16 text-center;
+            @apply bg-green-800 rounded-full size-16 text-center;
 
             i {
                 @apply text-3xl leading-[65px] text-white;
@@ -206,7 +206,7 @@ a {
     @apply pt-4 flex;
 
     li {
-        @apply mr-2 mb-2 text-white bg-[#0AADEB] text-center text-[22px] rounded-[5px] leading-[60px] size-[60px] duration-500;
+        @apply mr-2 mb-2 text-white bg-green-800 text-center text-[22px] rounded-[5px] leading-[60px] size-[60px] duration-500;
 
         a {
             @apply inline-block size-full text-white;
@@ -245,7 +245,7 @@ a {
         @apply pt-5 px-[30px] pb-[18px] bg-[#0C121D] text-white border-none outline-none text-[13px] font-extrabold leading-none tracking-[1px] rounded-[5px] duration-300 uppercase;
 
         &:hover {
-            @apply bg-[#0AADEB];
+            @apply bg-green-800;
         }
     }
 }
@@ -273,7 +273,7 @@ a {
         @apply size-10 text-center bg-white leading-10 text-[#1C325B] rounded-full text-[15px] duration-500 inline-block;
 
         &:hover {
-            @apply bg-[#0AADEB] text-white;
+            @apply bg-green-800 text-white;
         }
     }
 }
@@ -323,7 +323,7 @@ a {
     @apply text-[22px] leading-[26px] font-extrabold text-[#101010] py-[15px] mb-[30px] border-b border-[#EEEEEE] relative;
 
     &:after {
-        @apply content-[''] absolute w-[50px] h-[3px] left-0 -bottom-0.5 bg-[#0AADEB];
+        @apply content-[''] absolute w-[50px] h-[3px] left-0 -bottom-0.5 bg-green-800;
     }
 }
 
@@ -334,14 +334,14 @@ a {
         @apply mr-5 capitalize;
 
         i {
-            @apply text-[#0AADEB] mr-0.5;
+            @apply text-green-800 mr-0.5;
         }
 
         a {
             @apply text-[#0C121D] duration-500;
 
             &:hover {
-                @apply text-[#0AADEB];
+                @apply text-green-800;
             }
         }
     }
@@ -367,7 +367,7 @@ a {
         @apply bg-white pt-2.5 pb-2 pl-5 block font-bold text-base -tracking-[0.5px] text-dark duration-500;
 
         &:hover {
-            @apply text-[#0AADEB];
+            @apply text-green-800;
         }
     }
 
@@ -381,7 +381,7 @@ a {
     @apply inline-block text-sm mb-2 mx-0.5 font-bold bg-white border rounded px-[18px] h-[42px] leading-[42px] border-[#EEEEEE] shadow-[0_9px_10px_0_rgba(26,47,106,0.07)] text-[#0C121D] -tracking-[0.5px] duration-500;
 
     &:hover {
-        @apply bg-[#0AADEB] border-[#0AADEB] text-white;
+        @apply bg-green-800 border-green-800 text-white;
     }
 }
 
@@ -415,7 +415,7 @@ a {
         @apply py-[18px] pr-[45px] pl-10 text-[13px] font-extrabold tracking-[1px] rounded-[5px] bg-[#0C121D] text-white border-0 duration-300 outline-0 text-center;
 
         &:hover {
-            @apply bg-[#0AADEB];
+            @apply bg-green-800;
         }
     }
 }
@@ -424,7 +424,7 @@ a {
     @apply mb-[30px] bg-white shadow-[0_0_30px_0_rgba(0,0,0,0.1)];
 
     div {
-        @apply rounded-md bg-[#0AADEB];
+        @apply rounded-md bg-green-800;
 
         li {
             @apply border-b border-[#ffffff40];

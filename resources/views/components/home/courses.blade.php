@@ -22,14 +22,14 @@
                 </div>
                 <div class="p-8">
                     <div class="mb-4 text-sm tracking-[0.5px] font-semibold">
-                        <a href="" title="Posted by admin" class="hover:text-[#0AADEB]">
+                        <a href="" title="Posted by admin" class="hover:text-green-800">
                             <i class="fa-regular fa-user text-primary"></i> {{ $course->author->name }}
                         </a>
-                        <a href="" class="hover:text-[#0AADEB] ml-2.5">
+                        <a href="" class="hover:text-green-800 ml-2.5">
                             <i class="fa-regular fa-folder-open text-primary"></i> {{ $course->category->title }}
                         </a>
                     </div>
-                    <h3 class="duration-500 hover:text-[#0AADEB] text-[22px] leading-7 mb-4">
+                    <h3 class="duration-500 hover:text-green-800 text-[22px] leading-7 mb-4">
                         <a href="/article.html">
                             {{ $course->title }}
                         </a>
@@ -37,8 +37,8 @@
                     <p class="mb-4">
                         {{ $course->description }}
                     </p>
-                    <a href="/article.html" class="uppercase font-extrabold hover:text-[#0AADEB]">
-                        <span class="link pr-5 text-xs tracking-wider duration-500 hover:text-[#0AADEB]">READ
+                    <a href="/article.html" class="uppercase font-extrabold hover:text-green-800">
+                        <span class="link pr-5 text-xs tracking-wider duration-500 hover:text-green-800">READ
                             MORE</span> <i class="fa-solid fa-arrow-right text-sm"></i>
                     </a>
                 </div>

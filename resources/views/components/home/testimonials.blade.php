@@ -35,13 +35,13 @@
                                     <div>
                                         <div class="flex justify-between">
                                             <div>
-                                                <h3 class="text-[#0AADEB] text-lg font-bold inline">
+                                                <h3 class="text-green-800 text-lg font-bold inline">
                                                     {{ $testimonial->name }}
                                                 </h3> - <span>
                                                     {{ $testimonial->position }}
                                                 </span>
                                             </div>
-                                            <i class="fa-solid fa-quote-right text-6xl text-[#0AADEB]"></i>
+                                            <i class="fa-solid fa-quote-right text-6xl text-green-800"></i>
                                         </div>
                                     </div>
                                 </div>

@@ -53,16 +53,16 @@
                     'border-x border-[#ffffff21] px-4 flex gap-8 [&>a]:duration-500',
                     '[&>a]:text-white' => Route::is('home'),
                 ])>
-                    <a href="" target="_blank" class="mx-1 hover:text-[#0AADEB]">
+                    <a href="" target="_blank" class="mx-1 hover:text-green-800">
                         <i class="fa-brands fa-square-facebook"></i>
                     </a>
-                    <a href="" target="_blank" class="mx-1 hover:text-[#0AADEB]">
+                    <a href="" target="_blank" class="mx-1 hover:text-green-800">
                         <i class="fa-brands fa-x-twitter"></i>
                     </a>
-                    <a href="" target="_blank" class="mx-1 hover:text-[#0AADEB]">
+                    <a href="" target="_blank" class="mx-1 hover:text-green-800">
                         <i class="fa-brands fa-instagram"></i>
                     </a>
-                    <a href="" target="_blank" class="mx-1 hover:text-[#0AADEB]">
+                    <a href="" target="_blank" class="mx-1 hover:text-green-800">
                         <i class="fa-brands fa-youtube"></i>
                     </a>
                 </div>
@@ -79,7 +79,7 @@
                 <img src="{{ asset('storage/' . $settings->logo) }}" alt="" class="max-h-14" />
             </a>
             <div
-                class="flex gap-8 font-extrabold [&>a:hover]:text-[#0AADEB] [&>a:hover]:duration-500 max-xl:opacity-0 max-xl:hidden">
+                class="flex gap-8 font-extrabold [&>a:hover]:text-green-800 [&>a:hover]:duration-500 max-xl:opacity-0 max-xl:hidden">
                 <a href="/" @class(['text-white', 'text-primary' => Route::is('home')])">
                     Home
                 </a>
@@ -100,7 +100,7 @@
                 </a>
             </div>
             <div class="flex justify-between gap-3 max-xl:hidden">
-                <i class="fa-regular fa-comments text-5xl text-[#0AADEB]"></i>
+                <i class="fa-regular fa-comments text-5xl text-green-800"></i>
                 <div>
                     <div class="mb-1">
                         Have any Questions?
@@ -113,7 +113,7 @@
             <i class="fa-solid fa-bars xl:hidden text-4xl cursor-pointer" id="mobile-button"></i>
         </nav>
         <div class="relative">
-            <nav class="bg-white border-t-4 border-[#0AADEB] opacity-0 pointer-events-none transform translate-y-[32.3%] transition-all ease-in-out fixed top-0 z-50 w-full"
+            <nav class="bg-white border-t-4 border-green-800 opacity-0 pointer-events-none transform translate-y-[32.3%] transition-all ease-in-out fixed top-0 z-50 w-full"
                 id="mobile-nav">
                 <ul
                     class="[&>li]:text-[#0C121D] [&>li]:py-2.5 [&>li]:px-4 [&>li]:border-b border-[#09162a26] [&>li]:font-extrabold duration-500">
@@ -179,7 +179,7 @@
                     <ul class="[&>li]:mb-4 [&>li]:font-bold [&>li]:text-[#0C121D]">
                         @foreach ($allServices as $service)
                             <li>
-                                <a href="" class="hover:text-[#0AADEB]">
+                                <a href="" class="hover:text-green-800">
                                     <i class="fa-solid fa-chevron-right"></i> <span
                                         class="pl-2.5">{{ $service->title }}</span>
                                 </a>
@@ -197,7 +197,7 @@
                                 <img src="{{ asset('storage/blog/' . $article->image) }}" alt=""
                                     class="w-full" />
                                 <div class="col-span-2">
-                                    <a href="" class="font-bold hover:text-[#0AADEB]">
+                                    <a href="" class="font-bold hover:text-green-800">
                                         {{ $article->title }}
                                     </a>
                                     <div class="text-primary">
@@ -242,21 +242,21 @@
                     Reserved.
                 </p>
                 <a href="#"
-                    class="absolute left-1/2 -translate-x-1/2 -top-5 right-5 size-16 leading-[64px] text-[22px] text-center bg-dark text-white rounded-lg hover:bg-[#0AADEB] z-10">
+                    class="absolute left-1/2 -translate-x-1/2 -top-5 right-5 size-16 leading-[64px] text-[22px] text-center bg-dark text-white rounded-lg hover:bg-green-800 z-10">
                     <i class="fa-solid fa-arrow-up"></i>
                 </a>
                 <ul class="flex justify-between [&>li]:mx-2.5 [&>li]:text-sm">
-                    <li class="duration-500 hover:text-[#0AADEB]">
+                    <li class="duration-500 hover:text-green-800">
                         <a href="">
                             Privacy & Policy
                         </a>
                     </li>
-                    <li class="duration-500 hover:text-[#0AADEB]">
+                    <li class="duration-500 hover:text-green-800">
                         <a href="">
                             Conditions
                         </a>
                     </li>
-                    <li class="duration-500 hover:text-[#0AADEB]">
+                    <li class="duration-500 hover:text-green-800">
                         <a href="">
                             Refund Policy
                         </a>

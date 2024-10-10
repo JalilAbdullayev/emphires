@@ -53,7 +53,7 @@
                 </div>
             @endforeach
             <div class="mt-2.5">
-                {!! $home->who_us_foot !!} <a href="" class="link hover:text-[#0AADEB]">
+                {!! $home->who_us_foot !!} <a href="" class="link hover:text-green-800]">
                     {!! $home->who_us_foot_link_text !!}
                 </a>
             </div>
