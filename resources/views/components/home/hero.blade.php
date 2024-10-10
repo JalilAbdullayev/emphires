@@ -17,14 +17,14 @@
                                 class="font-['Nunito'] leading-6 font-extrabold border-2 border-white py-4 px-12 rounded-md uppercase text-sm hover:bg-green-800 duration-500 hover:border-green-800 text-white [&>*]:mb-0">
                                 {!! $slide->button_text !!}
                             </a>
-                            <div class="flex items-center my-auto">
+                            {{-- <div class="flex items-center my-auto">
                                 <a href="">
                                     <img src="{{ asset('front/images/n-play-button.png') }}" alt="" />
                                 </a>
                                 <span class="font-['Poppins'] tracking-wider font-semibold leading-6">
                                     How We Work
                                 </span>
-                            </div>
+                            </div> --}}
                         </div>
                     </div>
                 </div>
@@ -32,8 +32,3 @@
         </div>
     </div>
 </section>
-@section('js')
-    <script>
-        new Swiper(".hero-swiper");
-    </script>
-@endsection

@@ -95,13 +95,13 @@
                         </div>
                     @endforeach
                 </div>
-                <div class="mb-3">
+                {{-- <div class="mb-3">
                     <label class="form-label text-white-50" for="video_link">
                         @lang('Video link')
                     </label>
                     <input type="url" class="form-control" placeholder="@lang('Video link')" id="video_link"
                         name="video_link" />
-                </div>
+                </div> --}}
                 <div class="form-check form-switch mb-3">
                     <input type="checkbox" class="form-check-input" name="status" id="status" value="1" />
                     <label class="form-check-label text-white-50" for="status">
