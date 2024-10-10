@@ -146,6 +146,13 @@
                                         <textarea class="form-control ckeditor" placeholder="{{ __('Testimonials Subtitle') }}" id="testimonials_subtitle"
                                             name="testimonials_subtitle_{{ $language }}">{!! $home->getTranslation('testimonials_subtitle', $language) !!}</textarea>
                                     </div>
+                                    <div class="mb-3">
+                                        <label class="form-label text-white" for="testimonials_text">
+                                            {{ __('Testimonials text') }}
+                                        </label>
+                                        <textarea class="form-control ckeditor" placeholder="{{ __('Testimonials text') }}" id="testimonials_text"
+                                            name="testimonials_text_{{ $language }}">{!! $home->getTranslation('testimonials_text', $language) !!}</textarea>
+                                    </div>
                                 </div>
                                 <div class="col-6">
                                     <div class="mb-3">

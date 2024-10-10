@@ -104,13 +104,6 @@
                         </div>
                     @endforeach
                 </div>
-                <div class="form-floating my-3">
-                    <input class="form-control" name="icon" id="icon" placeholder="{{ __('Icon') }}"
-                        type="text" required maxlength="255" value="{{ $service->icon }}" />
-                    <label class="form-label text-white-50" for="icon">
-                        {{ __('Icon') }}
-                    </label>
-                </div>
                 <div class="form-check form-switch mb-3">
                     <input type="checkbox" class="form-check-input" name="status" id="status" value="1"
                         @checked($service->status) />

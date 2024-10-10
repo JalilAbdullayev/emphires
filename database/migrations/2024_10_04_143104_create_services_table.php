@@ -8,8 +8,9 @@ return new class extends Migration {
     /**
      * Run the migrations.
      */
-    public function up(): void {
-        Schema::create('services', function(Blueprint $table) {
+    public function up(): void
+    {
+        Schema::create('services', function (Blueprint $table) {
             $table->id();
             $table->foreignId('category_id')->constrained('categories');
             $table->json('title')->nullable();
@@ -18,7 +19,6 @@ return new class extends Migration {
             $table->json('text')->nullable();
             $table->json('keywords')->nullable();
             $table->string('image')->nullable();
-            $table->string('icon')->nullable();
             $table->string('background')->nullable();
             $table->boolean('bg_status')->default(1);
             $table->boolean('status')->default(1);
@@ -31,7 +31,8 @@ return new class extends Migration {
     /**
      * Reverse the migrations.
      */
-    public function down(): void {
+    public function down(): void
+    {
         Schema::dropIfExists('services');
     }
 };

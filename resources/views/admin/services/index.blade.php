@@ -47,10 +47,6 @@
                         {{ __('Status') }}
                     </th>
                     <th>
-                        {{ __('Icon') }}
-                    </th>
-                    </th>
-                    <th>
                         {{ __('Image') }}
                     </th>
                     <th>
@@ -68,9 +64,6 @@
                             <div class="form-check form-switch">
                                 <input type="checkbox" @checked($service->status) class="form-check-input" />
                             </div>
-                        </td>
-                        <td>
-                            {!! $service->icon !!}
                         </td>
                         <td>
                             <img src="{{ asset('storage/services/' . $service->image) }}" alt="" class="w-25" />

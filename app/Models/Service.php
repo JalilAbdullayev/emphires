@@ -7,7 +7,8 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Spatie\Translatable\HasTranslations;
 
-class Service extends Model {
+class Service extends Model
+{
     use HasTranslations, SoftDeletes;
 
     protected $fillable = [
@@ -18,7 +19,6 @@ class Service extends Model {
         'text',
         'keywords',
         'image',
-        'icon',
         'status',
         'background',
         'bg_status',
@@ -27,7 +27,8 @@ class Service extends Model {
 
     protected array $translatable = ['title', 'slug', 'description', 'text', 'keywords'];
 
-    public function category(): BelongsTo {
+    public function category(): BelongsTo
+    {
         return $this->belongsTo(Category::class);
     }
 }

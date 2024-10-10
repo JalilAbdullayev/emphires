@@ -91,7 +91,6 @@ class ServiceController extends Controller
         $this->setTranslated($service, 'text');
         $this->setTranslated($service, 'keywords');
         $this->setSlug($service);
-        $service->icon = $request->icon;
         $this->singleImg($request, 'image', 'services', $service);
         $this->singleImg($request, 'background', 'services', $service);
         $service->status = $request->status ? 1 : 0;
