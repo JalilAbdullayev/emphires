@@ -1,8 +1,441 @@
-// Fonts
-@import url('https://fonts.bunny.net/css?family=Nunito');
+@import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap");
+@import url("https://fonts.cdnfonts.com/css/muli");
+@import url("https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 
-// Variables
-@import 'variables';
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-// Bootstrap
-@import 'bootstrap/scss/bootstrap';
+html {
+    @apply scroll-smooth;
+}
+
+body {
+    font-family: "Muli", sans-serif;
+    @apply text-[#6D7A8C] leading-7 max-w-full;
+}
+
+header,
+blockquote,
+input[type="submit"] {
+    font-family: "Nunito", sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: "Nunito", sans-serif;
+    @apply font-extrabold text-[#0C121D] text-3xl leading-10 mb-2;
+}
+
+h5 {
+    @apply text-[20px] leading-[30px] tracking-normal;
+}
+
+p {
+    @apply mb-5;
+}
+
+img {
+    @apply align-middle;
+}
+
+button,
+input,
+optgroup,
+select,
+textarea {
+    font: inherit;
+    line-height: inherit;
+    @apply m-0;
+}
+
+a {
+    @apply duration-500 text-[#0C121D];
+}
+
+.sticky-header {
+    @apply fixed top-0 bg-white w-full text-black z-50 shadow-[0_13px_25px_-12px_rgba(0,0,0,0.25)] h-24;
+}
+
+.service:hover .bottom-link {
+    @apply bg-[#0C121D];
+}
+
+.link {
+    @apply text-[#0C121D] underline underline-offset-4 duration-500;
+}
+
+.text-dark {
+    @apply text-[#0C121D];
+}
+
+.bg-dark {
+    @apply bg-[#0C121D];
+}
+
+.text-primary {
+    @apply text-[#0AADEB];
+}
+
+.text-secondary {
+    @apply text-[#6D7A8C];
+}
+
+.bg-primary {
+    @apply bg-[#0AADEB];
+}
+
+.text-6xxl {
+    @apply text-[42px] leading-[48px] mb-[15px];
+}
+
+.leading-14 {
+    @apply leading-[56px];
+}
+
+.section {
+    @apply pt-[100px] pb-20;
+}
+
+.subtitle {
+    @apply uppercase text-sm font-bold tracking-[3px] text-[#B0B6BF] mb-2.5 leading-5;
+}
+
+.selected-primary {
+    @apply text-[#0AADEB] not-italic;
+}
+
+.selected-dark {
+    @apply text-[#0C121D] not-italic;
+}
+
+.font-nunito-sans {
+    font-family: Nunito, sans-serif;
+}
+
+.col-2 {
+    @apply grid grid-cols-2;
+}
+
+.col-lg-2 {
+    @apply grid lg:grid-cols-2;
+}
+
+.col-md-2 {
+    @apply grid md:grid-cols-2;
+}
+
+.col-xl-2 {
+    @apply grid xl:grid-cols-2;
+}
+
+.col-3 {
+    @apply grid grid-cols-3;
+}
+
+.col-md-3 {
+    @apply grid md:grid-cols-3;
+}
+
+.col-lg-3 {
+    @apply grid lg:grid-cols-3;
+}
+
+.col-xl-3 {
+    @apply grid xl:grid-cols-3;
+}
+
+.col-4 {
+    @apply grid grid-cols-4;
+}
+
+.col-lg-4 {
+    @apply grid lg:grid-cols-4;
+}
+
+.col-xl-5 {
+    @apply grid xl:grid-cols-5;
+}
+
+.img-fluid {
+    @apply max-w-full h-auto;
+}
+
+.footer-header {
+    @apply mb-9 text-lg border-b border-[#0000001a] pb-2.5 leading-7 uppercase font-extrabold tracking-wide text-dark relative;
+
+    &::after {
+        @apply content-[''] absolute w-12 h-0.5 -bottom-0.5 left-0 z-10 bg-[#0AADEB];
+    }
+}
+
+.footer-social {
+    @apply size-12 border-2 border-[#0C121D] leading-[48px] inline-block rounded-md text-center duration-500;
+
+    &:hover {
+        @apply text-white bg-[#0AADEB] border-[#0AADEB];
+    }
+}
+
+.contact-cards {
+    @apply pt-24 pb-12 container col-lg-3 lg:gap-7 gap-1;
+
+    & > div {
+        @apply mb-5 border border-[#DCE5E7] rounded-md lg:px-[15px] px-[25px] lg:pt-[70px] lg:pb-[60px] py-[30px] shadow-[0_9px_24px_0_rgba(26,47,106,0.05)] flex gap-6;
+
+        h2 {
+            @apply text-lg leading-5 mb-[5px];
+        }
+
+        .contact-card-icon {
+            @apply bg-[#0AADEB] rounded-full size-16 text-center;
+
+            i {
+                @apply text-3xl leading-[65px] text-white;
+            }
+        }
+    }
+}
+
+.contact-social {
+    @apply pt-4 flex;
+
+    li {
+        @apply mr-2 mb-2 text-white bg-[#0AADEB] text-center text-[22px] rounded-[5px] leading-[60px] size-[60px] duration-500;
+
+        a {
+            @apply inline-block size-full text-white;
+        }
+
+        &:hover {
+            @apply bg-[#0C121D];
+        }
+    }
+}
+
+.contact-form {
+    div {
+        @apply grid grid-cols-2 gap-7 mb-4;
+
+        input {
+            @apply px-[15px] h-[55px];
+        }
+    }
+
+    input,
+    textarea {
+        @apply border border-[#DCE5E7] text-sm bg-white text-[#888888] rounded-[5px] shadow-[0_9px_24px_0_rgba(26,47,106,0.05)] outline-none duration-500;
+
+        &:focus {
+            @apply shadow-none;
+        }
+    }
+
+    textarea {
+        @apply h-[100px] p-[15px] w-full mb-4;
+    }
+
+    button {
+        font-family: Nunito, sans-serif;
+        @apply pt-5 px-[30px] pb-[18px] bg-[#0C121D] text-white border-none outline-none text-[13px] font-extrabold leading-none tracking-[1px] rounded-[5px] duration-300 uppercase;
+
+        &:hover {
+            @apply bg-[#0AADEB];
+        }
+    }
+}
+
+.specialties {
+    @apply grid md:grid-cols-2 gap-7;
+
+    div {
+        @apply text-center my-5;
+
+        h4 {
+            @apply leading-[58px] text-5xl text-white;
+        }
+
+        h3 {
+            @apply text-sm leading-6 tracking-[1.5px] font-medium text-white;
+        }
+    }
+}
+
+.about-social li {
+    @apply pb-[5px];
+
+    a {
+        @apply size-10 text-center bg-white leading-10 text-[#1C325B] rounded-full text-[15px] duration-500 inline-block;
+
+        &:hover {
+            @apply bg-[#0AADEB] text-white;
+        }
+    }
+}
+
+.plus-icon:hover .social-icons {
+    @apply visible opacity-100 left-0;
+}
+
+.about-img {
+    @apply w-[92%] h-auto relative inline-block rounded-lg;
+
+    img {
+        @apply rounded-lg shadow-[0_9px_24px_0_rgba(26,47,106,0.05%)] w-full max-w-full h-auto align-middle;
+    }
+
+    &:before {
+        @apply content-[''] size-[290px] absolute -top-[45px] -left-[45px] rounded-[10px] bg-[url('../../public/front/images/bg-17.png')] bg-repeat bg-[0_0] -z-[1];
+    }
+
+    &:after {
+        @apply content-[''] size-[110px] absolute -right-[35px] -bottom-[35px] bg-[#0C121D] rounded-full -z-[1];
+    }
+}
+
+.article-posts {
+    @apply mb-[30px] rounded-[5px] bg-white;
+
+    ul li {
+        @apply mb-2.5 flex items-center w-full pb-[15px];
+
+        img {
+            @apply max-w-full h-auto;
+        }
+
+        a {
+            font-family: Nunito, sans-serif;
+            @apply text-base font-semibold;
+        }
+
+        span {
+            @apply block text-sm font-bold text-primary leading-[17px] mt-[5px];
+        }
+    }
+}
+
+.aside-title {
+    @apply text-[22px] leading-[26px] font-extrabold text-[#101010] py-[15px] mb-[30px] border-b border-[#EEEEEE] relative;
+
+    &:after {
+        @apply content-[''] absolute w-[50px] h-[3px] left-0 -bottom-0.5 bg-[#0AADEB];
+    }
+}
+
+.article-meta {
+    @apply text-sm mt-2.5 mb-5 pb-5 border-b border-dashed border-[#D4D2D2];
+
+    span {
+        @apply mr-5 capitalize;
+
+        i {
+            @apply text-[#0AADEB] mr-0.5;
+        }
+
+        a {
+            @apply text-[#0C121D] duration-500;
+
+            &:hover {
+                @apply text-[#0AADEB];
+            }
+        }
+    }
+}
+
+.article-socials {
+    @apply self-end;
+
+    li {
+        @apply inline-block mr-2;
+
+        a {
+            @apply inline-block size-[45px] leading-[45px] text-white text-center text-base rounded-full;
+        }
+    }
+}
+
+.article-categories {
+    @apply mb-[30px] rounded-[5px] bg-white;
+
+    a {
+        font-family: Nunito, sans-serif;
+        @apply bg-white pt-2.5 pb-2 pl-5 block font-bold text-base -tracking-[0.5px] text-dark duration-500;
+
+        &:hover {
+            @apply text-[#0AADEB];
+        }
+    }
+
+    span {
+        @apply absolute right-0 bg-dark text-white text-center font-bold rounded-full size-[25px] leading-[25px] text-[13px] top-[9px];
+    }
+}
+
+.article-tags a {
+    font-family: Nunito, sans-serif;
+    @apply inline-block text-sm mb-2 mx-0.5 font-bold bg-white border rounded px-[18px] h-[42px] leading-[42px] border-[#EEEEEE] shadow-[0_9px_10px_0_rgba(26,47,106,0.07)] text-[#0C121D] -tracking-[0.5px] duration-500;
+
+    &:hover {
+        @apply bg-[#0AADEB] border-[#0AADEB] text-white;
+    }
+}
+
+.comment-form {
+    .input,
+    textarea {
+        @apply text-[#848484] px-[15px] bg-[#EFF2F7] shadow-[0_9px_24px_0_rgba(26,47,106,0.05)] duration-150;
+
+        &:hover,
+        &:focus,
+        &:active {
+            @apply shadow-none;
+        }
+
+        &::placeholder {
+            @apply text-[#6C757D];
+        }
+    }
+
+    .input {
+        @apply col-span-4 mx-3.5 mb-[15px] px-3.5 h-[50px] text-sm border border-[#EEEEEE] rounded-md;
+    }
+
+    textarea {
+        min-height: calc(1.5em + 0.75rem + 2px);
+        @apply col-span-12 h-[150px] text-base py-3 border-0 rounded-[5px] mb-[25px] outline-0;
+    }
+
+    button {
+        font-family: Nunito, sans-serif;
+        @apply py-[18px] pr-[45px] pl-10 text-[13px] font-extrabold tracking-[1px] rounded-[5px] bg-[#0C121D] text-white border-0 duration-300 outline-0 text-center;
+
+        &:hover {
+            @apply bg-[#0AADEB];
+        }
+    }
+}
+
+.service-categories {
+    @apply mb-[30px] bg-white shadow-[0_0_30px_0_rgba(0,0,0,0.1)];
+
+    div {
+        @apply rounded-md bg-[#0AADEB];
+
+        li {
+            @apply border-b border-[#ffffff40];
+
+            a {
+                @apply flex justify-between items-center text-white text-sm font-bold py-[15px] px-5 rounded-[5px];
+
+                span {
+                    @apply size-[25px] leading-[25px] text-center rounded-full text-black bg-white inline-block;
+                }
+            }
+        }
+    }
+}

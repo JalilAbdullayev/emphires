@@ -5,24 +5,25 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Request;
 use App\Http\Controllers\BlogController;
+use App\Http\Controllers\SiteController;
 use App\Http\Controllers\TeamController;
-use App\Http\Controllers\AboutController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\AboutController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\SkillController;
 use App\Http\Controllers\SlideController;
 use App\Http\Controllers\WhyusController;
 use App\Http\Controllers\ClientController;
+use App\Http\Controllers\CourseController;
+use App\Http\Controllers\SocialController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\MessageController;
+use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\QualityController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\CategoryController;
-use App\Http\Controllers\CourseController;
-use App\Http\Controllers\HomeSectionController;
-use App\Http\Controllers\MessageController;
-use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SettingsController;
-use App\Http\Controllers\SocialController;
+use App\Http\Controllers\HomeSectionController;
 use App\Http\Controllers\TestimonialController;
 
 Route::get('/', function () {
@@ -45,6 +46,12 @@ Route::group([
     'where' => ['locale' => '[a-zA-Z]{2}'],
     'middleware' => SetLocale::class
 ], function () {
+    Route::controller(SiteController::class)->group(function () {
+        Route::get('/', 'index')->name('home');
+    });
+
+    Route::post('message', [MessageController::class, 'store'])->name('message');
+
     Route::prefix('admin')->name('admin.')->middleware(['auth', 'verified'])->group(function () {
         Route::get('/', [AdminController::class, 'index'])->name('index');
         Route::controller(SettingsController::class)->name('settings')->group(function () {
@@ -434,5 +441,3 @@ Route::group([
 });
 
 Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
