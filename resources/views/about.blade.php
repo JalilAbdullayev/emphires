@@ -1,22 +1,24 @@
 @extends('layouts.master')
 @section('title', __('About'))
 @section('content')
-    <x-main-header :about="$about" :title="$about->title" :bg="asset('storage/about/' . $about->background)" />
+    @if ($about->bg_status)
+        <x-main-header :title="$about->title" :bg="asset('storage/about/' . $about->background)" />
+    @endif
     @if ($about->services_status)
         <x-qualities :title="$about->services_title" :subtitle="$about->services_subtitle" :text="$about->services_description" />
     @endif
     @if ($about->specialties_status)
-        <x-about.specialties :about="$about" />
-        <x-about.card :about="$about" />
+        <x-about.specialties />
+        <x-about.card />
     @endif
     @if ($about->team_status)
-        <x-about.team :about="$about" />
+        <x-about.team />
     @endif
     @if ($about->banner_status)
-        <x-about.banner :about="$about" />
+        <x-about.banner />
     @endif
     @if ($about->testimonials_status)
-        <x-about.testimonial :about="$about" />
+        <x-about.testimonial />
     @endif
     @if ($about->contact_banner_status)
         <x-contact-banner />

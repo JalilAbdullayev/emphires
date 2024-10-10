@@ -1,23 +1,19 @@
 <?php
 
-namespace App\View\Components;
+namespace App\View\Components\Contact;
 
 use Closure;
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
 
-class MainHeader extends Component
+class Form extends Component
 {
-    public $about;
-    public $title;
-    public $bg;
     /**
      * Create a new component instance.
      */
-    public function __construct($title, $bg)
+    public function __construct()
     {
-        $this->title = $title;
-        $this->bg = $bg;
+        //
     }
 
     /**
@@ -25,6 +21,6 @@ class MainHeader extends Component
      */
     public function render(): View|Closure|string
     {
-        return view('components.main-header');
+        return view('components.contact.form');
     }
 }

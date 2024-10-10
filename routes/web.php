@@ -54,6 +54,11 @@ Route::group([
             Route::get('haqqimizda', 'about')->name('az');
             Route::get('o-nas', 'about')->name('ru');
         });
+        Route::name('contact_')->group(function () {
+            Route::get('contact', 'contact')->name('en');
+            Route::get('elaqe', 'contact')->name('az');
+            Route::get('svyaz', 'contact')->name('ru');
+        });
     });
 
     Route::post('message', [MessageController::class, 'store'])->name('message');

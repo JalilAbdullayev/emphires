@@ -9,13 +9,12 @@ use Illuminate\Contracts\View\View;
 
 class Testimonial extends Component
 {
-    public $about;
     /**
      * Create a new component instance.
      */
-    public function __construct($about)
+    public function __construct()
     {
-        $this->about = $about;
+        //
     }
 
     /**

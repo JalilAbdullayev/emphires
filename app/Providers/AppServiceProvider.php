@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Models\About;
 use App\Models\Blog;
 use App\Models\Contact;
 use App\Models\Service;
@@ -29,10 +30,12 @@ class AppServiceProvider extends ServiceProvider
         $socials = Social::whereStatus(1)->orderBy('order')->get();
         $allServices = Service::whereStatus(1)->orderBy('order')->get();
         $blog = Blog::whereStatus(1)->orderBy('order')->get();
+        $about = About::first();
         view()->share('settings', $settings);
         view()->share('contact', $contact);
         view()->share('socials', $socials);
         view()->share('allServices', $allServices);
         view()->share('blog', $blog);
+        view()->share('about', $about);
     }
 }

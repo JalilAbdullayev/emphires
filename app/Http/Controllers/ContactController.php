@@ -35,6 +35,7 @@ class ContactController extends Controller
         $this->setTranslated($contact, 'banner_text');
         $this->setTranslated($contact, 'banner_button');
         $this->setTranslated($contact, 'address');
+        $this->setTranslated($contact, 'work_hours');
         $contact->email = $request->email;
         $contact->phone = $request->phone;
         $contact->map = $request->map;

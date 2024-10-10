@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\About;
+use App\Models\Contact;
 use Illuminate\View\View;
 use App\Models\HomeSection;
 use Illuminate\Http\RedirectResponse;
@@ -27,9 +28,22 @@ class SiteController extends Controller
             ['code' => 'az', 'url' => '/az/haqqimizda'],
             ['code' => 'ru', 'url' => '/ru/o-nas']
         ];
-        $about = About::first();
-        if ($about->status) {
-            return view('about', compact('about', 'langs'));
+        if (About::first()->status) {
+            return view('about', compact('langs'));
+        } else {
+            return redirect()->back();
+        }
+    }
+
+    public function contact(): View|RedirectResponse
+    {
+        $langs = [
+            ['code' => 'en', 'url' => '/contact'],
+            ['code' => 'az', 'url' => '/az/elaqe'],
+            ['code' => 'ru', 'url' => '/ru/svyaz']
+        ];
+        if (Contact::first()->status) {
+            return view('contact', compact('langs'));
         } else {
             return redirect()->back();
         }
