@@ -3,12 +3,12 @@
         <h4 class="subtitle">
             {!! $home->qualities_subtitle !!}
         </h4>
-        <h2 class="text-6xxl">
+        <div class="text-6xxl">
             {!! $home->qualities_title !!}
-        </h2>
-        <p class="text-lg leading-relaxed mx-auto max-w-[800px]">
+        </div>
+        <div class="text-lg leading-relaxed mx-auto max-w-[800px]">
             {!! $home->qualities_text !!}
-        </p>
+        </div>
     </div>
     <div id="approach-qualities" class="col-xl-3 grid-cols-2 items-center">
         @foreach ($qualities as $quality)
