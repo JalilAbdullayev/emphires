@@ -4,15 +4,15 @@
         <div>
             <div class="mb-10">
                 <h4 class="text-sm leading-5 font-bold mb-2.5 tracking-[3px] text-white">
-                    {!! $about->specialties_subtitle !!}
+                    {{ $about->specialties_subtitle }}
                 </h4>
                 <h2 class="text-[42px] leading-[48px] tracking-normal mb-[15px] text-white">
-                    {!! $about->specialties_title !!}
+                    {{ $about->specialties_title }}
                 </h2>
             </div>
             <a href=""
                 class="text-white uppercase py-[17px] px-[45px] border-2 border-white rounded-md hover:bg-white hover:text-[#0C121D] font-nunito-sans font-extrabold leading-none [&>*]:mb-0 [&>*]:inline">
-                {!! $about->specialties_button !!}
+                {{ $about->specialties_button }}
             </a>
         </div>
         <div class="specialties">

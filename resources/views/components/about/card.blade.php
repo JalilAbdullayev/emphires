@@ -6,8 +6,7 @@
                 <i class="fa-solid fa-square-poll-horizontal"></i>
             </div>
             <div class="text-xl font-bold leading-[30px] [&>*]:text-white">
-                {!! $about->specialties_card !!}
-            </d>
+                {{ $about->specialties_card }}
+            </div>
         </div>
-    </div>
 </section>

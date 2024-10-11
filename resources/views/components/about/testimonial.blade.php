@@ -9,8 +9,8 @@
                         xmlns="http://www.w3.org/2000/svg">
                         <circle cx="18" cy="18" r="16" fill="none"
                             class="stroke-current text-[#B5E6F9]" stroke-width="2"></circle>
-                        <circle cx="18" cy="18" r="16" fill="none" class="stroke-current text-green-800"
-                            stroke-width="2" stroke-dasharray="100"
+                        <circle cx="18" cy="18" r="16" fill="none"
+                            class="stroke-current text-green-800" stroke-width="2" stroke-dasharray="100"
                             stroke-dashoffset="{{ 100 - $about->testimonials_number }}" stroke-linecap="round">
                         </circle>
                     </svg>
@@ -22,7 +22,7 @@
                         </sup>
                     </h4>
                     <h5 class="text-[15px] leading-5 font-semibold">
-                        {!! $about->testimonials_img_title !!}
+                        {{ $about->testimonials_img_title }}
                     </h5>
                 </div>
             </div>
@@ -31,10 +31,10 @@
     <div>
         <div class="mb-[30px] pl-5">
             <h4 class="subtitle">
-                {!! $about->testimonials_subtitle !!}
+                {{ $about->testimonials_subtitle }}
             </h4>
             <h2 class="text-6xxl">
-                {!! $about->testimonials_title !!}
+                {{ $about->testimonials_title }}
             </h2>
         </div>
         <div class="glide about-testimonial">
@@ -45,7 +45,7 @@
                             <div class="pl-5 pb-2.5">
                                 <blockquote class="text-2xl leading-[36px] p-0 mt-[15px] border-0 font-light text-dark">
                                     <div class="m-0">
-                                        {!! $testimonial->text !!}
+                                        {{ $testimonial->text }}
                                     </div>
                                 </blockquote>
                             </div>
