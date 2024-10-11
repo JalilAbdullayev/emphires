@@ -37,5 +37,13 @@ class HomeSection extends Model
         'testimonials_link_text',
         'courses_title',
         'courses_subtitle',
+        'phone_title',
+        'contact_title',
+        'contact_subtitle',
+        'email_title',
+        'address_title',
+        'footer_services_title',
+        'footer_blog_title',
+        'footer_social_title',
     ];
 }

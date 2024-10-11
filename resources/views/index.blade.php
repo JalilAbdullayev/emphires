@@ -4,38 +4,38 @@
         <x-home.hero />
     @endif
     @if ($home->second_section)
-        <x-home.second-section :home="$home" />
+        <x-home.second-section />
     @endif
     @if ($home->who_us)
-        <x-home.who-us :home="$home" />
+        <x-home.who-us />
     @endif
     @if ($home->services)
-        <x-home.services :home="$home" />
+        <x-home.services />
     @endif
     @if ($home->video)
-        <x-home.video :home="$home" />
+        <x-home.video />
     @endif
     @if ($home->contact_form || $home->skills)
         <section class="max-xl:container">
             <div class="flex max-xl:flex-col">
                 @if ($home->contact_form)
-                    <x-home.contact-form :home="$home" />
+                    <x-home.contact-form />
                 @endif
                 @if ($home->skills)
-                    <x-home.skills :home="$home" />
+                    <x-home.skills />
                 @endif
             </div>
         </section>
     @endif
-    <x-qualities :title="$home->qualities_title" :subtitle="$home->qualities_subtitle" :text="$home->qualities_text" />
+    <x-qualities />
     @if ($home->testimonials)
-        <x-home.testimonials :home="$home" />
+        <x-home.testimonials />
     @endif
     @if ($home->clients)
         <x-home.clients />
     @endif
     @if ($home->courses)
-        <x-home.courses :home="$home" />
+        <x-home.courses />
     @endif
     @if ($home->contact_banner)
         <x-contact-banner />

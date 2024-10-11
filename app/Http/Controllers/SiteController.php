@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Models\About;
 use App\Models\Contact;
 use Illuminate\View\View;
-use App\Models\HomeSection;
 use Illuminate\Http\RedirectResponse;
 
 class SiteController extends Controller
@@ -17,8 +16,7 @@ class SiteController extends Controller
             ['code' => 'az', 'url' => '/az'],
             ['code' => 'ru', 'url' => '/ru']
         ];
-        $home = HomeSection::first();
-        return view('index', compact('langs', 'home', ));
+        return view('index', compact('langs'));
     }
 
     public function about(): View|RedirectResponse

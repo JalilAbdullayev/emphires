@@ -1,4 +1,8 @@
-<div class="bg-repeat bg-auto bg-[0_0] bg-primary py-[60px] pr-[110px] -mt-[140px] rounded-tr-md rounded-br-md"
+<div @class([
+    'bg-repeat bg-auto bg-[0_0] bg-primary py-[60px] pr-[110px] rounded-tr-md rounded-br-md',
+    '-mt-[140px]' => $home->video,
+])
+    class="bg-repeat bg-auto bg-[0_0] bg-primary py-[60px] pr-[110px] -mt-[140px] rounded-tr-md rounded-br-md"
     style="background-image: url('{{ asset('front/images/trans-pattern-bg.png') }}')">
     <div class="pl-14 ml-auto">
         <div class="grid grid-cols-12">
@@ -6,12 +10,10 @@
             <div class="xl:col-span-6 col-span-12">
                 <div class="mb-[60px]">
                     <h4 class="uppercase text-white text-sm font-bold tracking-[3px] mb-2.5">
-                        WHO WE ARE
+                        {{ $home->contact_subtitle }}
                     </h4>
                     <h2 class="text-6xxl text-white">
-                        Subscribe <em class="selected-dark">
-                            Newsletter
-                        </em>
+                        {{ $home->contact_title }}
                     </h2>
                 </div>
                 <form action="{{ route('message') }}" method="POST" class="flex flex-col text-sm text-[#888888]">

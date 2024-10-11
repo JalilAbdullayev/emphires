@@ -5,6 +5,7 @@ namespace App\Providers;
 use App\Models\About;
 use App\Models\Blog;
 use App\Models\Contact;
+use App\Models\HomeSection;
 use App\Models\Service;
 use App\Models\Settings;
 use App\Models\Social;
@@ -31,11 +32,13 @@ class AppServiceProvider extends ServiceProvider
         $allServices = Service::whereStatus(1)->orderBy('order')->get();
         $blog = Blog::whereStatus(1)->orderBy('order')->get();
         $about = About::first();
+        $home = HomeSection::first();
         view()->share('settings', $settings);
         view()->share('contact', $contact);
         view()->share('socials', $socials);
         view()->share('allServices', $allServices);
         view()->share('blog', $blog);
         view()->share('about', $about);
+        view()->share('home', $home);
     }
 }

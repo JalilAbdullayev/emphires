@@ -73,6 +73,15 @@ class HomeSectionController extends Controller
         $this->setTranslated($home, 'courses_subtitle');
         $home->courses = $request->courses ? 1 : 0;
         $home->contact_banner = $request->contact_banner ? 1 : 0;
+        $home->who_us_img_card_status = $request->who_us_img_card_status ? 1 : 0;
+        $this->setTranslated($home, 'phone_title');
+        $this->setTranslated($home, 'contact_title');
+        $this->setTranslated($home, 'contact_subtitle');
+        $this->setTranslated($home, 'email_title');
+        $this->setTranslated($home, 'footer_services_title');
+        $this->setTranslated($home, 'footer_blog_title');
+        $this->setTranslated($home, 'footer_social_title');
+        $this->setTranslated($home, 'address_title');
         $home->save();
         return redirect()->back();
     }

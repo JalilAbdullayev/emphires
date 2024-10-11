@@ -7,7 +7,7 @@
         <div class="flex">
             <div class="flex items-center border-x border-[#ffffff21] px-4">
                 <a href="mailto:{{ $contact->email }}" @class(['text-white' => Route::is('home')])>
-                    <i class="fa-solid fa-envelope-open-text text-green-800 mr-3"></i> Email Address :
+                    <i class="fa-solid fa-envelope-open-text text-green-800 mr-3"></i> {{ $home->email_title }}
                     {{ $contact->email }}
                 </a>
             </div>
@@ -15,8 +15,9 @@
                 'flex items-center border-e border-[#ffffff21] px-4 [&>*]:mb-0',
                 'text-white' => Route::is('home'),
             ])>
-                <i class="fa-solid fa-map-location-dot mr-3 text-green-800"></i> <span class="mr-3">Office Address
-                    :</span> {!! $contact->address !!}
+                <i class="fa-solid fa-map-location-dot mr-3 text-green-800"></i> <span
+                    class="mr-3">{{ $home->address_title }}
+                </span> {{ $contact->address }}
             </div>
         </div>
         <div class="flex">
@@ -77,7 +78,7 @@
             <i class="fa-regular fa-comments text-5xl text-green-800"></i>
             <div>
                 <div class="mb-1">
-                    Have any Questions?
+                    {{ $home->phone_title }}
                 </div>
                 <a href="tel:{{ preg_replace('/[\s\(\)\-]+/', '', $contact->phone) }}" class="mb-1 text-white">
                     {{ $contact->phone }}

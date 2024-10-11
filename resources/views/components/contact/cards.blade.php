@@ -5,7 +5,7 @@
         </div>
         <div>
             <h2>
-                Email Address
+                {{ $home->email_title }}
             </h2>
             <a href="mailto:{{ $contact->email }}">
                 {{ $contact->email }}
@@ -18,9 +18,9 @@
         </div>
         <div>
             <h2>
-                Our Address
+                {{ $home->address_title }}
             </h2>
-            {!! $contact->address !!}
+            {{ $contact->address }}
         </div>
     </div>
     <div>

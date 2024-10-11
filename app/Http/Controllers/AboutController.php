@@ -30,9 +30,6 @@ class AboutController extends Controller
     {
         $about = About::firstOrFail();
         $this->setTranslated($about, 'title');
-        $this->setTranslated($about, 'services_title');
-        $this->setTranslated($about, 'services_subtitle');
-        $this->setTranslated($about, 'services_description');
         $this->setTranslated($about, 'specialties_title');
         $this->setTranslated($about, 'specialties_subtitle');
         $this->setTranslated($about, 'specialties_button');

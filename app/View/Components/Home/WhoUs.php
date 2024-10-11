@@ -9,13 +9,12 @@ use Illuminate\Contracts\View\View;
 
 class WhoUs extends Component
 {
-    public $home;
     /**
      * Create a new component instance.
      */
-    public function __construct($home)
+    public function __construct()
     {
-        $this->home = $home;
+        //
     }
 
     /**

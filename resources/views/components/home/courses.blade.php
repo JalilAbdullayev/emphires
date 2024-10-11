@@ -1,10 +1,10 @@
 <section class="container section">
     <div class="text-center">
         <h4 class="subtitle">
-            {!! $home->courses_subtitle !!}
+            {{ $home->courses_subtitle }}
         </h4>
         <h2 class="text-6xxl">
-            {!! $home->courses_title !!}
+            {{ $home->courses_title }}
         </h2>
     </div>
     <div id="courses" class="col-md-3">

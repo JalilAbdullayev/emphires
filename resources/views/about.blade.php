@@ -5,7 +5,7 @@
         <x-main-header :title="$about->title" :bg="asset('storage/about/' . $about->background)" />
     @endif
     @if ($about->services_status)
-        <x-qualities :title="$about->services_title" :subtitle="$about->services_subtitle" :text="$about->services_description" />
+        <x-qualities />
     @endif
     @if ($about->specialties_status)
         <x-about.specialties />

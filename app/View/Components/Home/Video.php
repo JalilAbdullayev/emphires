@@ -2,20 +2,18 @@
 
 namespace App\View\Components\Home;
 
-use App\Models\HomeSection;
 use Closure;
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
 
 class Video extends Component
 {
-    public $home;
     /**
      * Create a new component instance.
      */
-    public function __construct($home)
+    public function __construct()
     {
-        $this->home = $home;
+        //
     }
 
     /**

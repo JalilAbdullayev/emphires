@@ -3,15 +3,15 @@
         <div class="col-2 items-center">
             <div class="px-3.5 [&+p]:mb-12 [&+p]:px-3.5">
                 <h4 class="subtitle">
-                    {!! $home->services_subtitle !!}
+                    {{ $home->services_subtitle }}
                 </h4>
                 <div class="text-6xxl">
-                    {!! $home->services_title !!}
+                    {{ $home->services_title }}
                 </div>
                 <a href=""
                     class="link font-extrabold text-sm tracking-wider uppercase mb-7 hover:text-green-800 inline-block">
                     <span class="pr-7 [&>*]:mb-0 [&>*]:inline">
-                        {!! $home->services_link_text !!}
+                        {{ $home->services_link_text }}
                     </span>
                     <i class="fa-solid fa-arrow-right"></i>
                 </a>
@@ -50,8 +50,9 @@
             @endforeach
         </div>
         <div class="text-center mt-2.5">
-            {!! $home->services_foot_text !!} <a href="" class="link hover:text-green-800">
-                {!! $home->services_foot_link_text !!}
+            {{ $home->services_foot_text }} <a href="{{ route('contact_' . session('locale')) }}"
+                class="link hover:text-green-800">
+                {{ $home->services_foot_link_text }}
             </a>
         </div>
     </div>

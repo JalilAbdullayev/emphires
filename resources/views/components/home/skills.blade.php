@@ -5,7 +5,7 @@
         <div
             class="bg-dark rounded-md xl:rotate-90 xl:origin-[0_top] absolute xl:top-0 -bottom-1 xl:left-[calc(100%-15px)] left-0 xl:w-[170px] w-full z-0 h-11 flex justify-center items-center">
             <h4 class="uppercase text-white text-base leading-8 [&>*]:mb-0">
-                {!! $home->skills_text !!}
+                {{ $home->skills_text }}
             </h4>
         </div>
     </div>

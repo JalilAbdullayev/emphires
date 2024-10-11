@@ -13,7 +13,7 @@
                             {!! $slide->subtitle !!}
                         </h1>
                         <div class="text-white mt-8 flex items-center gap-12">
-                            <a href=""
+                            <a href="{{ route('contact_' . session('locale')) }}"
                                 class="font-['Nunito'] leading-6 font-extrabold border-2 border-white py-4 px-12 rounded-md uppercase text-sm hover:bg-green-800 duration-500 hover:border-green-800 text-white [&>*]:mb-0">
                                 {!! $slide->button_text !!}
                             </a>

@@ -8,14 +8,12 @@ return new class extends Migration {
     /**
      * Run the migrations.
      */
-    public function up(): void {
-        Schema::create('abouts', function(Blueprint $table) {
+    public function up(): void
+    {
+        Schema::create('abouts', function (Blueprint $table) {
             $table->id();
             $table->json('title')->nullable();
             $table->boolean('services_status')->default(1);
-            $table->json('services_title')->nullable();
-            $table->json('services_subtitle')->nullable();
-            $table->json('services_description')->nullable();
             $table->json('specialties_title')->nullable();
             $table->json('specialties_subtitle')->nullable();
             $table->json('specialties_button')->nullable();
@@ -46,7 +44,8 @@ return new class extends Migration {
     /**
      * Reverse the migrations.
      */
-    public function down(): void {
+    public function down(): void
+    {
         Schema::dropIfExists('abouts');
     }
 };

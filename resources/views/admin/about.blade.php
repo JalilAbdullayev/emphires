@@ -78,20 +78,6 @@
                             <div class="row">
                                 <div class="col-6">
                                     <div class="mb-3">
-                                        <label class="form-label text-white-50" for="services_title">
-                                            {{ __('Qualities Title') }}
-                                        </label>
-                                        <textarea class="form-control ckeditor" placeholder="{{ __('Qualities Title') }}" id="services_title"
-                                            name="services_title_{{ $language }}">{!! $about->getTranslation('services_title', $language) !!}</textarea>
-                                    </div>
-                                    <div class="mb-3">
-                                        <label class="form-label text-white-50" for="services_subtitle">
-                                            {{ __('Qualities Subtitle') }}
-                                        </label>
-                                        <textarea class="form-control ckeditor" placeholder="{{ __('Qualities Subtitle') }}" id="services_subtitle"
-                                            name="services_subtitle_{{ $language }}">{!! $about->getTranslation('services_subtitle', $language) !!}</textarea>
-                                    </div>
-                                    <div class="mb-3">
                                         <label class="form-label text-white-50" for="specialties_subtitle">
                                             {{ __('Specialties Subtitle') }}
                                         </label>
@@ -128,13 +114,6 @@
                                     </div>
                                 </div>
                                 <div class="col-6">
-                                    <div class="mb-3">
-                                        <label class="form-label text-white-50" for="services_description">
-                                            {{ __('Qualities Description') }}
-                                        </label>
-                                        <textarea class="form-control ckeditor" placeholder="{{ __('Qualities Description') }}" id="services_description"
-                                            name="services_description_{{ $language }}">{!! $about->getTranslation('services_description', $language) !!}</textarea>
-                                    </div>
                                     <div class="mb-3">
                                         <label class="form-label text-white-50" for="specialties_title">
                                             {{ __('Specialties Title') }}

@@ -11,9 +11,6 @@ class About extends Model {
     protected $fillable = [
         'title',
         'services_status',
-        'services_title',
-        'services_subtitle',
-        'services_description',
         'specialties_title',
         'specialties_subtitle',
         'specialties_button',
@@ -42,9 +39,6 @@ class About extends Model {
 
     protected array $translatable = [
         'title',
-        'services_title',
-        'services_subtitle',
-        'services_description',
         'specialties_title',
         'specialties_subtitle',
         'specialties_button',

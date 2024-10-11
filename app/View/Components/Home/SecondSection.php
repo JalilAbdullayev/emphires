@@ -2,7 +2,6 @@
 
 namespace App\View\Components\Home;
 
-use App\Models\HomeSection;
 use Closure;
 use App\Models\Quality;
 use Illuminate\View\Component;
@@ -10,13 +9,12 @@ use Illuminate\Contracts\View\View;
 
 class SecondSection extends Component
 {
-    public $home;
     /**
      * Create a new component instance.
      */
-    public function __construct($home)
+    public function __construct()
     {
-        $this->home = $home;
+        //
     }
 
     /**

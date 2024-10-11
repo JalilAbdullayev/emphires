@@ -10,18 +10,12 @@ use Illuminate\View\Component;
 
 class Qualities extends Component
 {
-    public $title;
-    public $subtitle;
-
-    public $text;
     /**
      * Create a new component instance.
      */
-    public function __construct($title, $subtitle, $text)
+    public function __construct()
     {
-        $this->title = $title;
-        $this->subtitle = $subtitle;
-        $this->text = $text;
+        //
     }
 
     /**
@@ -30,7 +24,6 @@ class Qualities extends Component
     public function render(): View|Closure|string
     {
         $qualities = Quality::whereStatus(1)->orderBy('order')->get();
-        $home = HomeSection::first();
-        return view('components.qualities', compact('qualities', 'home'));
+        return view('components.qualities', compact('qualities'));
     }
 }

@@ -20,7 +20,7 @@
             </div>
             <div class="mx-3.5">
                 <h2 class="footer-header">
-                    INFORMATION
+                    {{ $home->footer_services_title }}
                 </h2>
                 <ul class="[&>li]:mb-4 [&>li]:font-bold [&>li]:text-[#0C121D]">
                     @foreach ($allServices as $service)
@@ -35,7 +35,7 @@
             </div>
             <div class="mx-3.5">
                 <h2 class="footer-header">
-                    LATEST NEWS
+                    {{ $home->footer_blog_title }}
                 </h2>
                 <ul>
                     @foreach ($blog as $article)
@@ -54,20 +54,6 @@
                 </ul>
             </div>
             <div class="mx-3.5">
-                <h2 class="footer-header">
-                    NEWSLETTER
-                </h2>
-                <p>
-                    Sign up today for hints, tips and the latest product news
-                </p>
-                <form action="" method="POST" class="relative">
-                    <input type="email" name="" placeholder="Your email address" required
-                        class="h-14 border border-[#ffffff33] bg-white rounded-md py-2.5 pl-4 mb-2.5 outline-none w-full" />
-                    <button type="submit"
-                        class="rounded-md size-12 text-white tracking-wider bg-primary font-bold absolute top-1 right-1">
-                        <i class="fa-solid fa-paper-plane"></i>
-                    </button>
-                </form>
                 <h2 class="footer-header mt-6">
                     FOLLOW US ON
                 </h2>
@@ -83,30 +69,15 @@
         <section
             class="bg-white flex justify-between items-center py-7 pr-4 pl-6 rounded-lg shadow-[0_9px_30px_0_rgba(26,47,106,0.07)] relative">
             <p class="text-sm leading-relaxed text-dark">
-                Copyright © 2022 <a href="/" class="text-green-800">{{ $settings->title }}</a> All Rights
-                Reserved.
+                Copyright © - @if (date('Y') > 2024)
+                    {{ date('Y') }}
+                @endif
+                <a href="/" class="text-green-800">{{ $settings->title }}</a> @lang('All Rights Reserved').
             </p>
             <a href="#"
                 class="absolute left-1/2 -translate-x-1/2 -top-5 right-5 size-16 leading-[64px] text-[22px] text-center bg-dark text-white rounded-lg hover:bg-green-800 z-10">
                 <i class="fa-solid fa-arrow-up"></i>
             </a>
-            <ul class="flex justify-between [&>li]:mx-2.5 [&>li]:text-sm">
-                <li class="duration-500 hover:text-green-800">
-                    <a href="">
-                        Privacy & Policy
-                    </a>
-                </li>
-                <li class="duration-500 hover:text-green-800">
-                    <a href="">
-                        Conditions
-                    </a>
-                </li>
-                <li class="duration-500 hover:text-green-800">
-                    <a href="">
-                        Refund Policy
-                    </a>
-                </li>
-            </ul>
         </section>
         <div class="opacity-0 invisible fixed top-0 left-0 size-full bg-[#0C121DE6] duration-300 -translate-y-[30%] z-50"
             id="search-modal">

@@ -1,13 +1,13 @@
 <section class="section text-center container">
     <div class="mb-14">
         <h4 class="subtitle">
-            {!! $subtitle !!}
+            {{ $home->qualities_subtitle }}
         </h4>
-        <div class="text-6xxl">
-            {!! $title !!}
-        </div>
+        <h2 class="text-6xxl">
+            {{ $home->qualities_title }}
+        </h2>
         <div class="text-lg leading-relaxed mx-auto max-w-[800px]">
-            {!! $text !!}
+            {!! $home->qualities_text !!}
         </div>
     </div>
     <div id="approach-qualities" class="col-xl-3 grid-cols-2 items-center">
