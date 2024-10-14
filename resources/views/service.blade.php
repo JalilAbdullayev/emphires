@@ -1,27 +1,26 @@
 @extends('layouts.master')
-@section('title', $title)
-@section('keywords', $keywords)
-@section('description', $description)
-@section('author', $author)
-@section('image', $image)
+@section('title', $service->title)
+@section('keywords', $service->keywords)
+@section('description', $service->description)
+@section('image', asset('storage/services/' . $service->image))
 @section('content')
-    <x-child-header :bg="$article->background ? asset('storage/services/' . $article->background) : null" :title="__('Services')" :subtitle="$article->title" :route="'services_' . session('locale')" />
+    <x-child-header :bg="$service->background ? asset('storage/services/' . $service->background) : null" :title="__('Services')" :subtitle="$service->title" :route="'services_' . session('locale')" />
     <main class="container grid py-20 lg:grid-cols-12">
         <section class="px-[15px] max-md:pt-20 max-lg:pb-[50px] lg:col-span-9">
             <div class="relative">
-                <img src="{{ asset('storage/services/' . $article->image) }}" alt="" class="w-full img-fluid" />
+                <img src="{{ asset('storage/services/' . $service->image) }}" alt="" class="w-full img-fluid" />
             </div>
             <article class="p-[30px]">
                 <div class="article-meta">
                     <span>
                         <i class="fa-solid fa-folder-open"></i> <a
-                            href="{{ route('services_category_' . session('locale'), $article->category->slug) }}">
-                            {{ $article->category->title }}
+                            href="{{ route('services_category_' . session('locale'), $service->category->slug) }}">
+                            {{ $service->category->title }}
                         </a>
                     </span>
                 </div>
                 <p>
-                    {!! $article->text !!}
+                    {!! $service->text !!}
                 </p>
                 <div class="flex justify-between items-center border-t border-[#EEEEEE] mt-[30px] pt-5">
                     <ul class="article-socials">
@@ -59,16 +58,16 @@
                     @lang('Other services')
                 </h2>
                 <ul>
-                    @foreach ($others as $article)
+                    @foreach ($others as $service)
                         <li>
-                            <a href="{{ route('service_' . session('locale'), $article->slug) }}"
+                            <a href="{{ route('service_' . session('locale'), $service->slug) }}"
                                 class="shrink-0 mr-5 w-[75px]">
-                                <img src="{{ asset('storage/services/' . $article->image) }}" alt="" />
+                                <img src="{{ asset('storage/services/' . $service->image) }}" alt="" />
                             </a>
                             <div>
-                                <a href="{{ route('service_' . session('locale'), $article->slug) }}"
+                                <a href="{{ route('service_' . session('locale'), $service->slug) }}"
                                     class="leading-[18px] -tracking-[0.5px] hover:text-green-800">
-                                    {{ $article->title }}
+                                    {{ $service->title }}
                                 </a>
                             </div>
                         </li>
