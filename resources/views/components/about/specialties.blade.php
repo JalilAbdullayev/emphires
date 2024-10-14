@@ -10,7 +10,7 @@
                     {{ $about->specialties_title }}
                 </h2>
             </div>
-            <a href=""
+            <a href="{{ route('contact_' . session('locale')) }}"
                 class="text-white uppercase py-[17px] px-[45px] border-2 border-white rounded-md hover:bg-white hover:text-[#0C121D] font-nunito-sans font-extrabold leading-none [&>*]:mb-0 [&>*]:inline">
                 {{ $about->specialties_button }}
             </a>

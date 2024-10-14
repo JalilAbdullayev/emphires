@@ -14,9 +14,9 @@
                     <h2 class="text-xl leading-6 mb-2.5 mt-7">
                         {{ $quality->title }}
                     </h2>
-                    <p>
+                    <div>
                         {!! $quality->description !!}
-                    </p>
+                    </div>
                     <a href=""
                         class="bg-dark text-white rounded-[50%] size-[130px] inline-block absolute -bottom-20 right-[-40px]">
                         <i class="fa-solid fa-arrow-right text-lg leading-4 absolute top-3 left-11"></i>
@@ -38,7 +38,7 @@
             </cite>
         </blockquote>
         <div class="mb-4">
-            {!! $home->second_section_text !!}
+            {{ $home->second_section_text }}
         </div>
     </section>
 </section>

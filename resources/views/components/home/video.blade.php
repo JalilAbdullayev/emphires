@@ -8,9 +8,9 @@
                     class="fa-solid fa-play absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-base"></i>
             </a>
         </div>
-        <div class="text-white [&>*]:text-white mb-2 text-[40px] leading-14">
-            {!! $home->video_text !!}
-        </div>
+        <h2 class="text-white mb-2 text-[40px] leading-14">
+            {{ $home->video_text }}
+        </h2>
     </div>
 </section>
 @section('js')

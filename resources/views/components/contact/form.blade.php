@@ -9,7 +9,7 @@
             </h2>
         </div>
         <p class="mb-6">
-            {!! $contact->form_description !!}
+            {{ $contact->form_description }}
         </p>
         <ul class="contact-social">
             @foreach ($socials as $social)

@@ -41,7 +41,9 @@ class AboutController extends Controller
         $this->setTranslated($about, 'testimonials_title');
         $this->setTranslated($about, 'testimonials_subtitle');
         $this->setTranslated($about, 'testimonials_img_title');
+        $about->year = $request->year;
         $about->testimonials_number = $request->testimonials_number;
+        $about->testimonials_img_card_status = $request->testimonials_img_card_status ? 1 : 0;
         $about->status = $request->status ? 1 : 0;
         $about->services_status = $request->services_status ? 1 : 0;
         $about->specialties_status = $request->specialties_status ? 1 : 0;

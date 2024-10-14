@@ -32,7 +32,7 @@
                 Hours
             </h2>
             <p>
-                {!! $contact->work_hours !!}
+                {{ $contact->work_hours }}
             </p>
         </div>
     </div>

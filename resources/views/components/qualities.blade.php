@@ -7,7 +7,7 @@
             {{ $home->qualities_title }}
         </h2>
         <div class="text-lg leading-relaxed mx-auto max-w-[800px]">
-            {!! $home->qualities_text !!}
+            {{ $home->qualities_text }}
         </div>
     </div>
     <div id="approach-qualities" class="col-xl-3 grid-cols-2 items-center">

@@ -6,12 +6,12 @@
                 <h4 class="uppercase text-white text-sm font-bold tracking-[3px] mb-2.5">
                     {{ $home->testimonials_subtitle }}
                 </h4>
-                <div class="text-white [&>*]:text-white text-[40px] leading-[48px] mb-14">
+                <h2 class="text-white text-[40px] leading-[48px] mb-14">
                     {{ $home->testimonials_title }}
-                </div>
-                <div class="text-white text-lg font-semibold -mt-11">
-                    {!! $home->testimonials_text !!}
-                </div>
+                </h2>
+                <p class="text-white text-lg font-semibold -mt-11">
+                    {{ $home->testimonials_text }}
+                </p>
                 <a href="" class="uppercase link hover:text-white px-7 font-extrabold text-xs tracking-wider">
                     <span class="mr-5 [&>*]:mb-0 [&>*]:inline">
                         {{ $home->testimonials_link_text }}

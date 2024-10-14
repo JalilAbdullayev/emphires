@@ -69,10 +69,12 @@
         <section
             class="bg-white flex justify-between items-center py-7 pr-4 pl-6 rounded-lg shadow-[0_9px_30px_0_rgba(26,47,106,0.07)] relative">
             <p class="text-sm leading-relaxed text-dark">
-                Copyright © - @if (date('Y') > 2024)
-                    {{ date('Y') }}
+                © {{ $about->year }} @if (date('Y') > $about->year)
+                    - {{ date('Y') }}
                 @endif
-                <a href="/" class="text-green-800">{{ $settings->title }}</a> @lang('All Rights Reserved').
+                <a href="/" class="text-green-800">
+                    {{ $settings->title }}
+                </a> @lang('All Rights Reserved').
             </p>
             <a href="#"
                 class="absolute left-1/2 -translate-x-1/2 -top-5 right-5 size-16 leading-[64px] text-[22px] text-center bg-dark text-white rounded-lg hover:bg-green-800 z-10">

@@ -1,22 +1,24 @@
 <section class="bg-[#F8F8F9] section">
     <div class="container">
         <div class="col-2 items-center">
-            <div class="px-3.5 [&+p]:mb-12 [&+p]:px-3.5">
+            <div class="px-3.5">
                 <h4 class="subtitle">
                     {{ $home->services_subtitle }}
                 </h4>
-                <div class="text-6xxl">
+                <h2 class="text-6xxl">
                     {{ $home->services_title }}
-                </div>
+                </h2>
                 <a href=""
                     class="link font-extrabold text-sm tracking-wider uppercase mb-7 hover:text-green-800 inline-block">
-                    <span class="pr-7 [&>*]:mb-0 [&>*]:inline">
+                    <span class="pr-7">
                         {{ $home->services_link_text }}
                     </span>
                     <i class="fa-solid fa-arrow-right"></i>
                 </a>
             </div>
-            {!! $home->services_text !!}
+            <p class="mb-12 px-3.5">
+                {{ $home->services_text }}
+            </p>
         </div>
         <div id="services" class="col-md-3 items-center gap-7">
             @foreach ($services as $service)

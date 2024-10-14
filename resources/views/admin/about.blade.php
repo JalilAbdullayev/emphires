@@ -159,13 +159,26 @@
                         </div>
                     @endforeach
                 </div>
-                <div class="form-floating my-3">
-                    <input class="form-control" name="testimonials_number" id="testimonials_number"
-                        placeholder="{{ __('Testimonial number') }}" type="number"
-                        value="{{ $about->testimonials_number }}" />
-                    <label class="form-label text-white-50" for="testimonials_number">
-                        {{ __('Testimonial number') }}
-                    </label>
+                <div class="row">
+                    <div class="col-6">
+                        <div class="form-floating my-3">
+                            <input class="form-control" name="testimonials_number" id="testimonials_number"
+                                placeholder="{{ __('Testimonial number') }}" type="number"
+                                value="{{ $about->testimonials_number }}" />
+                            <label class="form-label text-white-50" for="testimonials_number">
+                                {{ __('Testimonial number') }}
+                            </label>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="form-floating my-3">
+                            <input class="form-control" name="year" id="year" placeholder="{{ __('Year') }}"
+                                type="number" value="{{ $about->year }}" />
+                            <label class="form-label text-white-50" for="year">
+                                {{ __('Year') }}
+                            </label>
+                        </div>
+                    </div>
                 </div>
                 <div class="d-flex justify-content-around">
                     <div>
@@ -195,6 +208,13 @@
                                 id="testimonials_status" @checked($about->testimonials_status) value="1" />
                             <label class="form-check-label text-white-50" for="testimonials_status">
                                 {{ __('Testimonials Status') }}
+                            </label>
+                        </div>
+                        <div class="form-check form-switch mb-3">
+                            <input type="checkbox" class="form-check-input" name="testimonials_img_card_status"
+                                id="testimonials_img_card_status" @checked($about->testimonials_img_card_status) value="1" />
+                            <label class="form-check-label text-white-50" for="testimonials_img_card_status">
+                                {{ __('Testimonials Image Card Status') }}
                             </label>
                         </div>
                     </div>

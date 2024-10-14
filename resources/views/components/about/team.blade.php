@@ -3,9 +3,9 @@
         <h4 class="subtitle">
             {{ $about->team_subtitle }}
         </h4>
-        <div class="text-[42px] leading-[48px] mb-[15px]">
+        <h2 class="text-[42px] leading-[48px] mb-[15px]">
             {{ $about->team_title }}
-        </div>
+        </h2>
     </div>
     <div id="team" class="col-lg-4 grid-cols-2 gap-7">
         @foreach ($team as $member)

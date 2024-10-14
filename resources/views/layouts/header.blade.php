@@ -59,9 +59,6 @@
             <a href="" @class(['text-white'])>
                 Services
             </a>
-            <a href="/projects.html" @class(['text-white'])>
-                Projects
-            </a>
             <a href="/blog.html" @class(['text-white'])>
                 Blog
             </a>
@@ -107,11 +104,6 @@
                 <li>
                     <a href="/service.html">
                         Services
-                    </a>
-                </li>
-                <li>
-                    <a href="/projects.html">
-                        Projects
                     </a>
                 </li>
                 <li>

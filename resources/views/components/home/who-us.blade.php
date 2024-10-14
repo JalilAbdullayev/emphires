@@ -1,10 +1,10 @@
 <section class="section container">
     <div class="text-center mb-14">
         <h4 class="subtitle">
-            {!! $home->who_us_subtitle !!}
+            {{ $home->who_us_subtitle }}
         </h4>
         <h2 class="text-6xxl">
-            {!! $home->who_us_title !!}
+            {{ $home->who_us_title }}
         </h2>
     </div>
     <div class="col-xl-2">
@@ -32,7 +32,7 @@
                             </sup>
                         </h4>
                         <h5 class="text-base leading-5 font-semibold">
-                            {!! $home->who_us_percent_title !!}
+                            {{ $home->who_us_percent_title }}
                         </h5>
                     </div>
                 </div>
@@ -40,7 +40,7 @@
         </div>
         <div>
             <p class="text-lg font-semibold leading-7 max-xl:mb-12">
-                {!! $home->who_us_text !!}
+                {{ $home->who_us_text }}
             </p>
             @foreach ($advantages as $advantage)
                 <div class="xl:mt-12 xl:mb-7 col-xl-5 grid-cols-8">
@@ -56,7 +56,7 @@
                 </div>
             @endforeach
             <div class="mt-2.5">
-                {!! $home->who_us_foot !!} <a href="" class="link hover:text-green-800]">
+                {{ $home->who_us_foot }} <a href="" class="link hover:text-green-800]">
                     {{ $home->who_us_foot_link_text }}
                 </a>
             </div>

@@ -120,15 +120,15 @@
                                         <label class="form-label text-white" for="services_text">
                                             @lang('Services text')
                                         </label>
-                                        <textarea class="form-control ckeditor" placeholder="@lang('Services text')" id="services_text"
+                                        <textarea class="form-control" placeholder="@lang('Services text')" id="services_text"
                                             name="services_text_{{ $language }}">{!! $home->getTranslation('services_text', $language) !!}</textarea>
                                     </div>
                                     <div class="mb-3">
-                                        <label class="form-label text-white" for="who_us_title">
-                                            {{ __('Who us title') }}
+                                        <label class="form-label text-white" for="services_foot_link_text">
+                                            @lang('Services foot link text')
                                         </label>
-                                        <textarea class="form-control" placeholder="{{ __('Who us title') }}" id="who_us_title"
-                                            name="who_us_title_{{ $language }}">{{ $home->getTranslation('who_us_title', $language) }}</textarea>
+                                        <textarea class="form-control" placeholder="@lang('Services foot link text')" id="services_foot_link_text"
+                                            name="services_foot_link_text_{{ $language }}">{!! $home->getTranslation('services_foot_link_text', $language) !!}</textarea>
                                     </div>
                                     <div class="mb-3">
                                         <label class="form-label text-white" for="who_us_subtitle">
@@ -141,15 +141,22 @@
                                         <label class="form-label text-white" for="who_us_text">
                                             {{ __('Who us text') }}
                                         </label>
-                                        <textarea class="form-control ckeditor" placeholder="{{ __('Who us text') }}" id="who_us_text"
+                                        <textarea class="form-control" placeholder="{{ __('Who us text') }}" id="who_us_text"
                                             name="who_us_text_{{ $language }}">{!! $home->getTranslation('who_us_text', $language) !!}</textarea>
                                     </div>
                                     <div class="mb-3">
-                                        <label class="form-label text-white" for="second_section_text">
-                                            {{ __('Second section text') }}
+                                        <label class="form-label text-white" for="who_us_link_title">
+                                            {{ __('Who us link title') }}
                                         </label>
-                                        <textarea class="form-control ckeditor" placeholder="{{ __('Second section text') }}" id="second_section_text"
-                                            name="second_section_text_{{ $language }}">{!! $home->getTranslation('second_section_text', $language) !!}</textarea>
+                                        <textarea class="form-control" placeholder="{{ __('Who us link title') }}" id="who_us_link_title"
+                                            name="who_us_link_title_{{ $language }}">{{ $home->getTranslation('who_us_link_title', $language) }}</textarea>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="form-label text-white" for="quote">
+                                            {{ __('Quote') }}
+                                        </label>
+                                        <textarea class="form-control ckeditor" id="quote" placeholder="{{ __('Quote') }}"
+                                            name="quote_{{ $language }}">{!! $home->getTranslation('quote', $language) !!}</textarea>
                                     </div>
                                     <div class="mb-3">
                                         <label class="form-label text-white" for="courses_title">
@@ -166,13 +173,6 @@
                                             name="courses_subtitle_{{ $language }}">{{ $home->getTranslation('courses_subtitle', $language) }}</textarea>
                                     </div>
                                     <div class="mb-3">
-                                        <label class="form-label text-white" for="testimonials_title">
-                                            {{ __('Testimonials Title') }}
-                                        </label>
-                                        <textarea class="form-control" placeholder="{{ __('Testimonials Title') }}" id="testimonials_title"
-                                            name="testimonials_title_{{ $language }}">{{ $home->getTranslation('testimonials_title', $language) }}</textarea>
-                                    </div>
-                                    <div class="mb-3">
                                         <label class="form-label text-white" for="testimonials_subtitle">
                                             {{ __('Testimonials Subtitle') }}
                                         </label>
@@ -183,7 +183,7 @@
                                         <label class="form-label text-white" for="testimonials_text">
                                             {{ __('Testimonials text') }}
                                         </label>
-                                        <textarea class="form-control ckeditor" placeholder="{{ __('Testimonials text') }}" id="testimonials_text"
+                                        <textarea class="form-control" placeholder="{{ __('Testimonials text') }}" id="testimonials_text"
                                             name="testimonials_text_{{ $language }}">{!! $home->getTranslation('testimonials_text', $language) !!}</textarea>
                                     </div>
                                     <div class="mb-3">
@@ -217,11 +217,11 @@
                                             name="services_foot_text_{{ $language }}">{!! $home->getTranslation('services_foot_text', $language) !!}</textarea>
                                     </div>
                                     <div class="mb-3">
-                                        <label class="form-label text-white" for="services_foot_link_text">
-                                            @lang('Services foot link text')
+                                        <label class="form-label text-white" for="who_us_title">
+                                            {{ __('Who us title') }}
                                         </label>
-                                        <textarea class="form-control" placeholder="@lang('Services foot link text')" id="services_foot_link_text"
-                                            name="services_foot_link_text_{{ $language }}">{!! $home->getTranslation('services_foot_link_text', $language) !!}</textarea>
+                                        <textarea class="form-control" placeholder="{{ __('Who us title') }}" id="who_us_title"
+                                            name="who_us_title_{{ $language }}">{{ $home->getTranslation('who_us_title', $language) }}</textarea>
                                     </div>
                                     <div class="mb-3">
                                         <label class="form-label text-white" for="who_us_percent_title">
@@ -238,11 +238,18 @@
                                             name="who_us_foot_{{ $language }}">{!! $home->getTranslation('who_us_foot', $language) !!}</textarea>
                                     </div>
                                     <div class="mb-3">
-                                        <label class="form-label text-white" for="who_us_link_title">
-                                            {{ __('Who us link title') }}
+                                        <label class="form-label text-white" for="second_section_text">
+                                            {{ __('Second section text') }}
                                         </label>
-                                        <textarea class="form-control" placeholder="{{ __('Who us link title') }}" id="who_us_link_title"
-                                            name="who_us_link_title_{{ $language }}">{{ $home->getTranslation('who_us_link_title', $language) }}</textarea>
+                                        <textarea class="form-control" placeholder="{{ __('Second section text') }}" id="second_section_text"
+                                            name="second_section_text_{{ $language }}">{!! $home->getTranslation('second_section_text', $language) !!}</textarea>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="form-label text-white" for="quote_author">
+                                            {{ __('Quote author') }}
+                                        </label>
+                                        <textarea class="form-control ckeditor" id="quote_author" placeholder="{{ __('Quote author') }}"
+                                            name="quote_author_{{ $language }}">{!! $home->getTranslation('quote_author', $language) !!}</textarea>
                                     </div>
                                     <div class="mb-3">
                                         <label class="form-label text-white" for="skills_text">
@@ -252,18 +259,11 @@
                                             name="skills_text_{{ $language }}">{{ $home->getTranslation('skills_text', $language) }}</textarea>
                                     </div>
                                     <div class="mb-3">
-                                        <label class="form-label text-white" for="quote">
-                                            {{ __('Quote') }}
+                                        <label class="form-label text-white" for="testimonials_title">
+                                            {{ __('Testimonials Title') }}
                                         </label>
-                                        <textarea class="form-control ckeditor" id="quote" placeholder="{{ __('Quote') }}"
-                                            name="quote_{{ $language }}">{!! $home->getTranslation('quote', $language) !!}</textarea>
-                                    </div>
-                                    <div class="mb-3">
-                                        <label class="form-label text-white" for="quote_author">
-                                            {{ __('Quote author') }}
-                                        </label>
-                                        <textarea class="form-control ckeditor" id="quote_author" placeholder="{{ __('Quote author') }}"
-                                            name="quote_author_{{ $language }}">{!! $home->getTranslation('quote_author', $language) !!}</textarea>
+                                        <textarea class="form-control" placeholder="{{ __('Testimonials Title') }}" id="testimonials_title"
+                                            name="testimonials_title_{{ $language }}">{{ $home->getTranslation('testimonials_title', $language) }}</textarea>
                                     </div>
                                     <div class="mb-3">
                                         <label class="form-label text-white" for="testimonials_link_text">
@@ -276,7 +276,7 @@
                                         <label class="form-label text-white" for="video_text">
                                             {{ __('Video text') }}
                                         </label>
-                                        <textarea class="form-control ckeditor" placeholder="{{ __('Video text') }}" id="video_text"
+                                        <textarea class="form-control" placeholder="{{ __('Video text') }}" id="video_text"
                                             name="video_text_{{ $language }}">{!! $home->getTranslation('video_text', $language) !!}</textarea>
                                     </div>
                                     <div class="mb-3">
@@ -290,7 +290,7 @@
                                         <label class="form-label text-white" for="qualities_text">
                                             {{ __('Qualities text') }}
                                         </label>
-                                        <textarea class="form-control ckeditor" placeholder="{{ __('Qualities text') }}" id="qualities_text"
+                                        <textarea class="form-control" placeholder="{{ __('Qualities text') }}" id="qualities_text"
                                             name="qualities_text_{{ $language }}">{!! $home->getTranslation('qualities_text', $language) !!}</textarea>
                                     </div>
                                     <div class="mb-3">

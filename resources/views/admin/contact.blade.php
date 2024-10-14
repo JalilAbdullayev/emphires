@@ -2,8 +2,6 @@
 @section('title', __('Contact'))
 @section('css')
     <link rel="stylesheet" href="{{ asset('back/node_modules/dropify/dist/css/dropify.min.css') }}" />
-    <link rel="stylesheet" href="{{ asset('back/ckeditor/samples/css/samples.css') }}" />
-    <link rel="stylesheet" href="{{ asset('back/ckeditor/samples/toolbarconfigurator/lib/codemirror/neo.css') }}" />
     <style>
         textarea {
             display: block;
@@ -81,8 +79,7 @@
                                         <label class="form-label text-white-50" for="address">
                                             @lang('Address')
                                         </label>
-                                        <textarea class="form-control ckeditor" name="address_{{ $language }}" placeholder="@lang('Address')"
-                                            id="address">{!! $contact->getTranslation('address', $language) !!}</textarea>
+                                        <textarea class="form-control" name="address_{{ $language }}" placeholder="@lang('Address')" id="address">{{ $contact->getTranslation('address', $language) }}</textarea>
                                     </div>
                                     <div class="mb-3">
                                         <label class="form-label text-white-50" for="banner_text">
@@ -94,8 +91,7 @@
                                         <label class="form-label text-white-50" for="work_hours">
                                             @lang('Work hours')
                                         </label>
-                                        <textarea class="form-control ckeditor" placeholder="@lang('Work hours')" id="work_hours"
-                                            name="work_hours_{{ $language }}">{!! $contact->getTranslation('work_hours', $language) !!}</textarea>
+                                        <textarea class="form-control" placeholder="@lang('Work hours')" id="work_hours" name="work_hours_{{ $language }}">{!! $contact->getTranslation('work_hours', $language) !!}</textarea>
                                     </div>
                                 </div>
                                 <div class="col-6">
@@ -116,7 +112,7 @@
                                         <label class="form-label text-white-50" for="form_description">
                                             @lang('Form Description')
                                         </label>
-                                        <textarea class="form-control ckeditor" placeholder="@lang('Form Description')" id="form_description"
+                                        <textarea class="form-control" placeholder="@lang('Form Description')" id="form_description"
                                             name="form_description_{{ $language }}">{!! $contact->getTranslation('form_description', $language) !!}</textarea>
                                     </div>
                                     <div class="mb-3">
@@ -201,20 +197,9 @@
 @endsection
 @section('js')
     <script src="{{ asset('back/node_modules/dropify/dist/js/dropify.min.js') }}"></script>
-    <script src="{{ asset('back/ckeditor/ckeditor.js') }}"></script>
-    <script src="{{ asset('back/ckeditor/samples/js/sample.js') }}"></script>
     <script>
         $(document).ready(function() {
             $('.dropify').dropify();
         });
-
-        function createCKEditor(id) {
-            CKEDITOR.replace(id, {
-                extraAllowedContent: 'div',
-                height: 150,
-            });
-        }
-
-        const ckeditor1 = createCKEditor('ckeditor');
     </script>
 @endsection

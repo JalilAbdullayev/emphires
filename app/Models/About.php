@@ -5,7 +5,8 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\Translatable\HasTranslations;
 
-class About extends Model {
+class About extends Model
+{
     use HasTranslations;
 
     protected $fillable = [
@@ -34,7 +35,9 @@ class About extends Model {
         'contact_banner_status',
         'background',
         'status',
-        'bg_status'
+        'bg_status',
+        'testimonials_img_card_status',
+        'year'
     ];
 
     protected array $translatable = [
