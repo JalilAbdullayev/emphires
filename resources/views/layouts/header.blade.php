@@ -46,7 +46,7 @@
         <div
             class="flex gap-8 font-extrabold [&>a:hover]:text-green-800 [&>a:hover]:duration-500 max-xl:opacity-0 max-xl:hidden">
             <a href="/" @class(['text-green-800' => Route::is('home')])>
-                Home
+                @lang('Home')
             </a>
             @if ($about->status)
                 <a href="{{ route('about_' . session('locale')) }}" @class([
@@ -56,8 +56,11 @@
                     {{ $about->title }}
                 </a>
             @endif
-            <a href="" @class(['text-white'])>
-                Services
+            <a href="{{ route('services_' . session('locale')) }}" @class([
+                'text-white',
+                'text-green-800' => Route::is('services_' . session('locale')),
+            ])>
+                @lang('Services')
             </a>
             <a href="/blog.html" @class(['text-white'])>
                 Blog
@@ -102,7 +105,7 @@
                     </li>
                 @endif
                 <li>
-                    <a href="/service.html">
+                    <a href="{{ route('services_' . session('locale')) }}">
                         Services
                     </a>
                 </li>

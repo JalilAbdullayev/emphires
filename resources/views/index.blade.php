@@ -27,7 +27,9 @@
             </div>
         </section>
     @endif
-    <x-qualities />
+    @if ($home->qualities_status)
+        <x-qualities />
+    @endif
     @if ($home->testimonials)
         <x-home.testimonials />
     @endif

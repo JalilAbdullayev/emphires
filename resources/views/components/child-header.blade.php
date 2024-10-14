@@ -7,17 +7,19 @@
             '[&>*]:text-white' => $bg !== null,
         ])>
             <h1 class='mb-1 text-5xl capitalize leading-14'>
-                {{ $title }}
+                {{ $subtitle }}
             </h1>
-            <div class='text-xs leading-normal'>
-                <a href="/" @class([
-                    'hover:text-green-800',
-                    'text-black' => $bg === null,
-                    'text-white' => $bg !== null,
-                ])>
+            <div @class([
+                'text-xs leading-normal',
+                '[&>*]:text-white' => $bg !== null,
+                '[&>*]:text-black' => $bg === null,
+            ])>
+                <a href="/" class='hover:text-green-800'>
                     {{ $settings->title }}
-                </a> - <span>
+                </a> - <a href="{{ $route }}" class='hover:text-green-800'>
                     {{ $title }}
+                </a> - <span>
+                    {{ $subtitle }}
                 </span>
             </div>
         </div>

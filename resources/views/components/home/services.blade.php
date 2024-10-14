@@ -1,6 +1,6 @@
 <section class="bg-[#F8F8F9] section">
     <div class="container">
-        <div class="col-2 items-center">
+        <div class="items-center col-2">
             <div class="px-3.5">
                 <h4 class="subtitle">
                     {{ $home->services_subtitle }}
@@ -8,8 +8,8 @@
                 <h2 class="text-6xxl">
                     {{ $home->services_title }}
                 </h2>
-                <a href=""
-                    class="link font-extrabold text-sm tracking-wider uppercase mb-7 hover:text-green-800 inline-block">
+                <a href="{{ route('services_' . session('locale')) }}"
+                    class="inline-block text-sm font-extrabold tracking-wider uppercase link mb-7 hover:text-green-800">
                     <span class="pr-7">
                         {{ $home->services_link_text }}
                     </span>
@@ -20,7 +20,7 @@
                 {{ $home->services_text }}
             </p>
         </div>
-        <div id="services" class="col-md-3 items-center gap-7">
+        <div id="services" class="items-center col-md-3 gap-7">
             @foreach ($services as $service)
                 <div class="service">
                     <div>
@@ -30,12 +30,12 @@
                     <div class="relative translate-y-0">
                         <div
                             class="bg-white px-7 pt-6 pb-2.5 -mt-7 mx-5 z-10 rounded-md shadow-[0_9px_24px_0_rgba(26,47,106,0.05)]">
-                            <a href="/service.html"
-                                class="text-green-800 tracking-wider font-semibold uppercase text-xs leading-6">
+                            <a href="{{ route('services_category_' . session('locale'), $service->category->slug) }}"
+                                class="text-xs font-semibold leading-6 tracking-wider text-green-800 uppercase">
                                 {{ $service->category->title }}
                             </a>
-                            <h3 class="text-xl hover:text-green-800 duration-500">
-                                <a href="/service.html">
+                            <h3 class="text-xl duration-500 hover:text-green-800">
+                                <a href="{{ route('service_' . session('locale'), $service->slug) }}">
                                     {{ $service->title }}
                                 </a>
                             </h3>
@@ -43,9 +43,9 @@
                                 {{ $service->description }}
                             </p>
                         </div>
-                        <a href="/service.html"
-                            class="bg-primary rounded-full text-white text-lg size-14 flex justify-center items-center bottom-link -mt-9 leading-14 mx-auto">
-                            <i class="fa-solid fa-arrow-right duration-500 hover:text-green-800"></i>
+                        <a href="{{ route('service_' . session('locale'), $service->slug) }}"
+                            class="flex items-center justify-center mx-auto text-lg text-white rounded-full bg-primary size-14 bottom-link -mt-9 leading-14">
+                            <i class="duration-500 fa-solid fa-arrow-right hover:text-green-800"></i>
                         </a>
                     </div>
                 </div>

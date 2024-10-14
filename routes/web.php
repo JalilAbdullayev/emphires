@@ -59,6 +59,26 @@ Route::group([
             Route::get('elaqe', 'contact')->name('az');
             Route::get('svyaz', 'contact')->name('ru');
         });
+        Route::name('services_')->group(function () {
+            Route::get('services', 'services')->name('en');
+            Route::get('xidmetler', 'services')->name('az');
+            Route::get('uslugi', 'services')->name('ru');
+        });
+        Route::name('services_search_')->group(function () {
+            Route::get('services/search', 'search_service')->name('en');
+            Route::get('xidmetler/axtarish', 'search_service')->name('az');
+            Route::get('uslugi/poisk', 'search_service')->name('ru');
+        });
+        Route::name('services_category_')->group(function () {
+            Route::get('services/{slug}', 'services_category')->name('en');
+            Route::get('xidmetler/{slug}', 'services_category')->name('az');
+            Route::get('uslugi/{slug}', 'services_category')->name('ru');
+        });
+        Route::name('service_')->group(function () {
+            Route::get('service/{slug}', 'service')->name('en');
+            Route::get('xidmet/{slug}', 'service')->name('az');
+            Route::get('usluga/{slug}', 'service')->name('ru');
+        });
     });
 
     Route::post('message', [MessageController::class, 'store'])->name('message');

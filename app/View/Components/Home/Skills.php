@@ -2,6 +2,7 @@
 
 namespace App\View\Components\Home;
 
+use App\Models\Skill;
 use Closure;
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
@@ -21,6 +22,7 @@ class Skills extends Component
      */
     public function render(): View|Closure|string
     {
-        return view('components.home.skills');
+        $skills = Skill::whereStatus(1)->orderBy('order')->get();
+        return view('components.home.skills', compact('skills'));
     }
 }
