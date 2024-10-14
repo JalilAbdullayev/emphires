@@ -30,14 +30,14 @@ class AppServiceProvider extends ServiceProvider
         $contact = Contact::first();
         $socials = Social::whereStatus(1)->orderBy('order')->get();
         $allServices = Service::whereStatus(1)->orderBy('order')->get();
-        $blog = Blog::whereStatus(1)->orderBy('order')->get();
+        $allBlog = Blog::whereStatus(1)->orderBy('order')->take(3)->get();
         $about = About::first();
         $home = HomeSection::first();
         view()->share('settings', $settings);
         view()->share('contact', $contact);
         view()->share('socials', $socials);
         view()->share('allServices', $allServices);
-        view()->share('blog', $blog);
+        view()->share('allBlog', $allBlog);
         view()->share('about', $about);
         view()->share('home', $home);
     }

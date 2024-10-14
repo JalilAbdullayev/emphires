@@ -40,7 +40,7 @@
                     {{ $home->footer_blog_title }}
                 </h2>
                 <ul>
-                    @foreach ($blog as $article)
+                    @foreach ($allBlog as $article)
                         <li class="gap-4 mb-4 col-3">
                             <img src="{{ asset('storage/blog/' . $article->image) }}" alt="" class="w-full" />
                             <div class="col-span-2">

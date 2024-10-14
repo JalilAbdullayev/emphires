@@ -79,6 +79,26 @@ Route::group([
             Route::get('xidmet/{slug}', 'service')->name('az');
             Route::get('usluga/{slug}', 'service')->name('ru');
         });
+        Route::name('blog_')->group(function () {
+            Route::get('blog', 'blog')->name('en');
+            Route::get('bloq', 'blog')->name('az');
+            Route::get('stati', 'blog')->name('ru');
+        });
+        Route::name('blog_search_')->group(function () {
+            Route::get('blog/search', 'search_blog')->name('en');
+            Route::get('bloq/axtarish', 'search_blog')->name('az');
+            Route::get('stati/poisk', 'search_blog')->name('ru');
+        });
+        Route::name('blog_category_')->group(function () {
+            Route::get('blog/{slug}', 'blog_category')->name('en');
+            Route::get('bloq/{slug}', 'blog_category')->name('az');
+            Route::get('stati/{slug}', 'blog_category')->name('ru');
+        });
+        Route::name('article_')->group(function () {
+            Route::get('article/{slug}', 'article')->name('en');
+            Route::get('meqale/{slug}', 'article')->name('az');
+            Route::get('statya/{slug}', 'article')->name('ru');
+        });
     });
 
     Route::post('message', [MessageController::class, 'store'])->name('message');

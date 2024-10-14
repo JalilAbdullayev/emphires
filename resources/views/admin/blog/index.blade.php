@@ -1,5 +1,5 @@
 @extends('admin.layouts.master')
-@section('title', __('Services'))
+@section('title', __('Blog'))
 @section('css')
     <link rel="stylesheet" href="{{ asset('back/node_modules/datatables.net-bs4/css/dataTables.bootstrap4.css') }}" />
     <link rel="stylesheet" href="{{ asset('back/node_modules/datatables.net-bs4/css/responsive.dataTables.min.css') }}" />
@@ -27,8 +27,8 @@
                     </li>
                 </ol>
                 <a href="{{ route('admin.blog.create_' . session('locale')) }}"
-                    class="btn btn-success d-none d-lg-block m-l-15 text-white">
-                    <i class="ti-plus"></i> {{ __('New service') }}
+                    class="text-white btn btn-success d-none d-lg-block m-l-15">
+                    <i class="ti-plus"></i> {{ __('New article') }}
                 </a>
             </div>
         </div>
@@ -37,7 +37,7 @@
     <!-- End Bread crumb and right sidebar toggle -->
     <!-- ============================================================== -->
     <div class="table-responsive">
-        <table id="myTable" class="table table-striped border">
+        <table id="myTable" class="table border table-striped">
             <thead>
                 <tr>
                     <th>

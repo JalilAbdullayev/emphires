@@ -7,7 +7,7 @@
         <div class="flex">
             <div class="flex items-center border-x border-[#ffffff21] px-4">
                 <a href="mailto:{{ $contact->email }}" @class(['text-white' => Route::is('home')])>
-                    <i class="fa-solid fa-envelope-open-text text-green-800 mr-3"></i> {{ $home->email_title }}
+                    <i class="mr-3 text-green-800 fa-solid fa-envelope-open-text"></i> {{ $home->email_title }}
                     {{ $contact->email }}
                 </a>
             </div>
@@ -15,7 +15,7 @@
                 'flex items-center border-e border-[#ffffff21] px-4 [&>*]:mb-0',
                 'text-white' => Route::is('home'),
             ])>
-                <i class="fa-solid fa-map-location-dot mr-3 text-green-800"></i> <span
+                <i class="mr-3 text-green-800 fa-solid fa-map-location-dot"></i> <span
                     class="mr-3">{{ $home->address_title }}
                 </span> {{ $contact->address }}
             </div>
@@ -62,8 +62,11 @@
             ])>
                 @lang('Services')
             </a>
-            <a href="/blog.html" @class(['text-white'])>
-                Blog
+            <a href="{{ route('blog_' . session('locale')) }}" @class([
+                'text-white',
+                'text-green-800' => Route::is('blog_' . session('locale')),
+            ])>
+                @lang('Blog')
             </a>
             @if ($contact->status)
                 <a href="{{ route('contact_' . session('locale')) }}" @class([
@@ -75,7 +78,7 @@
             @endif
         </div>
         <div class="flex justify-between gap-3 max-xl:hidden">
-            <i class="fa-regular fa-comments text-5xl text-green-800"></i>
+            <i class="text-5xl text-green-800 fa-regular fa-comments"></i>
             <div>
                 <div class="mb-1">
                     {{ $home->phone_title }}
@@ -85,7 +88,7 @@
                 </a>
             </div>
         </div>
-        <i class="fa-solid fa-bars xl:hidden text-4xl cursor-pointer" id="mobile-button"></i>
+        <i class="text-4xl cursor-pointer fa-solid fa-bars xl:hidden" id="mobile-button"></i>
     </nav>
     <div class="relative">
         <nav class="bg-white border-t-4 border-green-800 opacity-0 pointer-events-none transform translate-y-[32.3%] transition-all ease-in-out fixed top-0 z-50 w-full"
@@ -105,12 +108,14 @@
                     </li>
                 @endif
                 <li>
-                    <a href="{{ route('services_' . session('locale')) }}">
+                    <a href="{{ route('services_' . session('locale')) }}" @class([
+                        'text-green-800' => Route::is('services_' . session('locale')),
+                    ])>
                         Services
                     </a>
                 </li>
                 <li>
-                    <a href="/blog.html">
+                    <a href="{{ route('blog_' . session('locale')) }}" @class(['text-green-800' => Route::is('blog_' . session('locale'))])>
                         Blog
                     </a>
                 </li>

@@ -2,13 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Blog;
 use App\Models\About;
-use App\Models\Category;
 use App\Models\Contact;
 use App\Models\Service;
+use App\Models\Category;
 use Illuminate\View\View;
-use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Http\RedirectResponse;
 
 class SiteController extends Controller
 {
@@ -95,5 +96,52 @@ class SiteController extends Controller
         ];
         $services = Service::whereStatus(1)->where('title->' . session('locale'), 'like', '%' . $request->search . '%')->orderBy('order')->paginate(9);
         return view('services', compact('services', 'langs'));
+    }
+
+    public function blog(): View
+    {
+        $langs = [
+            ['code' => 'en', 'url' => '/blog'],
+            ['code' => 'az', 'url' => '/az/blog'],
+            ['code' => 'ru', 'url' => '/ru/stati']
+        ];
+        $blog = Blog::whereStatus(1)->orderBy('order')->paginate(9);
+        return view('blog', compact('blog', 'langs'));
+    }
+
+    public function article($slug): View
+    {
+        $langs = [
+            ['code' => 'en', 'url' => 'article/' . $slug],
+            ['code' => 'az', 'url' => 'az/meqale/' . $slug],
+            ['code' => 'ru', 'url' => 'ru/statya/' . $slug]
+        ];
+        $article = Blog::where('slug->' . session('locale'), $slug)->first();
+        $categories = Category::whereHas('blog')->get();
+        $others = Blog::where('id', '!=', $article->id)->get();
+        return view('article', compact('article', 'categories', 'others'));
+    }
+
+    public function blog_category($slug): View
+    {
+        $langs = [
+            ['code' => 'en', 'url' => '/blog/' . $slug],
+            ['code' => 'az', 'url' => '/az/bloq/' . $slug],
+            ['code' => 'ru', 'url' => '/ru/stati/' . $slug]
+        ];
+        $category = Category::where('slug->' . session('locale'), $slug)->first();
+        $blog = $category->blog()->whereStatus(1)->orderBy('order')->paginate(9);
+        return view('blog', compact('blog', 'langs'));
+    }
+
+    public function search_blog(Request $request): View
+    {
+        $langs = [
+            ['code' => 'en', 'url' => '/blog/search?search=' . $request->search],
+            ['code' => 'az', 'url' => '/az/bloq/axtarish?search=' . $request->search],
+            ['code' => 'ru', 'url' => '/ru/stati/poisk?search=' . $request->search]
+        ];
+        $blog = Blog::whereStatus(1)->where('title->' . session('locale'), 'like', '%' . $request->search . '%')->orderBy('order')->paginate(9);
+        return view('blog', compact('blog', 'langs'));
     }
 }
