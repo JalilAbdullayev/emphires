@@ -23,7 +23,7 @@ trait SetData
     public function setSlug(Model $model): void
     {
         foreach ($this->languages as $language) {
-            $model->setTranslation('slug', $language, Str::slug(Request::input('slug_' . $language)));
+            $model->setTranslation('slug', $language, Str::slug(Request::input('title_' . $language)));
         }
     }
 

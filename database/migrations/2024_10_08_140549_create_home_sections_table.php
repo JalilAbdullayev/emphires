@@ -45,7 +45,7 @@ return new class extends Migration {
             $table->json('qualities_title')->nullable();
             $table->json('qualities_subtitle')->nullable();
             $table->json('qualities_text')->nullable();
-            $table->boolean('services_slider')->default(1);
+            $table->boolean('qualities_status')->default(1);
             $table->json('testimonials_title')->nullable();
             $table->json('testimonials_subtitle')->nullable();
             $table->json('testimonials_text')->nullable();

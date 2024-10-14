@@ -62,7 +62,7 @@ class HomeSectionController extends Controller
         $this->setTranslated($home, 'qualities_title');
         $this->setTranslated($home, 'qualities_subtitle');
         $this->setTranslated($home, 'qualities_text');
-        $home->services_slider = $request->services_slider ? 1 : 0;
+        $home->qualities_status = $request->qualities_status ? 1 : 0;
         $this->setTranslated($home, 'testimonials_title');
         $this->setTranslated($home, 'testimonials_subtitle');
         $this->setTranslated($home, 'testimonials_text');
