@@ -2,7 +2,7 @@
     <div class="container">
         <section class="grid-cols-2 pb-10 col-lg-4">
             <div class="mx-3.5">
-                <img src="{{ asset('storage/' . $settings->logo) }}" alt="" class="mb-5" />
+                <img src="{{ asset('storage/' . $settings->logo) }}" alt="" class="mb-5"/>
                 <p class="mt-2.5 mb-4">
                     {{ $settings->description }}
                 </p>
@@ -26,7 +26,7 @@
                     @foreach ($allServices as $service)
                         <li>
                             <a href="{{ route('service_' . session('locale'), $service->slug) }}"
-                                class="hover:text-green-800">
+                               class="hover:text-green-800">
                                 <i class="fa-solid fa-chevron-right"></i> <span class="pl-2.5">
                                     {{ $service->title }}
                                 </span>
@@ -42,7 +42,7 @@
                 <ul>
                     @foreach ($allBlog as $article)
                         <li class="gap-4 mb-4 col-3">
-                            <img src="{{ asset('storage/blog/' . $article->image) }}" alt="" class="w-full" />
+                            <img src="{{ asset('storage/blog/' . $article->image) }}" alt="" class="w-full"/>
                             <div class="col-span-2">
                                 <a href="" class="font-bold hover:text-green-800">
                                     {{ $article->title }}
@@ -79,22 +79,22 @@
                 </a> @lang('All Rights Reserved').
             </p>
             <a href="#"
-                class="absolute left-1/2 -translate-x-1/2 -top-5 right-5 size-16 leading-[64px] text-[22px] text-center bg-dark text-white rounded-lg hover:bg-green-800 z-10">
+               class="absolute left-1/2 -translate-x-1/2 -top-5 right-5 size-16 leading-[64px] text-[22px] text-center bg-dark text-white rounded-lg hover:bg-green-800 z-10">
                 <i class="fa-solid fa-arrow-up"></i>
             </a>
         </section>
-        <div class="opacity-0 invisible fixed top-0 left-0 size-full bg-[#0C121DE6] duration-300 -translate-y-[30%] z-50"
+        <div
+            class="opacity-0 invisible fixed top-0 left-0 size-full bg-[#0C121DE6] duration-300 -translate-y-[30%] z-50"
             id="search-modal">
             <div class="absolute text-white top-[25px] right-[25px] cursor-pointer" id="close-modal">
                 <i class="block text-3xl fa-solid fa-xmark"></i>
             </div>
             <div class="max-w-[970px] mx-auto relative top-1/2 left-0 -translate-y-1/2">
-                <form action="" class="relative">
-                    <input type="search" name=""
-                        class="border-0 text-base text-[#09162A] pl-4 text-left h-[70px] leading-[70px] bg-white shadow-[0_9px_24px_0_rgba(26,47,106,0.05)] w-full rounded-md duration-150 -outline-offset-2 max-w-full"
-                        placeholder="Type Word Then Press Enter" />
+                <form action="{{ route('search_' . session('locale')) }}" class="relative">
+                    <input type="search" name="search" placeholder="Type Word Then Press Enter"
+                           class="border-0 text-base text-[#09162A] pl-4 text-left h-[70px] leading-[70px] bg-white shadow-[0_9px_24px_0_rgba(26,47,106,0.05)] w-full rounded-md duration-150 -outline-offset-2 max-w-full"/>
                     <button type="submit"
-                        class="absolute top-[5px] right-[5px] text-xl size-[60px] leading-[60px] rounded text-white bg-primary">
+                            class="absolute top-[5px] right-[5px] text-xl size-[60px] leading-[60px] rounded text-white bg-primary">
                         <i class="fa-solid fa-magnifying-glass"></i>
                     </button>
                 </form>

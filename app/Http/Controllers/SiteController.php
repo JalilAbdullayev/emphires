@@ -8,6 +8,7 @@ use App\Models\Contact;
 use App\Models\Course;
 use App\Models\Service;
 use App\Models\Category;
+use Illuminate\Support\Facades\DB;
 use Illuminate\View\View;
 use Illuminate\Http\Request;
 use Illuminate\Http\RedirectResponse;
@@ -184,12 +185,12 @@ class SiteController extends Controller {
             ['code' => 'ru', 'url' => '/ru/poisk?search=' . $request->search]
         ];
         $courses = Course::active()->where('title->' . session('locale'), 'like', '%' . $request->search . '%')
-            ->select('id', 'title', 'description');
+            ->select('title', 'slug', 'image', DB::raw("'course' as url"));
         $services = Service::where('title->' . session('locale'), 'like', '%' . $request->search . '%')
-            ->select('id', 'title', 'description');
+            ->select('title', 'slug', 'image', DB::raw("'service' as url"));
         $blog = Blog::where('title->' . session('locale'), 'like', '%' . $request->search . '%')
-            ->select('id', 'title', 'description');
-        $results = $courses->union($blog)->union($services)->get();
+            ->select('title', 'slug', 'image', DB::raw("'article' as url"));
+        $results = $courses->union($blog)->union($services)->paginate(9);
         return view('search', compact('results', 'langs'));
     }
 }
