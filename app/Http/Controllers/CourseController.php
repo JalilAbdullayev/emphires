@@ -12,25 +12,23 @@ use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\RedirectResponse;
 
-class CourseController extends Controller
-{
+class CourseController extends Controller {
     use UploadImage, SetData;
-    public function index(): View
-    {
+
+    public function index(): View {
         $langs = [
-            ['code' => 'en', 'url' => '/admin/courses'],
-            ['code' => 'az', 'url' => '/az/admin/kurslar'],
+            ['code' => 'en', 'url' => '/en/admin/courses'],
+            ['code' => 'az', 'url' => '/admin/kurslar'],
             ['code' => 'ru', 'url' => '/ru/admin/kursi']
         ];
         $courses = Course::orderBy('order')->get();
         return view('admin.courses.index', compact('courses', 'langs'));
     }
 
-    public function create(): View
-    {
+    public function create(): View {
         $langs = [
-            ['code' => 'en', 'url' => '/admin/courses/create'],
-            ['code' => 'az', 'url' => '/az/admin/kurslar/yarat'],
+            ['code' => 'en', 'url' => '/en/admin/courses/create'],
+            ['code' => 'az', 'url' => '/admin/kurslar/yarat'],
             ['code' => 'ru', 'url' => '/ru/admin/kursi/sozdat']
         ];
         $categories = Category::orderBy('order')->get();
@@ -39,21 +37,19 @@ class CourseController extends Controller
         ]);
     }
 
-    public function store(Request $request): RedirectResponse
-    {
+    public function store(Request $request): RedirectResponse {
         $course = new Course;
         $course->author_id = Auth::user()->id;
         $course->order = Course::count() > 0 ? Course::latest('order')->first()->order + 1 : 1;
         return $this->data($request, $course);
     }
 
-    public function edit(int $id): View
-    {
+    public function edit(int $id): View {
         $categories = Category::orderBy('order')->get();
         $course = Course::findOrFail($id);
         $langs = [
-            ['code' => 'en', 'url' => '/admin/courses/edit/' . $id],
-            ['code' => 'az', 'url' => '/az/admin/kurslar/redakte/' . $id],
+            ['code' => 'en', 'url' => '/en/admin/courses/edit/' . $id],
+            ['code' => 'az', 'url' => '/admin/kurslar/redakte/' . $id],
             ['code' => 'ru', 'url' => '/ru/admin/kursi/izmenit/' . $id]
         ];
         return view('admin.courses.edit', compact('course', 'langs', 'categories'), [
@@ -61,31 +57,26 @@ class CourseController extends Controller
         ]);
     }
 
-    public function update(int $id, Request $request): RedirectResponse
-    {
+    public function update(int $id, Request $request): RedirectResponse {
         $course = Course::findOrFail($id);
         return $this->data($request, $course);
     }
 
-    public function delete(int $id): JsonResponse
-    {
+    public function delete(int $id): JsonResponse {
         $course = Course::findOrFail($id);
         $course->delete();
         return response()->json(['success' => true]);
     }
 
-    public function sort(Request $request): JsonResponse
-    {
+    public function sort(Request $request): JsonResponse {
         return $this->changeOrder($request, Course::class);
     }
 
-    public function status(Request $request): JsonResponse
-    {
+    public function status(Request $request): JsonResponse {
         return $this->changeStatus($request, Course::class);
     }
 
-    private function data($request, $course): RedirectResponse
-    {
+    private function data($request, $course): RedirectResponse {
         $this->setTranslated($course, 'title');
         $this->setSlug($course);
         $this->setTranslated($course, 'description');

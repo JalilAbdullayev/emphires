@@ -9,14 +9,13 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 
-class CategoryController extends Controller
-{
+class CategoryController extends Controller {
     use SetData;
-    public function index(): View
-    {
+
+    public function index(): View {
         $langs = [
-            ['code' => 'en', 'url' => '/admin/categories'],
-            ['code' => 'az', 'url' => '/az/admin/kateqoriyalar'],
+            ['code' => 'en', 'url' => '/en/admin/categories'],
+            ['code' => 'az', 'url' => '/admin/kateqoriyalar'],
             ['code' => 'ru', 'url' => '/ru/admin/kateqori']
         ];
         $categories = Category::orderBy('order')->get();
@@ -26,21 +25,19 @@ class CategoryController extends Controller
     }
 
 
-    public function store(Request $request): RedirectResponse
-    {
+    public function store(Request $request): RedirectResponse {
         $category = new Category;
         $last = Category::orderBy('order', 'desc')->first()->order;
-        if ($last) {
+        if($last) {
             $category->order = $last + 1;
         }
         return $this->data($request, $category);
     }
 
-    public function edit(int $id): View
-    {
+    public function edit(int $id): View {
         $langs = [
-            ['code' => 'en', 'url' => '/admin/categories/edit/' . $id],
-            ['code' => 'az', 'url' => '/az/admin/kateqoriyalar/redakte/' . $id],
+            ['code' => 'en', 'url' => '/en/admin/categories/edit/' . $id],
+            ['code' => 'az', 'url' => '/admin/kateqoriyalar/redakte/' . $id],
             ['code' => 'ru', 'url' => '/ru/admin/kateqori/izmenit/' . $id]
         ];
         $category = Category::findOrFail($id);
@@ -49,31 +46,26 @@ class CategoryController extends Controller
         ]);
     }
 
-    public function update(int $id, Request $request): RedirectResponse
-    {
+    public function update(int $id, Request $request): RedirectResponse {
         $category = Category::findOrFail($id);
         return $this->data($request, $category);
     }
 
-    public function delete(int $id): JsonResponse
-    {
+    public function delete(int $id): JsonResponse {
         $category = Category::findOrFail($id);
         $category->delete();
         return response()->json(['success' => true]);
     }
 
-    public function status(Request $request): JsonResponse
-    {
+    public function status(Request $request): JsonResponse {
         return $this->changeStatus($request, Category::class);
     }
 
-    public function sort(Request $request): JsonResponse
-    {
+    public function sort(Request $request): JsonResponse {
         return $this->changeOrder($request, Category::class);
     }
 
-    private function data(Request $request, $category): RedirectResponse
-    {
+    private function data(Request $request, $category): RedirectResponse {
         $this->setTranslated($category, 'title');
         $this->setSlug($category);
         $category->status = $request->status ? 0 : 1;

@@ -10,25 +10,23 @@ use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\RedirectResponse;
 
-class TestimonialController extends Controller
-{
+class TestimonialController extends Controller {
     use SetData, UploadImage;
-    public function index(): View
-    {
+
+    public function index(): View {
         $langs = [
-            ['code' => 'en', 'url' => '/admin/testimonials'],
-            ['code' => 'az', 'url' => '/az/admin/sherhler'],
+            ['code' => 'en', 'url' => '/en/admin/testimonials'],
+            ['code' => 'az', 'url' => '/admin/sherhler'],
             ['code' => 'ru', 'url' => '/ru/admin/kommentariy']
         ];
         $testimonials = Testimonial::orderBy('order')->get();
         return view('admin.testimonials.index', compact('langs', 'testimonials'));
     }
 
-    public function create(): View
-    {
+    public function create(): View {
         $langs = [
-            ['code' => 'en', 'url' => '/admin/testimonials/create'],
-            ['code' => 'az', 'url' => '/az/admin/sherhler/yarat'],
+            ['code' => 'en', 'url' => '/en/admin/testimonials/create'],
+            ['code' => 'az', 'url' => '/admin/sherhler/yarat'],
             ['code' => 'ru', 'url' => '/ru/admin/kommentariy/sozdat']
         ];
         return view('admin.testimonials.create', compact('langs'), [
@@ -36,18 +34,16 @@ class TestimonialController extends Controller
         ]);
     }
 
-    public function store(Request $request): RedirectResponse
-    {
+    public function store(Request $request): RedirectResponse {
         $testimonial = new Testimonial;
         $testimonial->order = Testimonial::count() > 0 ? Testimonial::latest('order')->first()->order + 1 : 1;
         return $this->data($request, $testimonial);
     }
 
-    public function edit(int $id): View
-    {
+    public function edit(int $id): View {
         $langs = [
-            ['code' => 'en', 'url' => '/admin/testimonials/edit/' . $id],
-            ['code' => 'az', 'url' => '/az/admin/sherhler/redakte/' . $id],
+            ['code' => 'en', 'url' => '/en/admin/testimonials/edit/' . $id],
+            ['code' => 'az', 'url' => '/admin/sherhler/redakte/' . $id],
             ['code' => 'ru', 'url' => '/ru/admin/kommentariy/izmenit/' . $id]
         ];
         $testimonial = Testimonial::findOrFail($id);
@@ -56,31 +52,26 @@ class TestimonialController extends Controller
         ]);
     }
 
-    public function update(int $id, Request $request): RedirectResponse
-    {
+    public function update(int $id, Request $request): RedirectResponse {
         $testimonial = Testimonial::findOrFail($id);
         return $this->data($request, $testimonial);
     }
 
-    public function delete(int $id): JsonResponse
-    {
+    public function delete(int $id): JsonResponse {
         $testimonial = Testimonial::findOrFail($id);
         $testimonial->delete();
         return response()->json(['success' => true]);
     }
 
-    public function status(Request $request): JsonResponse
-    {
+    public function status(Request $request): JsonResponse {
         return $this->changeStatus($request, Testimonial::class);
     }
 
-    public function sort(Request $request): JsonResponse
-    {
+    public function sort(Request $request): JsonResponse {
         return $this->changeOrder($request, Testimonial::class);
     }
 
-    private function data($request, $testimonial): RedirectResponse
-    {
+    private function data($request, $testimonial): RedirectResponse {
         $this->setTranslated($testimonial, 'name');
         $this->setTranslated($testimonial, 'position');
         $this->setTranslated($testimonial, 'text');

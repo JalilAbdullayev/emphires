@@ -1,10 +1,10 @@
 @extends('admin.layouts.master')
 @section('title', __('New article'))
 @section('css')
-    <link rel="stylesheet" href="{{ asset('back/node_modules/dropify/dist/css/dropify.min.css') }}" />
-    <link rel="stylesheet" href="{{ asset('back/ckeditor/samples/css/samples.css') }}" />
-    <link rel="stylesheet" href="{{ asset('back/ckeditor/samples/toolbarconfigurator/lib/codemirror/neo.css') }}" />
-    <link rel="stylesheet" href="{{ asset('back/node_modules/select2/dist/css/select2.min.css') }}" />
+    <link rel="stylesheet" href="{{ asset('back/node_modules/dropify/dist/css/dropify.min.css') }}"/>
+    <link rel="stylesheet" href="{{ asset('back/ckeditor/samples/css/samples.css') }}"/>
+    <link rel="stylesheet" href="{{ asset('back/ckeditor/samples/toolbarconfigurator/lib/codemirror/neo.css') }}"/>
+    <link rel="stylesheet" href="{{ asset('back/node_modules/select2/dist/css/select2.min.css') }}"/>
     <style>
         textarea {
             display: block;
@@ -44,29 +44,7 @@
     <div class="card">
         <div class="card-body">
             <!-- Nav tabs -->
-            <ul class="nav nav-tabs" role="tablist">
-                <li class="nav-item">
-                    <a class="nav-link active" data-bs-toggle="tab" href="#en" role="tab">
-                        <span class="hidden-xs-down">
-                            @lang('en')
-                        </span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" data-bs-toggle="tab" href="#az" role="tab">
-                        <span class="hidden-xs-down">
-                            @lang('az')
-                        </span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" data-bs-toggle="tab" href="#ru" role="tab">
-                        <span class="hidden-xs-down">
-                            @lang('ru')
-                        </span>
-                    </a>
-                </li>
-            </ul>
+            <x-admin.form-lang-switch/>
             <!-- Tab panes -->
             <form action="{{ route('admin.blog.store') }}" method="POST" enctype="multipart/form-data">
                 @csrf
@@ -75,7 +53,7 @@
                         <div @class(['tab-pane', 'active' => $loop->first]) id="{{ $language }}" role="tabpanel">
                             <div class="form-floating my-3">
                                 <input class="form-control" name="icon" id="title" placeholder="@lang('Title')"
-                                    type="text" required />
+                                       type="text" required/>
                                 <label class="form-label text-white-50" for="title">
                                     @lang('Title')
                                 </label>
@@ -84,20 +62,22 @@
                                 <label class="form-label text-white-50" for="description">
                                     @lang('Description')
                                 </label>
-                                <textarea class="form-control" placeholder="@lang('Description')" id="description" name="description_{{ $language }}"></textarea>
+                                <textarea class="form-control" placeholder="@lang('Description')" id="description"
+                                          name="description_{{ $language }}"></textarea>
                             </div>
                             <div class="mb-3">
                                 <label class="form-label text-white-50" for="keywords">
                                     @lang('Keywords')
                                 </label>
-                                <textarea class="form-control" placeholder="@lang('Keywords')" id="keywords" name="keywords_{{ $language }}"></textarea>
+                                <textarea class="form-control" placeholder="@lang('Keywords')" id="keywords"
+                                          name="keywords_{{ $language }}"></textarea>
                             </div>
                             <div class="mb-3">
                                 <label class="form-label text-white-50" for="text">
                                     @lang('Text')
                                 </label>
                                 <textarea class="form-control ckeditor" placeholder="@lang('Text')" id="text"
-                                    name="text_{{ $language }}"></textarea>
+                                          name="text_{{ $language }}"></textarea>
                             </div>
                         </div>
                     @endforeach
@@ -109,10 +89,10 @@
                                 @lang('Date')
                             </label>
                             <input type="date" class="form-control" placeholder="@lang('Date')" id="date"
-                                name="date" />
+                                   name="date"/>
                         </div>
                         <div class="form-check form-switch mb-3">
-                            <input type="checkbox" class="form-check-input" name="status" id="status" value="1" />
+                            <input type="checkbox" class="form-check-input" name="status" id="status" value="1"/>
                             <label class="form-check-label text-white-50" for="status">
                                 @lang('Status')
                             </label>
@@ -133,7 +113,7 @@
                         </div>
                         <div class="form-check form-switch mb-3">
                             <input type="checkbox" class="form-check-input" name="bg_status" id="bg_status"
-                                value="1" />
+                                   value="1"/>
                             <label class="form-check-label text-white-50" for="bg_status">
                                 @lang('Background Image Status')
                             </label>
@@ -145,14 +125,14 @@
                         @lang('Image')
                     </label>
                     <input type="file" name="image" id="image" class="dropify" data-show-remove="false"
-                        accept="image/*" />
+                           accept="image/*"/>
                 </div>
                 <div class="mb-3">
                     <label for="background" class="form-label text-white-50">
                         @lang('Background Image')
                     </label>
                     <input type="file" name="background" id="background" class="dropify" data-show-remove="false"
-                        accept="image/*" />
+                           accept="image/*"/>
                 </div>
                 <button type="submit" class="btn btn-primary float-end">
                     @lang('Create')

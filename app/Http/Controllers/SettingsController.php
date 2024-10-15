@@ -9,15 +9,13 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 
-class SettingsController extends Controller
-{
+class SettingsController extends Controller {
     use UploadImage, SetData;
 
-    public function index(): View
-    {
+    public function index(): View {
         $langs = [
-            ['code' => 'en', 'url' => '/admin/settings'],
-            ['code' => 'az', 'url' => '/az/admin/parametrler'],
+            ['code' => 'en', 'url' => '/en/admin/settings'],
+            ['code' => 'az', 'url' => '/admin/parametrler'],
             ['code' => 'ru', 'url' => '/ru/admin/parametry']
         ];
         return view('admin.settings', compact('langs'), [
@@ -25,8 +23,7 @@ class SettingsController extends Controller
         ]);
     }
 
-    public function update(Request $request): RedirectResponse
-    {
+    public function update(Request $request): RedirectResponse {
         $settings = Settings::firstOrFail();
         $this->setTranslated($settings, 'title');
         $this->setTranslated($settings, 'description');

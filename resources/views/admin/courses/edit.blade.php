@@ -1,10 +1,10 @@
 @extends('admin.layouts.master')
 @section('title', __('Edit course'))
 @section('css')
-    <link rel="stylesheet" href="{{ asset('back/node_modules/dropify/dist/css/dropify.min.css') }}" />
-    <link rel="stylesheet" href="{{ asset('back/ckeditor/samples/css/samples.css') }}" />
-    <link rel="stylesheet" href="{{ asset('back/ckeditor/samples/toolbarconfigurator/lib/codemirror/neo.css') }}" />
-    <link rel="stylesheet" href="{{ asset('back/node_modules/select2/dist/css/select2.min.css') }}" />
+    <link rel="stylesheet" href="{{ asset('back/node_modules/dropify/dist/css/dropify.min.css') }}"/>
+    <link rel="stylesheet" href="{{ asset('back/ckeditor/samples/css/samples.css') }}"/>
+    <link rel="stylesheet" href="{{ asset('back/ckeditor/samples/toolbarconfigurator/lib/codemirror/neo.css') }}"/>
+    <link rel="stylesheet" href="{{ asset('back/node_modules/select2/dist/css/select2.min.css') }}"/>
     <style>
         textarea {
             display: block;
@@ -44,29 +44,7 @@
     <div class="card">
         <div class="card-body">
             <!-- Nav tabs -->
-            <ul class="nav nav-tabs" role="tablist">
-                <li class="nav-item">
-                    <a class="nav-link active" data-bs-toggle="tab" href="#en" role="tab">
-                        <span class="hidden-xs-down">
-                            @lang('en')
-                        </span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" data-bs-toggle="tab" href="#az" role="tab">
-                        <span class="hidden-xs-down">
-                            @lang('az')
-                        </span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" data-bs-toggle="tab" href="#ru" role="tab">
-                        <span class="hidden-xs-down">
-                            @lang('ru')
-                        </span>
-                    </a>
-                </li>
-            </ul>
+            <x-admin.form-lang-switch/>
             <!-- Tab panes -->
             <form action="{{ route('admin.courses.update', $course->id) }}" method="POST" enctype="multipart/form-data">
                 @csrf
@@ -75,8 +53,8 @@
                         <div @class(['tab-pane', 'active' => $loop->first]) id="{{ $language }}" role="tabpanel">
                             <div class="form-floating my-3">
                                 <input class="form-control" name="title_{{ $language }}" id="title"
-                                    placeholder="@lang('Title')" type="text"
-                                    value="{{ $course->getTranslation('title', $language) }}" required />
+                                       placeholder="@lang('Title')" type="text"
+                                       value="{{ $course->getTranslation('title', $language) }}" required/>
                                 <label class="form-label text-white-50" for="title">
                                     @lang('Title')
                                 </label>
@@ -86,20 +64,21 @@
                                     @lang('Description')
                                 </label>
                                 <textarea class="form-control" placeholder="@lang('Description')" id="description"
-                                    name="description_{{ $language }}">{{ $course->getTranslation('description', $language) }}</textarea>
+                                          name="description_{{ $language }}">{{ $course->getTranslation('description', $language) }}</textarea>
                             </div>
                             <div class="mb-3">
                                 <label class="form-label text-white-50" for="keywords">
                                     @lang('Keywords')
                                 </label>
-                                <textarea class="form-control" placeholder="@lang('Keywords')" id="keywords" name="keywords_{{ $language }}">{{ $course->getTranslation('keywords', $language) }}</textarea>
+                                <textarea class="form-control" placeholder="@lang('Keywords')" id="keywords"
+                                          name="keywords_{{ $language }}">{{ $course->getTranslation('keywords', $language) }}</textarea>
                             </div>
                             <div class="mb-3">
                                 <label class="form-label text-white-50" for="text">
                                     @lang('Text')
                                 </label>
                                 <textarea class="form-control ckeditor" placeholder="@lang('Text')" id="text"
-                                    name="text_{{ $language }}">{!! $course->getTranslation('text', $language) !!}</textarea>
+                                          name="text_{{ $language }}">{!! $course->getTranslation('text', $language) !!}</textarea>
                             </div>
                         </div>
                     @endforeach
@@ -111,7 +90,7 @@
                                 @lang('Date')
                             </label>
                             <input type="date" class="form-control" placeholder="@lang('Date')" id="date"
-                                name="date" value="{{ $course->date }}" />
+                                   name="date" value="{{ $course->date }}"/>
                         </div>
                         <div class="form-check form-switch mb-3">
                             <input type="checkbox" class="form-check-input" name="status" id="status" value="1"
@@ -128,7 +107,8 @@
                             </label>
                             <select name="category_id" id="category_id" class="w-100">
                                 @foreach ($categories as $category)
-                                    <option value="{{ $category->id }}" @selected($category->id === $course->category_id)>
+                                    <option
+                                        value="{{ $category->id }}" @selected($category->id === $course->category_id)>
                                         {{ $category->title }}
                                     </option>
                                 @endforeach
@@ -136,9 +116,9 @@
                         </div>
                         <div class="form-check form-switch mb-3">
                             <input type="checkbox" class="form-check-input" name="bg_status" id="bg_status"
-                                value="1" @checked($course->bg_status) />
+                                   value="1" @checked($course->bg_status) />
                             <label class="form-check-label text-white-50" for="bg_status">
-                                @lang('Background Image Status')
+                                @lang('Background image status')
                             </label>
                         </div>
                     </div>
@@ -148,21 +128,21 @@
                         @lang('Video link')
                     </label>
                     <input type="url" class="form-control" placeholder="@lang('Video link')" id="video_link"
-                        name="video_link" value="{{ $course->video_link }}" />
+                           name="video_link" value="{{ $course->video_link }}"/>
                 </div>
                 <div class="mb-3">
                     <label for="image" class="form-label text-white-50">
                         @lang('Image')
                     </label>
                     <input type="file" name="image" id="image" class="dropify" data-show-remove="false"
-                        accept="image/*" data-default-file="{{ asset('storage/courses/' . $course->image) }}" />
+                           accept="image/*" data-default-file="{{ asset('storage/courses/' . $course->image) }}"/>
                 </div>
                 <div class="mb-3">
                     <label for="background" class="form-label text-white-50">
-                        @lang('Background Image')
+                        @lang('Background image')
                     </label>
                     <input type="file" name="background" id="background" class="dropify" data-show-remove="false"
-                        accept="image/*" data-default-file="{{ asset('storage/courses/' . $course->background) }}" />
+                           accept="image/*" data-default-file="{{ asset('storage/courses/' . $course->background) }}"/>
                 </div>
                 <button type="submit" class="btn btn-primary float-end">
                     @lang('Update')

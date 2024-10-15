@@ -20,6 +20,7 @@
           crossorigin="anonymous" referrerpolicy="no-referrer"/>
     <link href="https://cdn.jsdelivr.net/npm/@sweetalert2/theme-dark@4/dark.css" rel="stylesheet"/>
     @yield('css')
+    @vite([])
 </head>
 <body class="skin-green-dark fixed-layout">
 <!-- Preloader - style you can find in spinners.css -->
@@ -71,7 +72,7 @@
                         @foreach($langs as $lang)
                             <li>
                                 <a class="dropdown-item" href="{{ $lang['url'] }}">
-                                    {{ __($lang['code']) }}
+                                    @lang($lang['code'])
                                 </a>
                             </li>
                         @endforeach
@@ -161,8 +162,8 @@
                 showCancelButton: true,
                 confirmButtonColor: '#6F42C1',
                 cancelButtonColor: '#F62D51',
-                confirmButtonText: 'Bəli, Sil',
-                cancelButtonText: 'Xeyr, Geri qayıt',
+                confirmButtonText: "@lang('Yes, delete')",
+                cancelButtonText: "@lang('No, cancel')",
             }).then(result => {
                 if(result.isConfirmed) {
                     $.ajax({
@@ -200,31 +201,6 @@
                 },
                 error: function() {
                     errorAlert('{{ __('Error while updating status.') }}.')
-                }
-            })
-        })
-    }
-
-    function featured(route) {
-        $(document).on('click', '.featured', function() {
-            let id = $(this).closest('tr').attr('id');
-            let self = $(this);
-            $.ajax({
-                url: route.replace(':id', id),
-                type: "POST",
-                async: false,
-                data: {
-                    _method: 'PUT'
-                },
-                success: function() {
-                    successAlert('Şəkil önə çıxarıldı.')
-                    self.removeClass('btn-danger featured').addClass('btn-success featuredImage');
-                    $('.featuredImage').not(self).removeClass('btn-success featuredImage').addClass('btn-danger featured');
-                    self.find('i').removeClass('mdi-star-outline').addClass('mdi-star');
-                    $('.featured').not(self).find('i').removeClass('mdi-star').addClass('mdi-star-outline');
-                },
-                error: function() {
-                    errorAlert('Şəkil önə çıxarılarkən xəta baş verdi.')
                 }
             })
         })

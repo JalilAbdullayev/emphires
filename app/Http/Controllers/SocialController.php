@@ -9,9 +9,9 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 
-class SocialController extends Controller
-{
+class SocialController extends Controller {
     use SetData;
+
     public array $icons = [
         ['title' => 'Facebook', 'icon' => "<i class='fa-brands fa-facebook'></i>"],
         ['title' => 'Facebook F', 'icon' => "<i class='fa-brands fa-facebook-f'></i>"],
@@ -23,12 +23,12 @@ class SocialController extends Controller
         ['title' => 'WhatsApp', 'icon' => "<i class='fa-brands fa-whatsapp'></i>"],
         ['title' => 'WhatsApp Dördbucaq', 'icon' => "<i class='fa-brands fa-square-whatsapp'></i>"],
     ];
-    public function index(): View
-    {
+
+    public function index(): View {
         $socials = Social::orderBy('order')->get();
         $langs = [
-            ['code' => 'en', 'url' => '/admin/social-media'],
-            ['code' => 'az', 'url' => '/az/admin/sosial-media'],
+            ['code' => 'en', 'url' => '/en/admin/social-media'],
+            ['code' => 'az', 'url' => '/admin/sosial-media'],
             ['code' => 'ru', 'url' => '/ru/admin/sotsialnyye-seti']
         ];
         return view('admin.social.index', compact('socials', 'langs'), [
@@ -36,19 +36,17 @@ class SocialController extends Controller
         ]);
     }
 
-    public function store(Request $request): RedirectResponse
-    {
+    public function store(Request $request): RedirectResponse {
         $social = new Social;
         $social->order = Social::count() > 0 ? Social::latest('order')->first()->order + 1 : 1;
         return $this->data($request, $social);
     }
 
-    public function edit(int $id): View
-    {
+    public function edit(int $id): View {
         $social = Social::findOrFail($id);
         $langs = [
-            ['code' => 'en', 'url' => '/admin/social-media/edit/' . $id],
-            ['code' => 'az', 'url' => '/az/admin/sosial-media/redakte/' . $id],
+            ['code' => 'en', 'url' => '/en/admin/social-media/edit/' . $id],
+            ['code' => 'az', 'url' => '/admin/sosial-media/redakte/' . $id],
             ['code' => 'ru', 'url' => '/ru/admin/sotsialnyye-seti/izmenit/' . $id]
         ];
         return view('admin.social.edit', compact('social', 'langs'), [
@@ -56,31 +54,26 @@ class SocialController extends Controller
         ]);
     }
 
-    public function update(int $id, Request $request): RedirectResponse
-    {
+    public function update(int $id, Request $request): RedirectResponse {
         $social = Social::findOrFail($id);
         return $this->data($request, $social);
     }
 
-    public function delete(int $id): JsonResponse
-    {
+    public function delete(int $id): JsonResponse {
         $social = Social::findOrFail($id);
         $social->delete();
         return response()->json(['success' => true]);
     }
 
-    public function status(Request $request): JsonResponse
-    {
+    public function status(Request $request): JsonResponse {
         return $this->changeStatus($request, Social::class);
     }
 
-    public function sort(Request $request): JsonResponse
-    {
+    public function sort(Request $request): JsonResponse {
         return $this->changeOrder($request, Social::class);
     }
 
-    private function data($request, $social): RedirectResponse
-    {
+    private function data($request, $social): RedirectResponse {
         $social->icon = $request->icon;
         $social->url = $request->url;
         $social->status = $request->status ? 1 : 0;

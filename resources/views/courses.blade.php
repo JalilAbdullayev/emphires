@@ -1,7 +1,7 @@
 @extends('layouts.master')
 @section('title', __('Courses'))
 @section('content')
-    <x-main-header :title="__('Courses')" :bg="null" />
+    <x-main-header :title="__('Courses')" :bg="null"/>
     <main class="container section">
         <div class="col-md-3">
             @foreach ($courses as $course)

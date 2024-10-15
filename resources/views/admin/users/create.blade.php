@@ -68,9 +68,9 @@
             @enderror
             <div class="form-floating mb-3">
                 <input type="password" class="form-control" name="password_confirmation" id="password-confirm"
-                    placeholder="@lang('Confirm Password')" required maxlength="255" autocomplete="new-password" />
+                    placeholder="@lang('Confirm password')" required maxlength="255" autocomplete="new-password" />
                 <label for="password-confirm" class="form-label text-white-50">
-                    @lang('Confirm Password')
+                    @lang('Confirm password')
                 </label>
             </div>
             @error('password_confirm')

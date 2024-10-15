@@ -10,25 +10,23 @@ use Illuminate\Http\Request;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\RedirectResponse;
 
-class SlideController extends Controller
-{
+class SlideController extends Controller {
     use UploadImage, SetData;
-    public function index(): View
-    {
+
+    public function index(): View {
         $langs = [
-            ['code' => 'en', 'url' => '/admin/slider'],
-            ['code' => 'az', 'url' => '/az/admin/slaydlar'],
+            ['code' => 'en', 'url' => '/en/admin/slider'],
+            ['code' => 'az', 'url' => '/admin/slaydlar'],
             ['code' => 'ru', 'url' => '/ru/admin/slayder']
         ];
         $slides = Slide::orderBy('order')->get();
         return view('admin.slider.index', compact('langs', 'slides'));
     }
 
-    public function create(): View
-    {
+    public function create(): View {
         $langs = [
-            ['code' => 'en', 'url' => '/admin/slider/create'],
-            ['code' => 'az', 'url' => '/az/admin/slaydlar/yarat'],
+            ['code' => 'en', 'url' => '/en/admin/slider/create'],
+            ['code' => 'az', 'url' => '/admin/slaydlar/yarat'],
             ['code' => 'ru', 'url' => '/ru/admin/slayder/sozdat']
         ];
         return view('admin.slider.create', compact('langs'), [
@@ -36,18 +34,16 @@ class SlideController extends Controller
         ]);
     }
 
-    public function store(Request $request): RedirectResponse
-    {
+    public function store(Request $request): RedirectResponse {
         $slide = new Slide;
         $slide->order = Slide::count() > 0 ? Slide::latest('order')->first()->order + 1 : 1;
         return $this->data($slide, $request);
     }
 
-    public function edit(int $id): View
-    {
+    public function edit(int $id): View {
         $langs = [
-            ['code' => 'en', 'url' => '/admin/slider/edit/' . $id],
-            ['code' => 'az', 'url' => '/az/admin/slaydlar/redakte/' . $id],
+            ['code' => 'en', 'url' => '/en/admin/slider/edit/' . $id],
+            ['code' => 'az', 'url' => '/admin/slaydlar/redakte/' . $id],
             ['code' => 'ru', 'url' => '/ru/admin/slayder/izmenit/' . $id]
         ];
         $slide = Slide::findOrFail($id);
@@ -56,31 +52,26 @@ class SlideController extends Controller
         ]);
     }
 
-    public function update(Request $request, int $id): RedirectResponse
-    {
+    public function update(Request $request, int $id): RedirectResponse {
         $slide = Slide::findOrFail($id);
         return $this->data($slide, $request);
     }
 
-    public function delete(int $id): JsonResponse
-    {
+    public function delete(int $id): JsonResponse {
         $slide = Slide::findOrFail($id);
         $slide->delete();
         return response()->json(['success' => true]);
     }
 
-    public function status(Request $request): JsonResponse
-    {
+    public function status(Request $request): JsonResponse {
         return $this->changeStatus($request, Slide::class);
     }
 
-    public function sort(Request $request): JsonResponse
-    {
+    public function sort(Request $request): JsonResponse {
         return $this->changeOrder($request, Slide::class);
     }
 
-    private function data($slide, $request): RedirectResponse
-    {
+    private function data($slide, $request): RedirectResponse {
         $this->setTranslated($slide, 'title');
         $this->setTranslated($slide, 'subtitle');
         $this->setTranslated($slide, 'button_text');

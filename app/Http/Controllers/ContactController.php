@@ -9,15 +9,13 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 
-class ContactController extends Controller
-{
+class ContactController extends Controller {
     use UploadImage, SetData;
 
-    public function index(): View
-    {
+    public function index(): View {
         $langs = [
-            ['code' => 'en', 'url' => '/admin/contact'],
-            ['code' => 'az', 'url' => '/az/admin/elaqe'],
+            ['code' => 'en', 'url' => '/en/admin/contact'],
+            ['code' => 'az', 'url' => '/admin/elaqe'],
             ['code' => 'ru', 'url' => '/ru/admin/svyaz']
         ];
         return view('admin.contact', compact('langs'), [
@@ -25,8 +23,7 @@ class ContactController extends Controller
         ]);
     }
 
-    public function update(Request $request): RedirectResponse
-    {
+    public function update(Request $request): RedirectResponse {
         $contact = Contact::firstOrFail();
         $this->setTranslated($contact, 'title');
         $this->setTranslated($contact, 'form_title');

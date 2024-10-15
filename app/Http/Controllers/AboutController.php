@@ -9,15 +9,13 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 
-class AboutController extends Controller
-{
+class AboutController extends Controller {
     use UploadImage, SetData;
 
-    public function index(): View
-    {
+    public function index(): View {
         $langs = [
-            ['code' => 'en', 'url' => '/admin/about'],
-            ['code' => 'az', 'url' => '/az/admin/haqqimizda'],
+            ['code' => 'en', 'url' => '/en/admin/about'],
+            ['code' => 'az', 'url' => '/admin/haqqimizda'],
             ['code' => 'ru', 'url' => '/ru/admin/o-nas']
         ];
         $about = About::firstOrFail();
@@ -26,8 +24,7 @@ class AboutController extends Controller
         ]);
     }
 
-    public function update(Request $request): RedirectResponse
-    {
+    public function update(Request $request): RedirectResponse {
         $about = About::firstOrFail();
         $this->setTranslated($about, 'title');
         $this->setTranslated($about, 'specialties_title');

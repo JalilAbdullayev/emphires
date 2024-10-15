@@ -36,29 +36,7 @@
     <div class="card">
         <div class="card-body">
             <!-- Nav tabs -->
-            <ul class="nav nav-tabs" role="tablist">
-                <li class="nav-item">
-                    <a class="nav-link active" data-bs-toggle="tab" href="#en" role="tab">
-                        <span class="hidden-xs-down">
-                            {{ __('en') }}
-                        </span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" data-bs-toggle="tab" href="#az" role="tab">
-                        <span class="hidden-xs-down">
-                            {{ __('az') }}
-                        </span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" data-bs-toggle="tab" href="#ru" role="tab">
-                        <span class="hidden-xs-down">
-                            {{ __('ru') }}
-                        </span>
-                    </a>
-                </li>
-            </ul>
+            <x-admin.form-lang-switch/>
             <!-- Tab panes -->
             <form action="{{ route('admin.about') }}" method="POST" enctype="multipart/form-data">
                 @csrf
@@ -77,35 +55,35 @@
                                     </div>
                                     <div class="mb-3">
                                         <label class="form-label text-white-50" for="specialties_subtitle">
-                                            {{ __('Specialties Subtitle') }}
+                                            {{ __('Specialties subtitle') }}
                                         </label>
-                                        <textarea class="form-control" placeholder="{{ __('Specialties Subtitle') }}" id="specialties_subtitle"
+                                        <textarea class="form-control" placeholder="{{ __('Specialties subtitle') }}" id="specialties_subtitle"
                                             name="specialties_subtitle_{{ $language }}">{!! $about->getTranslation('specialties_subtitle', $language) !!}</textarea>
                                     </div>
                                     <div class="mb-3">
                                         <label class="form-label text-white-50" for="specialties_button">
-                                            {{ __('Specialties Button') }}
+                                            {{ __('Specialties button') }}
                                         </label>
                                         <textarea class="form-control" placeholder="{{ __('Specialties Button') }}" id="specialties_button"
                                             name="specialties_button_{{ $language }}">{!! $about->getTranslation('specialties_button', $language) !!}</textarea>
                                     </div>
                                     <div class="mb-3">
                                         <label class="form-label text-white-50" for="team_subtitle">
-                                            {{ __('Team Subtitle') }}
+                                            {{ __('Team subtitle') }}
                                         </label>
-                                        <textarea class="form-control" placeholder="{{ __('Team Subtitle') }}" id="team_subtitle"
+                                        <textarea class="form-control" placeholder="{{ __('Team subtitle') }}" id="team_subtitle"
                                             name="team_subtitle_{{ $language }}">{!! $about->getTranslation('team_subtitle', $language) !!}</textarea>
                                     </div>
                                     <div class="mb-3">
                                         <label class="form-label text-white-50" for="banner_text">
-                                            {{ __('Banner Text') }}
+                                            {{ __('Banner text') }}
                                         </label>
                                         <textarea class="form-control" placeholder="{{ __('Banner Text') }}" id="banner_text"
                                             name="banner_text_{{ $language }}">{!! $about->getTranslation('banner_text', $language) !!}</textarea>
                                     </div>
                                     <div class="mb-3">
                                         <label class="form-label text-white-50" for="testimonials_subtitle">
-                                            {{ __('Testimonials Subtitle') }}
+                                            {{ __('Testimonials subtitle') }}
                                         </label>
                                         <textarea class="form-control" placeholder="{{ __('Testimonials Subtitle') }}" id="testimonials_subtitle"
                                             name="testimonials_subtitle_{{ $language }}">{!! $about->getTranslation('testimonials_subtitle', $language) !!}</textarea>
@@ -114,23 +92,23 @@
                                 <div class="col-6">
                                     <div class="mb-3">
                                         <label class="form-label text-white-50" for="specialties_title">
-                                            {{ __('Specialties Title') }}
+                                            {{ __('Specialties title') }}
                                         </label>
-                                        <textarea class="form-control" placeholder="{{ __('Specialties Title') }}" id="specialties_title"
+                                        <textarea class="form-control" placeholder="{{ __('Specialties title') }}" id="specialties_title"
                                             name="specialties_title_{{ $language }}">{!! $about->getTranslation('specialties_title', $language) !!}</textarea>
                                     </div>
                                     <div class="mb-3">
                                         <label class="form-label text-white-50" for="specialties_card">
-                                            {{ __('Specialties Card') }}
+                                            {{ __('Specialties card') }}
                                         </label>
-                                        <textarea class="form-control" placeholder="{{ __('Specialties Card') }}" id="specialties_card"
+                                        <textarea class="form-control" placeholder="{{ __('Specialties card') }}" id="specialties_card"
                                             name="specialties_card_{{ $language }}">{!! $about->getTranslation('specialties_card', $language) !!}</textarea>
                                     </div>
                                     <div class="mb-3">
                                         <label class="form-label text-white-50" for="team_title">
-                                            {{ __('Team Title') }}
+                                            {{ __('Team title') }}
                                         </label>
-                                        <textarea class="form-control" placeholder="{{ __('Team Title') }}" id="team_title"
+                                        <textarea class="form-control" placeholder="{{ __('Team title') }}" id="team_title"
                                             name="team_title_{{ $language }}">{!! $about->getTranslation('team_title', $language) !!}</textarea>
                                     </div>
                                     <div class="mb-3">
@@ -142,16 +120,16 @@
                                     </div>
                                     <div class="mb-3">
                                         <label class="form-label text-white-50" for="testimonials_title">
-                                            {{ __('Testimonials Title') }}
+                                            {{ __('Testimonials title') }}
                                         </label>
                                         <textarea class="form-control" placeholder="{{ __('Testimonials Title') }}" id="testimonials_title"
                                             name="testimonials_title_{{ $language }}">{!! $about->getTranslation('testimonials_title', $language) !!}</textarea>
                                     </div>
                                     <div class="mb-3">
                                         <label class="form-label text-white-50" for="testimonials_img_title">
-                                            {{ __('Testimonials Image Title') }}
+                                            {{ __('Testimonials image title') }}
                                         </label>
-                                        <textarea class="form-control" id="testimonials_img_title" placeholder="{{ __('Testimonials Image Title') }}"
+                                        <textarea class="form-control" id="testimonials_img_title" placeholder="{{ __('Testimonials image title') }}"
                                             name="testimonials_img_title_{{ $language }}">{!! $about->getTranslation('testimonials_img_title', $language) !!}</textarea>
                                     </div>
                                 </div>
@@ -186,35 +164,35 @@
                             <input type="checkbox" class="form-check-input" name="status" id="status"
                                 @checked($about->status) value="1" />
                             <label class="form-check-label text-white-50" for="status">
-                                {{ __('Page Status') }}
+                                {{ __('Page status') }}
                             </label>
                         </div>
                         <div class="form-check form-switch mb-3">
                             <input type="checkbox" class="form-check-input" name="services_status" id="services_status"
                                 @checked($about->services_status) value="1" />
                             <label class="form-check-label text-white-50" for="services_status">
-                                {{ __('Qualities Status') }}
+                                {{ __('Qualities status') }}
                             </label>
                         </div>
                         <div class="form-check form-switch mb-3">
                             <input type="checkbox" class="form-check-input" name="specialties_status"
                                 id="specialties_status" @checked($about->specialties_status) value="1" />
                             <label class="form-check-label text-white-50" for="specialties_status">
-                                {{ __('Specialties Status') }}
+                                {{ __('Specialties status') }}
                             </label>
                         </div>
                         <div class="form-check form-switch mb-3">
                             <input type="checkbox" class="form-check-input" name="testimonials_status"
                                 id="testimonials_status" @checked($about->testimonials_status) value="1" />
                             <label class="form-check-label text-white-50" for="testimonials_status">
-                                {{ __('Testimonials Status') }}
+                                {{ __('Testimonials status') }}
                             </label>
                         </div>
                         <div class="form-check form-switch mb-3">
                             <input type="checkbox" class="form-check-input" name="testimonials_img_card_status"
                                 id="testimonials_img_card_status" @checked($about->testimonials_img_card_status) value="1" />
                             <label class="form-check-label text-white-50" for="testimonials_img_card_status">
-                                {{ __('Testimonials Image Card Status') }}
+                                {{ __('Testimonials image card status') }}
                             </label>
                         </div>
                     </div>
@@ -223,42 +201,42 @@
                             <input type="checkbox" class="form-check-input" name="banner_status" id="banner_status"
                                 @checked($about->banner_status) value="1" />
                             <label class="form-check-label text-white-50" for="banner_status">
-                                {{ __('Banner Status') }}
+                                {{ __('Banner status') }}
                             </label>
                         </div>
                         <div class="form-check form-switch mb-3">
                             <input type="checkbox" class="form-check-input" name="contact_banner_status"
                                 id="contact_banner_status" @checked($about->contact_banner_status) value="1" />
                             <label class="form-check-label text-white-50" for="contact_banner_status">
-                                {{ __('Contact Banner Status') }}
+                                {{ __('Contact banner status') }}
                             </label>
                         </div>
                         <div class="form-check form-switch mb-3">
                             <input type="checkbox" class="form-check-input" name="bg_status" id="bg_status"
                                 @checked($about->bg_status) value="1" />
                             <label class="form-check-label text-white-50" for="bg_status">
-                                {{ __('Background Image Status') }}
+                                {{ __('Background image status') }}
                             </label>
                         </div>
                         <div class="form-check form-switch mb-3">
                             <input type="checkbox" class="form-check-input" name="team_status" id="team_status"
                                 @checked($about->team_status) value="1" />
                             <label class="form-check-label text-white-50" for="team_status">
-                                {{ __('Team Status') }}
+                                {{ __('Team status') }}
                             </label>
                         </div>
                     </div>
                 </div>
                 <div class="mb-3">
                     <label for="background" class="form-label text-white-50">
-                        {{ __('Background Image') }}
+                        {{ __('Background image') }}
                     </label>
                     <input type="file" name="background" id="background" class="dropify" data-show-remove="false"
                         accept="image/*" data-default-file="{{ asset('storage/about/' . $about->background) }}" />
                 </div>
                 <div class="mb-3">
                     <label for="specialties_bg" class="form-label text-white-50">
-                        {{ __('Specialties Background') }}
+                        {{ __('Specialties background') }}
                     </label>
                     <input type="file" name="specialties_bg" id="specialties_bg" class="dropify"
                         data-show-remove="false" accept="image/*"
@@ -266,7 +244,7 @@
                 </div>
                 <div class="mb-3">
                     <label for="banner_bg" class="form-label text-white-50">
-                        {{ __('Banner Background') }}
+                        {{ __('Banner background') }}
                     </label>
                     <input type="file" name="banner_bg" id="banner_bg" class="dropify" data-show-remove="false"
                         accept="image/*" data-default-file="{{ asset('storage/about/' . $about->banner_bg) }}" />

@@ -44,29 +44,7 @@
     <div class="card">
         <div class="card-body">
             <!-- Nav tabs -->
-            <ul class="nav nav-tabs" role="tablist">
-                <li class="nav-item">
-                    <a class="nav-link active" data-bs-toggle="tab" href="#en" role="tab">
-                        <span class="hidden-xs-down">
-                            {{ __('en') }}
-                        </span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" data-bs-toggle="tab" href="#az" role="tab">
-                        <span class="hidden-xs-down">
-                            {{ __('az') }}
-                        </span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" data-bs-toggle="tab" href="#ru" role="tab">
-                        <span class="hidden-xs-down">
-                            {{ __('ru') }}
-                        </span>
-                    </a>
-                </li>
-            </ul>
+            <x-admin.form-lang-switch/>
             <!-- Tab panes -->
             <form action="{{ route('admin.services.update', $service->id) }}" method="POST" enctype="multipart/form-data">
                 @csrf
@@ -115,7 +93,7 @@
                     <input type="checkbox" class="form-check-input" name="bg_status" id="bg_status" value="1"
                         @checked($service->bg_status) />
                     <label class="form-check-label text-white-50" for="bg_status">
-                        {{ __('Background Image Status') }}
+                        {{ __('Background image status') }}
                     </label>
                 </div>
                 <div class="mb-3">
@@ -139,7 +117,7 @@
                 </div>
                 <div class="mb-3">
                     <label for="background" class="form-label text-white-50">
-                        {{ __('Background Image') }}
+                        {{ __('Background image') }}
                     </label>
                     <input type="file" name="background" id="background" class="dropify" data-show-remove="false"
                         accept="image/*" data-default-file="{{ asset('storage/services/' . $service->background) }}" />

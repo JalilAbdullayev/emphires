@@ -9,45 +9,41 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 
-class WhyusController extends Controller
-{
+class WhyusController extends Controller {
     use SetData;
-    public function index(): View
-    {
+
+    public function index(): View {
         $langs = [
-            ['code' => 'en', 'url' => '/admin/who-we-are'],
-            ['code' => 'az', 'url' => '/az/admin/biz-kimik'],
-            ['code' => 'ru', 'url' => '/ru/admin/kto-mi']
+            ['code' => 'en', 'url' => '/en/admin/advantages'],
+            ['code' => 'az', 'url' => '/admin/ustunlukler'],
+            ['code' => 'ru', 'url' => '/ru/admin/preimushchestva']
         ];
         $advantages = Whyus::orderBy('order')->get();
         return view('admin.whyus.index', compact('advantages', 'langs'));
     }
 
-    public function create(): View
-    {
+    public function create(): View {
         $langs = [
-            ['code' => 'en', 'url' => '/admin/who-we-are/create'],
-            ['code' => 'az', 'url' => '/az/admin/biz-kimik/yarat'],
-            ['code' => 'ru', 'url' => '/ru/admin/kto-mi/sozdat']
+            ['code' => 'en', 'url' => '/en/admin/advantages/create'],
+            ['code' => 'az', 'url' => '/admin/ustunlukler/yarat'],
+            ['code' => 'ru', 'url' => '/ru/admin/preimushchestva/sozdat']
         ];
         return view('admin.whyus.create', compact('langs'), [
             'languages' => $this->languages
         ]);
     }
 
-    public function store(Request $request): RedirectResponse
-    {
+    public function store(Request $request): RedirectResponse {
         $advantage = new Whyus;
         $advantage->order = Whyus::count() > 0 ? Whyus::latest('order')->first()->order + 1 : 1;
         return $this->data($request, $advantage);
     }
 
-    public function edit(int $id): View
-    {
+    public function edit(int $id): View {
         $langs = [
-            ['code' => 'en', 'url' => '/admin/who-we-are/edit/' . $id],
-            ['code' => 'az', 'url' => '/az/admin/biz-kimik/redakte/' . $id],
-            ['code' => 'ru', 'url' => '/ru/admin/kto-mi/izmenit/' . $id]
+            ['code' => 'en', 'url' => '/en/admin/advantages/edit/' . $id],
+            ['code' => 'az', 'url' => '/admin/ustunlukler/redakte/' . $id],
+            ['code' => 'ru', 'url' => '/ru/admin/preimushchestva/izmenit/' . $id]
         ];
         $advantage = Whyus::findOrFail($id);
         return view('admin.whyus.edit', compact('advantage', 'langs'), [
@@ -55,8 +51,7 @@ class WhyusController extends Controller
         ]);
     }
 
-    public function update(int $id, Request $request): RedirectResponse
-    {
+    public function update(int $id, Request $request): RedirectResponse {
         $advantage = Whyus::findOrFail($id);
         return $this->data($request, $advantage);
     }
@@ -67,18 +62,15 @@ class WhyusController extends Controller
         return response()->json(['success' => true]);
     }
 
-    public function status(Request $request): JsonResponse
-    {
+    public function status(Request $request): JsonResponse {
         return $this->changeStatus($request, Whyus::class);
     }
 
-    public function sort(Request $request): JsonResponse
-    {
+    public function sort(Request $request): JsonResponse {
         return $this->changeOrder($request, Whyus::class);
     }
 
-    private function data($request, $reason): RedirectResponse
-    {
+    private function data($request, $reason): RedirectResponse {
         $this->setTranslated($reason, 'title');
         $this->setTranslated($reason, 'description');
         $reason->icon = $request->icon;

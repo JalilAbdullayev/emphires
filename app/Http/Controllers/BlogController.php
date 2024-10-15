@@ -12,25 +12,23 @@ use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\RedirectResponse;
 
-class BlogController extends Controller
-{
+class BlogController extends Controller {
     use SetData, UploadImage;
-    public function index(): View
-    {
+
+    public function index(): View {
         $langs = [
-            ['code' => 'en', 'url' => '/admin/blog'],
-            ['code' => 'az', 'url' => '/az/admin/bloq'],
+            ['code' => 'en', 'url' => '/en/admin/blog'],
+            ['code' => 'az', 'url' => '/admin/bloq'],
             ['code' => 'ru', 'url' => '/ru/admin/stati']
         ];
         $blog = Blog::orderBy('order')->get();
         return view("admin.blog.index", compact('blog', 'langs'));
     }
 
-    public function create(): View
-    {
+    public function create(): View {
         $langs = [
-            ['code' => 'en', 'url' => '/admin/blog/create'],
-            ['code' => 'az', 'url' => '/az/admin/bloq/yarat'],
+            ['code' => 'en', 'url' => '/en/admin/blog/create'],
+            ['code' => 'az', 'url' => '/admin/bloq/yarat'],
             ['code' => 'ru', 'url' => '/ru/admin/stati/sozdat']
         ];
         $categories = Category::orderBy('order')->get();
@@ -39,19 +37,17 @@ class BlogController extends Controller
         ]);
     }
 
-    public function store(Request $request): RedirectResponse
-    {
+    public function store(Request $request): RedirectResponse {
         $article = new Blog;
         $article->author_id = Auth::user()->id;
         $article->order = Blog::count() > 0 ? Blog::latest('order')->first()->order + 1 : 1;
         return $this->data($article, $request);
     }
 
-    public function edit(int $id, Request $request): View
-    {
+    public function edit(int $id, Request $request): View {
         $langs = [
-            ['code' => 'en', 'url' => '/admin/blog/edit/' . $id],
-            ['code' => 'az', 'url' => '/az/admin/bloq/redakte/' . $id],
+            ['code' => 'en', 'url' => '/en/admin/blog/edit/' . $id],
+            ['code' => 'az', 'url' => '/admin/bloq/redakte/' . $id],
             ['code' => 'ru', 'url' => '/ru/admin/stati/izmenit/' . $id],
         ];
         $categories = Category::orderBy('order')->get();
@@ -61,31 +57,26 @@ class BlogController extends Controller
         ]);
     }
 
-    public function update(int $id, Request $request): RedirectResponse
-    {
+    public function update(int $id, Request $request): RedirectResponse {
         $article = Blog::findOrFail($id);
         return $this->data($article, $request);
     }
 
-    public function delete(int $id): JsonResponse
-    {
+    public function delete(int $id): JsonResponse {
         $article = Blog::findOrFail($id);
         $article->delete();
         return response()->json(['success' => true]);
     }
 
-    public function status(Request $request): JsonResponse
-    {
+    public function status(Request $request): JsonResponse {
         return $this->changeStatus($request, Blog::class);
     }
 
-    public function sort(Request $request): JsonResponse
-    {
+    public function sort(Request $request): JsonResponse {
         return $this->changeOrder($request, Blog::class);
     }
 
-    private function data($article, $request): RedirectResponse
-    {
+    private function data($article, $request): RedirectResponse {
         $this->setTranslated($article, 'title');
         $this->setSlug($article);
         $this->setTranslated($article, 'description');

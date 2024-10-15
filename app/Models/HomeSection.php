@@ -6,9 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Spatie\Translatable\HasTranslations;
 
-class HomeSection extends Model
-{
+class HomeSection extends Model {
     use HasTranslations, SoftDeletes;
+
     protected $guarded = ['id'];
     protected array $translatable = [
         'quote',
@@ -41,9 +41,6 @@ class HomeSection extends Model
         'contact_title',
         'contact_subtitle',
         'email_title',
-        'address_title',
-        'footer_services_title',
-        'footer_blog_title',
-        'footer_social_title',
+        'address_title'
     ];
 }

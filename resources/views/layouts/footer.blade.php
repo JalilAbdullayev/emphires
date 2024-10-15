@@ -20,7 +20,7 @@
             </div>
             <div class="mx-3.5">
                 <h2 class="footer-header">
-                    {{ $home->footer_services_title }}
+                    @lang('Services')
                 </h2>
                 <ul class="[&>li]:mb-4 [&>li]:font-bold [&>li]:text-[#0C121D]">
                     @foreach ($allServices as $service)
@@ -37,7 +37,7 @@
             </div>
             <div class="mx-3.5">
                 <h2 class="footer-header">
-                    {{ $home->footer_blog_title }}
+                    @lang('Blog')
                 </h2>
                 <ul>
                     @foreach ($allBlog as $article)
@@ -57,7 +57,7 @@
             </div>
             <div class="mx-3.5">
                 <h2 class="mt-6 footer-header">
-                    {{ $home->footer_social_title }}
+                    @lang('Social media')
                 </h2>
                 <div class="grid col-4 [&>a]:mb-4">
                     @foreach ($socials as $social)

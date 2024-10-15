@@ -14,8 +14,8 @@ class StatController extends Controller {
 
     public function index(): View {
         $langs = [
-            ['code' => 'en', 'url' => '/admin/stats'],
-            ['code' => 'az', 'url' => '/az/admin/gostericiler'],
+            ['code' => 'en', 'url' => '/en/admin/stats'],
+            ['code' => 'az', 'url' => '/admin/gostericiler'],
             ['code' => 'ru', 'url' => '/ru/admin/statistika']
         ];
         $stats = Stat::orderBy('order')->get();
@@ -33,8 +33,8 @@ class StatController extends Controller {
     public function edit(int $id): View {
         $stat = Stat::findOrFail($id);
         $langs = [
-            ['code' => 'en', 'url' => '/admin/stats/edit/' . $id],
-            ['code' => 'az', 'url' => '/az/admin/gostericiler/redakte/' . $id],
+            ['code' => 'en', 'url' => '/en/admin/stats/edit/' . $id],
+            ['code' => 'az', 'url' => '/admin/gostericiler/redakte/' . $id],
             ['code' => 'ru', 'url' => '/ru/admin/statistika/izmenit/' . $id]
         ];
         return view('admin.stats.edit', compact('stat', 'langs'), [

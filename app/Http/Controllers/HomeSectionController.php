@@ -9,15 +9,14 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 
-class HomeSectionController extends Controller
-{
+class HomeSectionController extends Controller {
     use SetData, UploadImage;
-    public function index(): View
-    {
+
+    public function index(): View {
         $langs = [
-            ['code' => 'en', 'url' => '/admin/home-sections'],
+            ['code' => 'en', 'url' => '/en/admin/home-sections'],
             ['code' => 'az', 'url' => '/admin/ana-sehife-bolmeleri'],
-            ['code' => 'ru', 'url' => '/admin/razdely-domashney-stranitsy'],
+            ['code' => 'ru', 'url' => '/ru/admin/razdely-domashney-stranitsy'],
         ];
         $home = HomeSection::firstOrFail();
 
@@ -26,8 +25,7 @@ class HomeSectionController extends Controller
         ]);
     }
 
-    public function update(Request $request): RedirectResponse
-    {
+    public function update(Request $request): RedirectResponse {
         $home = HomeSection::firstOrFail();
         $home->slider = $request->slider ? 1 : 0;
         $this->setTranslated($home, 'quote');
@@ -78,9 +76,6 @@ class HomeSectionController extends Controller
         $this->setTranslated($home, 'contact_title');
         $this->setTranslated($home, 'contact_subtitle');
         $this->setTranslated($home, 'email_title');
-        $this->setTranslated($home, 'footer_services_title');
-        $this->setTranslated($home, 'footer_blog_title');
-        $this->setTranslated($home, 'footer_social_title');
         $this->setTranslated($home, 'address_title');
         $home->save();
         return redirect()->back();

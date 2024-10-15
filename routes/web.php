@@ -27,13 +27,9 @@ use App\Http\Controllers\SettingsController;
 use App\Http\Controllers\HomeSectionController;
 use App\Http\Controllers\TestimonialController;
 
-Route::get('/', function() {
-    return view('welcome');
-});
-
 $locale = Request::segment(1);
 
-if(in_array($locale, ['az', 'ru'])) {
+if(in_array($locale, ['en', 'ru'])) {
     $locale = Request::segment(1);
 } else {
     $locale = '';
@@ -306,7 +302,7 @@ Route::group([
         });
 
         Route::controller(WhyusController::class)->name('whyus.')->group(function() {
-            Route::prefix('who-we-are')->group(function() {
+            Route::prefix('advantages')->group(function() {
                 Route::post('store', 'store')->name('store');
                 Route::post('update/{id}', 'update')->name('update');
                 Route::delete('delete/{id}', 'delete')->name('delete');
@@ -318,13 +314,13 @@ Route::group([
                 Route::get('edit/{id}', 'edit')->name('edit_en');
             });
 
-            Route::prefix('biz-kimik')->group(function() {
+            Route::prefix('ustunlukler')->group(function() {
                 Route::get('/', 'index')->name('index_az');
                 Route::get('yarat', 'create')->name('create_az');
                 Route::get('redakte/{id}', 'edit')->name('edit_az');
             });
 
-            Route::prefix('kto-mi')->group(function() {
+            Route::prefix('preimushchestva')->group(function() {
                 Route::get('/', 'index')->name('index_ru');
                 Route::get('sozdat', 'create')->name('create_ru');
                 Route::get('izmenit/{id}', 'edit')->name('edit_ru');

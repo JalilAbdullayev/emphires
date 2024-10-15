@@ -38,29 +38,7 @@
     <div class="card">
         <div class="card-body">
             <!-- Nav tabs -->
-            <ul class="nav nav-tabs" role="tablist">
-                <li class="nav-item">
-                    <a class="nav-link active" data-bs-toggle="tab" href="#en" role="tab">
-                        <span class="hidden-xs-down">
-                            @lang('en')
-                        </span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" data-bs-toggle="tab" href="#az" role="tab">
-                        <span class="hidden-xs-down">
-                            @lang('az')
-                        </span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" data-bs-toggle="tab" href="#ru" role="tab">
-                        <span class="hidden-xs-down">
-                            @lang('ru')
-                        </span>
-                    </a>
-                </li>
-            </ul>
+            <x-admin.form-lang-switch/>
             <!-- Tab panes -->
             <form action="{{ route('admin.homepage') }}" method="POST" enctype="multipart/form-data">
                 @csrf
@@ -71,40 +49,40 @@
                                 <div class="col-4">
                                     <div class="mb-3">
                                         <label class="text-white form-label" for="phone_title">
-                                            @lang('Phone Title')
+                                            @lang('Phone title')
                                         </label>
-                                        <textarea class="form-control" placeholder="@lang('Phone Title')" id="phone_title" name="phone_title_{{ $language }}">{{ $home->getTranslation('phone_title', $language) }}</textarea>
+                                        <textarea class="form-control" placeholder="@lang('Phone title')" id="phone_title" name="phone_title_{{ $language }}">{{ $home->getTranslation('phone_title', $language) }}</textarea>
                                     </div>
                                     <div class="mb-3">
                                         <label class="text-white form-label" for="services_title">
-                                            @lang('Services Title')
+                                            @lang('Services title')
                                         </label>
-                                        <textarea class="form-control" placeholder="@lang('Services Title')" id="services_title"
+                                        <textarea class="form-control" placeholder="@lang('Services title')" id="services_title"
                                             name="services_title_{{ $language }}">{{ $home->getTranslation('services_title', $language) }}</textarea>
                                     </div>
                                 </div>
                                 <div class="col-4">
                                     <div class="mb-3">
                                         <label class="text-white form-label" for="address_title">
-                                            @lang('Address Title')
+                                            @lang('Address title')
                                         </label>
-                                        <textarea class="form-control" placeholder="@lang('Address Title')" id="address_title"
+                                        <textarea class="form-control" placeholder="@lang('Address title')" id="address_title"
                                             name="address_title_{{ $language }}">{!! $home->getTranslation('address_title', $language) !!}</textarea>
                                     </div>
                                     <div class="mb-3">
                                         <label class="text-white form-label" for="services_subtitle">
-                                            @lang('Services Subtitle')
+                                            @lang('Services subtitle')
                                         </label>
-                                        <textarea class="form-control" placeholder="@lang('Services Subtitle')" id="services_subtitle"
+                                        <textarea class="form-control" placeholder="@lang('Services subtitle')" id="services_subtitle"
                                             name="services_subtitle_{{ $language }}">{{ $home->getTranslation('services_subtitle', $language) }}</textarea>
                                     </div>
                                 </div>
                                 <div class="col-4">
                                     <div class="mb-3">
                                         <label class="text-white form-label" for="email_title">
-                                            @lang('Email Title')
+                                            @lang('Email title')
                                         </label>
-                                        <textarea class="form-control" placeholder="@lang('Email Title')" id="email_title"
+                                        <textarea class="form-control" placeholder="@lang('Email title')" id="email_title"
                                             name="email_title_{{ $language }}">{!! $home->getTranslation('email_title', $language) !!}</textarea>
                                     </div>
                                     <div class="mb-3">
@@ -166,18 +144,11 @@
                                             name="courses_title_{{ $language }}">{{ $home->getTranslation('courses_title', $language) }}</textarea>
                                     </div>
                                     <div class="mb-3">
-                                        <label class="text-white form-label" for="courses_subtitle">
-                                            {{ __('Courses subtitle') }}
+                                        <label class="text-white form-label" for="testimonials_title">
+                                            {{ __('Testimonials title') }}
                                         </label>
-                                        <textarea class="form-control" placeholder="{{ __('Courses subtitle') }}" id="courses_subtitle"
-                                            name="courses_subtitle_{{ $language }}">{{ $home->getTranslation('courses_subtitle', $language) }}</textarea>
-                                    </div>
-                                    <div class="mb-3">
-                                        <label class="text-white form-label" for="testimonials_subtitle">
-                                            {{ __('Testimonials Subtitle') }}
-                                        </label>
-                                        <textarea class="form-control" placeholder="{{ __('Testimonials Subtitle') }}" id="testimonials_subtitle"
-                                            name="testimonials_subtitle_{{ $language }}">{{ $home->getTranslation('testimonials_subtitle', $language) }}</textarea>
+                                        <textarea class="form-control" placeholder="{{ __('Testimonials title') }}" id="testimonials_title"
+                                                  name="testimonials_title_{{ $language }}">{{ $home->getTranslation('testimonials_title', $language) }}</textarea>
                                     </div>
                                     <div class="mb-3">
                                         <label class="text-white form-label" for="testimonials_text">
@@ -187,32 +158,32 @@
                                             name="testimonials_text_{{ $language }}">{!! $home->getTranslation('testimonials_text', $language) !!}</textarea>
                                     </div>
                                     <div class="mb-3">
-                                        <label class="text-white form-label" for="contact_subtitle">
-                                            {{ __('Contact subtitle') }}
+                                        <label class="text-white form-label" for="contact_title">
+                                            {{ __('Contact title') }}
                                         </label>
-                                        <textarea class="form-control" placeholder="{{ __('Contact subtitle') }}" id="contact_subtitle"
-                                            name="contact_subtitle_{{ $language }}">{!! $home->getTranslation('contact_subtitle', $language) !!}</textarea>
+                                        <textarea class="form-control" placeholder="{{ __('Contact title') }}" id="contact_title"
+                                                  name="contact_title_{{ $language }}">{{ $home->getTranslation('contact_title', $language) }}</textarea>
                                     </div>
                                     <div class="mb-3">
-                                        <label class="text-white form-label" for="qualities_subtitle">
-                                            {{ __('Qualities subtitle') }}
+                                        <label class="text-white form-label" for="qualities_title">
+                                            {{ __('Qualities title') }}
                                         </label>
-                                        <textarea class="form-control" placeholder="{{ __('Qualities subtitle') }}" id="qualities_subtitle"
-                                            name="qualities_subtitle_{{ $language }}">{!! $home->getTranslation('qualities_subtitle', $language) !!}</textarea>
+                                        <textarea class="form-control" placeholder="{{ __('Qualities title') }}" id="qualities_title"
+                                                  name="qualities_title_{{ $language }}">{{ $home->getTranslation('qualities_title', $language) }}</textarea>
                                     </div>
                                     <div class="mb-3">
-                                        <label class="text-white form-label" for="footer_blog_title">
-                                            {{ __('Footer blog title') }}
+                                        <label class="text-white form-label" for="qualities_text">
+                                            {{ __('Qualities text') }}
                                         </label>
-                                        <textarea class="form-control" placeholder="{{ __('Footer blog title') }}" id="footer_blog_title"
-                                            name="footer_blog_title_{{ $language }}">{{ $home->getTranslation('footer_blog_title', $language) }}</textarea>
+                                        <textarea class="form-control" placeholder="{{ __('Qualities text') }}" id="qualities_text"
+                                                  name="qualities_text_{{ $language }}">{!! $home->getTranslation('qualities_text', $language) !!}</textarea>
                                     </div>
                                     <div class="mb-3">
-                                        <label class="text-white form-label" for="footer_social_title">
-                                            {{ __('Footer social title') }}
+                                        <label class="text-white form-label" for="video_text">
+                                            {{ __('Video text') }}
                                         </label>
-                                        <textarea class="form-control" placeholder="{{ __('Footer social title') }}" id="footer_social_title"
-                                            name="footer_social_title_{{ $language }}">{{ $home->getTranslation('footer_social_title', $language) }}</textarea>
+                                        <textarea class="form-control" placeholder="{{ __('Video text') }}" id="video_text"
+                                                  name="video_text_{{ $language }}">{!! $home->getTranslation('video_text', $language) !!}</textarea>
                                     </div>
                                 </div>
                                 <div class="col-6">
@@ -259,60 +230,46 @@
                                             name="quote_author_{{ $language }}">{!! $home->getTranslation('quote_author', $language) !!}</textarea>
                                     </div>
                                     <div class="mb-3">
-                                        <label class="text-white form-label" for="skills_text">
-                                            {{ __('Skills text') }}
+                                        <label class="text-white form-label" for="courses_subtitle">
+                                            {{ __('Courses subtitle') }}
                                         </label>
-                                        <textarea class="form-control" placeholder="{{ __('Skills text') }}" id="skills_text"
-                                            name="skills_text_{{ $language }}">{{ $home->getTranslation('skills_text', $language) }}</textarea>
+                                        <textarea class="form-control" placeholder="{{ __('Courses subtitle') }}" id="courses_subtitle"
+                                                  name="courses_subtitle_{{ $language }}">{{ $home->getTranslation('courses_subtitle', $language) }}</textarea>
                                     </div>
                                     <div class="mb-3">
-                                        <label class="text-white form-label" for="testimonials_title">
-                                            {{ __('Testimonials Title') }}
+                                        <label class="text-white form-label" for="testimonials_subtitle">
+                                            {{ __('Testimonials subtitle') }}
                                         </label>
-                                        <textarea class="form-control" placeholder="{{ __('Testimonials Title') }}" id="testimonials_title"
-                                            name="testimonials_title_{{ $language }}">{{ $home->getTranslation('testimonials_title', $language) }}</textarea>
+                                        <textarea class="form-control" placeholder="{{ __('Testimonials subtitle') }}" id="testimonials_subtitle"
+                                                  name="testimonials_subtitle_{{ $language }}">{{ $home->getTranslation('testimonials_subtitle', $language) }}</textarea>
                                     </div>
                                     <div class="mb-3">
                                         <label class="text-white form-label" for="testimonials_link_text">
                                             {{ __('Testimonials link text') }}
                                         </label>
                                         <textarea class="form-control" id="testimonials_link_text" placeholder="{{ __('Testimonials link text') }}"
-                                            name="testimonials_link_text_{{ $language }}">{{ $home->getTranslation('testimonials_link_text', $language) }}</textarea>
+                                                  name="testimonials_link_text_{{ $language }}">{{ $home->getTranslation('testimonials_link_text', $language) }}</textarea>
                                     </div>
                                     <div class="mb-3">
-                                        <label class="text-white form-label" for="video_text">
-                                            {{ __('Video text') }}
+                                        <label class="text-white form-label" for="contact_subtitle">
+                                            {{ __('Contact subtitle') }}
                                         </label>
-                                        <textarea class="form-control" placeholder="{{ __('Video text') }}" id="video_text"
-                                            name="video_text_{{ $language }}">{!! $home->getTranslation('video_text', $language) !!}</textarea>
+                                        <textarea class="form-control" placeholder="{{ __('Contact subtitle') }}" id="contact_subtitle"
+                                                  name="contact_subtitle_{{ $language }}">{!! $home->getTranslation('contact_subtitle', $language) !!}</textarea>
                                     </div>
                                     <div class="mb-3">
-                                        <label class="text-white form-label" for="contact_title">
-                                            {{ __('Contact title') }}
+                                        <label class="text-white form-label" for="qualities_subtitle">
+                                            {{ __('Qualities subtitle') }}
                                         </label>
-                                        <textarea class="form-control" placeholder="{{ __('Contact title') }}" id="contact_title"
-                                            name="contact_title_{{ $language }}">{{ $home->getTranslation('contact_title', $language) }}</textarea>
+                                        <textarea class="form-control" placeholder="{{ __('Qualities subtitle') }}" id="qualities_subtitle"
+                                                  name="qualities_subtitle_{{ $language }}">{!! $home->getTranslation('qualities_subtitle', $language) !!}</textarea>
                                     </div>
                                     <div class="mb-3">
-                                        <label class="text-white form-label" for="qualities_title">
-                                            {{ __('Qualities title') }}
+                                        <label class="text-white form-label" for="skills_text">
+                                            {{ __('Skills text') }}
                                         </label>
-                                        <textarea class="form-control" placeholder="{{ __('Qualities title') }}" id="qualities_title"
-                                            name="qualities_title_{{ $language }}">{{ $home->getTranslation('qualities_title', $language) }}</textarea>
-                                    </div>
-                                    <div class="mb-3">
-                                        <label class="text-white form-label" for="qualities_text">
-                                            {{ __('Qualities text') }}
-                                        </label>
-                                        <textarea class="form-control" placeholder="{{ __('Qualities text') }}" id="qualities_text"
-                                            name="qualities_text_{{ $language }}">{!! $home->getTranslation('qualities_text', $language) !!}</textarea>
-                                    </div>
-                                    <div class="mb-3">
-                                        <label class="text-white form-label" for="footer_services_title">
-                                            {{ __('Footer services title') }}
-                                        </label>
-                                        <textarea class="form-control" placeholder="{{ __('Footer services title') }}" id="footer_services_title"
-                                            name="footer_services_title_{{ $language }}">{{ $home->getTranslation('footer_services_title', $language) }}</textarea>
+                                        <textarea class="form-control" placeholder="{{ __('Skills text') }}" id="skills_text"
+                                            name="skills_text_{{ $language }}">{{ $home->getTranslation('skills_text', $language) }}</textarea>
                                     </div>
                                 </div>
                             </div>
@@ -454,7 +411,7 @@
                 </div>
                 <div class="mb-3">
                     <label for="video_bg" class="text-white form-label">
-                        {{ __('Video Background') }}
+                        {{ __('Video background') }}
                     </label>
                     <input type="file" name="video_bg" id="video_bg" class="dropify" data-show-remove="false"
                         accept="image/*" data-default-file="{{ asset('storage/home/' . $home->video_bg) }}" />

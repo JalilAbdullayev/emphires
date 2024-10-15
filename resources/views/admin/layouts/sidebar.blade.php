@@ -72,7 +72,7 @@
                         aria-expanded="false">
                         <i class="ti-home"></i>
                         <span class="hide-menu">
-                            @lang('Home sections')
+                            @lang('Sections')
                         </span>
                     </a>
                 </li>
@@ -199,13 +199,13 @@
                 <li>
                     <a class="has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false">
                         <i class="mdi mdi-comment-question-outline"></i><span class="hide-menu">
-                            @lang('Who we are')
+                            @lang('Advantages')
                         </span>
                     </a>
                     <ul aria-expanded="false" class="collapse">
                         <li>
                             <a href="{{ route('admin.whyus.index_' . session('locale')) }}">
-                                @lang('Who we are')
+                                @lang('Advantages')
                             </a>
                             <a href="{{ route('admin.whyus.create_' . session('locale')) }}">
                                 @lang('New advantage')
