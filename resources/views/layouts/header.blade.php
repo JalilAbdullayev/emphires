@@ -62,6 +62,12 @@
             ])>
                 @lang('Services')
             </a>
+            <a href="{{ route('courses_' . session('locale')) }}" @class([
+                'text-white',
+                'text-green-800' => Route::is('courses_' . session('locale')),
+            ])>
+                @lang('Courses')
+            </a>
             <a href="{{ route('blog_' . session('locale')) }}" @class([
                 'text-white',
                 'text-green-800' => Route::is('blog_' . session('locale')),
