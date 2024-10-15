@@ -176,4 +176,20 @@ class SiteController extends Controller {
         $courses = Course::active()->where('title->' . session('locale'), 'like', '%' . $request->search . '%')->paginate(9);
         return view('courses', compact('courses', 'langs'));
     }
+
+    public function global_search(Request $request): View {
+        $langs = [
+            ['code' => 'en', 'url' => '/search?search=' . $request->search],
+            ['code' => 'az', 'url' => '/az/axtarish?search=' . $request->search],
+            ['code' => 'ru', 'url' => '/ru/poisk?search=' . $request->search]
+        ];
+        $courses = Course::active()->where('title->' . session('locale'), 'like', '%' . $request->search . '%')
+            ->select('id', 'title', 'description');
+        $services = Service::where('title->' . session('locale'), 'like', '%' . $request->search . '%')
+            ->select('id', 'title', 'description');
+        $blog = Blog::where('title->' . session('locale'), 'like', '%' . $request->search . '%')
+            ->select('id', 'title', 'description');
+        $results = $courses->union($blog)->union($services)->get();
+        return view('search', compact('results', 'langs'));
+    }
 }

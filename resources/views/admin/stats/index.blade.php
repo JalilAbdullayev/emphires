@@ -1,5 +1,5 @@
 @extends('admin.layouts.master')
-@section('title', __('Skills'))
+@section('title', __('Stats'))
 @section('css')
     <link rel="stylesheet" href="{{ asset('back/node_modules/datatables.net-bs4/css/dataTables.bootstrap4.css') }}"/>
     <link rel="stylesheet"
@@ -56,26 +56,26 @@
                             </a>
                         </li>
                     </ul>
-                    <form action="{{ route('admin.skills.store') }}" method="POST">
+                    <form action="{{ route('admin.stats.store') }}" method="POST">
                         @csrf
                         <div class="tab-content">
                             @foreach ($languages as $language)
                                 <div @class(['tab-pane', 'active' => $loop->first]) id="{{ $language }}"
                                      role="tabpanel">
                                     <div class="form-floating my-3">
-                                        <input class="form-control" name="title_{{ $language }}" id="title"
-                                               placeholder="@lang('Title')" type="text"/>
-                                        <label class="form-label text-white-50" for="title">
-                                            @lang('Title')
+                                        <input class="form-control" name="name_{{ $language }}" id="name"
+                                               placeholder="@lang('Name')" type="text"/>
+                                        <label class="form-label text-white-50" for="name">
+                                            @lang('Name')
                                         </label>
                                     </div>
                                 </div>
                             @endforeach
                             <div class="form-floating my-3">
-                                <input class="form-control" name="percent" id="percent" placeholder="@lang('Percent')"
-                                       type="number" required min="0" max="100"/>
-                                <label class="form-label text-white-50" for="percent">
-                                    @lang('Percent')
+                                <input class="form-control" name="count" id="count" placeholder="@lang('Count')"
+                                       type="number" required min="1"/>
+                                <label class="form-label text-white-50" for="count">
+                                    @lang('Count')
                                 </label>
                             </div>
                         </div>
@@ -92,10 +92,10 @@
                     <thead>
                     <tr>
                         <th>
-                            @lang('Title')
+                            @lang('Name')
                         </th>
                         <th>
-                            @lang('Percent')
+                            @lang('Count')
                         </th>
                         <th>
                             @lang('Status')
@@ -105,22 +105,22 @@
                         </th>
                     </tr>
                     </thead>
-                    <tbody id="sortable-tbody" data-route="{{ route('admin.skills.sort') }}">
-                    @foreach ($skills as $skill)
-                        <tr id="{{ $skill->id }}" data-id="{{ $skill->id }}" data-order="{{ $skill->order }}">
+                    <tbody id="sortable-tbody" data-route="{{ route('admin.stats.sort') }}">
+                    @foreach ($stats as $stat)
+                        <tr id="{{ $stat->id }}" data-id="{{ $stat->id }}" data-order="{{ $stat->order }}">
                             <td>
-                                {{ $skill->title }}
+                                {{ $stat->name }}
                             </td>
                             <td>
-                                {{ $skill->percent }}%
+                                {{ $stat->count }}
                             </td>
                             <td>
                                 <div class="form-check form-switch">
-                                    <input type="checkbox" @checked($skill->status) class="form-check-input"/>
+                                    <input type="checkbox" @checked($stat->status) class="form-check-input"/>
                                 </div>
                             </td>
                             <td>
-                                <a href="{{ route('admin.skills.edit_' . session('locale'), $skill->id) }}"
+                                <a href="{{ route('admin.stats.edit_' . session('locale'), $stat->id) }}"
                                    class="btn btn-outline-warning">
                                     <i class="ti-pencil-alt"></i>
                                 </a>
@@ -143,7 +143,7 @@
         $('#myTable').DataTable({
             ordering: false
         });
-        deletePrompt('{{ route('admin.skills.delete', ':id') }}')
-        statusAlert('{{ route('admin.skills.status') }}')
+        deletePrompt('{{ route('admin.stats.delete', ':id') }}')
+        statusAlert('{{ route('admin.stats.status') }}')
     </script>
 @endsection
