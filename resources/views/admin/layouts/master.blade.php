@@ -63,7 +63,7 @@
                         </a>
                     </li>
                 </ul>
-                <div class="dropdown pe-5 me-5">
+                {{--<div class="dropdown pe-5 me-5">
                     <button class="btn btn-dark dropdown-toggle" type="button" data-bs-toggle="dropdown"
                             aria-expanded="false">
                         {{ __(session('locale')) }}
@@ -77,7 +77,7 @@
                             </li>
                         @endforeach
                     </ul>
-                </div>
+                </div>--}}
             </div>
         </nav>
     </header>
