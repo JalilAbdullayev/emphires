@@ -1,8 +1,8 @@
 @extends('admin.layouts.master')
 @section('title', __('New advantage'))
 @section('css')
-    <link rel="stylesheet" href="{{ asset('back/ckeditor/samples/css/samples.css') }}" />
-    <link rel="stylesheet" href="{{ asset('back/ckeditor/samples/toolbarconfigurator/lib/codemirror/neo.css') }}" />
+    <link rel="stylesheet" href="{{ asset('back/ckeditor/samples/css/samples.css') }}"/>
+    <link rel="stylesheet" href="{{ asset('back/ckeditor/samples/toolbarconfigurator/lib/codemirror/neo.css') }}"/>
     <style>
         textarea {
             display: block;
@@ -50,8 +50,9 @@
                     @foreach ($languages as $language)
                         <div @class(['tab-pane', 'active' => $loop->first]) id="{{ $language }}" role="tabpanel">
                             <div class="form-floating my-3">
-                                <input class="form-control" name="title_{{ $language }}" id="title" placeholder="@lang('Title')"
-                                    type="text" required />
+                                <input class="form-control" name="title_{{ $language }}" id="title"
+                                       placeholder="@lang('Title')"
+                                       type="text" required/>
                                 <label class="form-label text-white-50" for="title">
                                     @lang('Title')
                                 </label>
@@ -60,21 +61,25 @@
                                 <label class="form-label text-white-50" for="description">
                                     @lang('Description')
                                 </label>
-                                <textarea class="form-control ckeditor" placeholder="@lang('Description')" id="description"
-                                    name="description_{{ $language }}"></textarea>
+                                <textarea class="form-control ckeditor" placeholder="@lang('Description')"
+                                          id="description"
+                                          name="description_{{ $language }}"></textarea>
                             </div>
                         </div>
                     @endforeach
                 </div>
                 <div class="form-floating my-3">
-                    <input class="form-control" name="icon" id="icon" placeholder="@lang('Icon')"
-                        type="text" maxlength="255" />
+                    <input class="form-control" name="icon" id="icon" placeholder="@lang('Icon')" type="text"
+                           maxlength="255"/>
                     <label class="form-label text-white-50" for="icon">
                         @lang('Icon')
                     </label>
+                    <a href="https://fontawesome.com/search?o=r&m=free" target="_blank">
+                        @lang('Click to see list of icons').
+                    </a>
                 </div>
                 <div class="form-check form-switch mb-3">
-                    <input type="checkbox" class="form-check-input" name="status" id="status" value="1" />
+                    <input type="checkbox" class="form-check-input" name="status" id="status" value="1"/>
                     <label class="form-check-label text-white-50" for="status">
                         @lang('Status')
                     </label>
