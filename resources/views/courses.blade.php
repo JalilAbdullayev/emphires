@@ -17,9 +17,6 @@
                     </span>
                     <div class="p-8">
                         <div class="mb-4 text-sm tracking-[0.5px] font-semibold">
-                            <a title="Posted by admin" class="hover:text-green-800">
-                                <i class="fa-regular fa-user text-primary"></i> {{ $course->author->name }}
-                            </a>
                             <a href="{{ route('blog_category_' . session('locale'), $course->category->slug) }}"
                                class="hover:text-green-800 ml-2.5">
                                 <i class="fa-regular fa-folder-open text-primary"></i> {{ $course->category->title }}
@@ -35,8 +32,9 @@
                         </p>
                         <a href="{{ route('course_' . session('locale'), $course->slug) }}"
                            class="font-extrabold uppercase hover:text-green-800">
-                            <span class="pr-5 text-xs tracking-wider duration-500 link hover:text-green-800">READ
-                                MORE</span> <i class="text-sm fa-solid fa-arrow-right"></i>
+                            <span class="pr-5 text-xs tracking-wider duration-500 link hover:text-green-800">
+                                @lang('READ MORE')
+                            </span> <i class="text-sm fa-solid fa-arrow-right"></i>
                         </a>
                     </div>
                 </article>
