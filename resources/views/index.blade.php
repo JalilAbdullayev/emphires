@@ -16,7 +16,7 @@
         <x-home.video />
     @endif
     @if ($home->contact_form || $home->skills)
-        <section class="max-xl:container">
+        <section class="max-xl:container section">
             <div class="flex max-xl:flex-col">
                 @if ($home->contact_form)
                     <x-home.contact-form />

@@ -11,7 +11,7 @@
                         <div class="font-bold">
                             {{ $home->phone_title }}
                         </div>
-                        <a href="tel:{{ preg_replace('/\s+/', '', $contact->phone) }}">
+                        <a href="tel:{{ preg_replace('/[\s\(\)\-]+/', '', $contact->phone) }}">
                             {{ $contact->phone }}
                         </a>
                     </h5>

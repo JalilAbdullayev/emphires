@@ -10,7 +10,7 @@
     <div class="col-xl-2">
         <div class="relative">
             <img src="{{ asset('storage/home/' . $home->who_us_img) }}" alt=""
-                class="shadow-[0_9px_24px_0_rgba(26,47,106,0.05)] rounded-lg mx-auto w-5/6 max-xl:mb-16" />
+                 class="shadow-[0_9px_24px_0_rgba(26,47,106,0.05)] rounded-lg mx-auto w-5/6 max-xl:mb-16"/>
 
             @if ($home->who_us_img_card_status)
                 <div
@@ -18,10 +18,10 @@
                     <div class="relative size-28">
                         <svg class="size-full -rotate-90" viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg">
                             <circle cx="18" cy="18" r="16" fill="none"
-                                class="stroke-current text-[#B5E6F9]" stroke-width="2"></circle>
+                                    class="stroke-current text-[#B5E6F9]" stroke-width="2"></circle>
                             <circle cx="18" cy="18" r="16" fill="none"
-                                class="stroke-current text-green-800" stroke-width="2" stroke-dasharray="100"
-                                stroke-dashoffset="{{ 100 - $home->who_us_percent }}" stroke-linecap="round">
+                                    class="stroke-current text-green-800" stroke-width="2" stroke-dasharray="100"
+                                    stroke-dashoffset="{{ 100 - $home->who_us_percent }}" stroke-linecap="round">
                             </circle>
                         </svg>
                     </div>
@@ -43,11 +43,12 @@
                 {{ $home->who_us_text }}
             </p>
             @foreach ($advantages as $advantage)
-                <div class="xl:mt-12 xl:mb-7 col-xl-5 grid-cols-8">
-                    <i class="fa-regular fa-handshake text-green-800 text-[68px] leading-[68px]"></i>
+                <div
+                    class="xl:mt-12 xl:mb-7 col-xl-5 grid-cols-8 [&>i]:text-[68px] [&>i]:leading-[68px] [&>i]:text-green-800">
+                    {!! $advantage->icon !!}
                     <div class="xl:col-span-4 col-span-7">
                         <h2 class="text-lg leading-5">
-                            {!! $advantage->title !!}
+                            {{ $advantage->title }}
                         </h2>
                         <p class="mt-1.5 mb-4">
                             {!! $advantage->description !!}

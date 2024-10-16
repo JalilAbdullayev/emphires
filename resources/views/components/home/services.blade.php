@@ -20,7 +20,7 @@
                 {{ $home->services_text }}
             </p>
         </div>
-        <div id="services" class="items-center col-md-3 gap-7">
+        <div id="services" class="items-start col-md-3 gap-7">
             @foreach ($services as $service)
                 <div class="service">
                     <div>
@@ -29,7 +29,7 @@
                     </div>
                     <div class="relative translate-y-0">
                         <div
-                            class="bg-white px-7 pt-6 pb-2.5 -mt-7 mx-5 z-10 rounded-md shadow-[0_9px_24px_0_rgba(26,47,106,0.05)]">
+                            class="bg-white px-7 pt-6 pb-2.5 -mt-7 mx-5 z-10 rounded-md shadow-[0_9px_24px_0_rgba(26,47,106,0.05)] min-h-44">
                             <a href="{{ route('services_category_' . session('locale'), $service->category->slug) }}"
                                 class="text-xs font-semibold leading-6 tracking-wider text-green-800 uppercase">
                                 {{ $service->category->title }}

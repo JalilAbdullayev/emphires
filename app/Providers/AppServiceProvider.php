@@ -11,26 +11,23 @@ use App\Models\Settings;
 use App\Models\Social;
 use Illuminate\Support\ServiceProvider;
 
-class AppServiceProvider extends ServiceProvider
-{
+class AppServiceProvider extends ServiceProvider {
     /**
      * Register any application services.
      */
-    public function register(): void
-    {
+    public function register(): void {
         //
     }
 
     /**
      * Bootstrap any application services.
      */
-    public function boot(): void
-    {
+    public function boot(): void {
         $settings = Settings::first();
         $contact = Contact::first();
         $socials = Social::whereStatus(1)->orderBy('order')->get();
-        $allServices = Service::whereStatus(1)->orderBy('order')->get();
-        $allBlog = Blog::whereStatus(1)->orderBy('order')->take(3)->get();
+        $allServices = Service::whereStatus(1)->orderBy('order')->take(6)->get();
+        $allBlog = Blog::whereStatus(1)->orderBy('order')->take(4)->get();
         $about = About::first();
         $home = HomeSection::first();
         view()->share('settings', $settings);
