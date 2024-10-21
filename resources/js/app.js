@@ -28,25 +28,27 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     window.onclick = (event) => {
-        if (event.target === searchMdl) {
+        if(event.target === searchMdl) {
             modal();
         }
     };
 
     window.addEventListener("scroll", () => {
-        if (window.scrollY > 0) {
+        if(window.scrollY > 0) {
             navbar.classList.add("sticky-header");
+            if(navbar.classList.contains('sticky-header')) {
+                nav.classList.remove('top-8');
+                nav.classList.add('top-4');
+            }
             navItem.forEach((el) => el.classList.remove("text-white"));
         } else {
+            nav.classList.add('top-8');
+            nav.classList.remove('top-4');
             navbar.classList.remove("sticky-header");
-            if (window.location.pathname === "/") {
-                navbar
-                    .querySelectorAll("a")
-                    .forEach((el) =>
-                        !el.classList.contains("text-green-800")
-                            ? el.classList.add("text-white")
-                            : ""
-                    );
+            if(window.location.pathname === "/") {
+                navbar.querySelectorAll("a").forEach((el) =>
+                    !el.classList.contains("text-green-800") ? el.classList.add("text-white") : ""
+                );
             }
         }
     });
@@ -54,32 +56,38 @@ document.addEventListener("DOMContentLoaded", () => {
         nav.classList.toggle("opacity-0");
         nav.classList.toggle("pointer-events-none");
     });
-    if (window.location.pathname !== "/") {
+    if(window.location.pathname !== "/") {
         const navbar = document.querySelector("#navbar");
-        navbar
-            .querySelectorAll("a")
-            .forEach((el) => el.classList.remove("text-white"));
+        navbar.querySelectorAll("a").forEach((el) => el.classList.remove("text-white"));
     }
 });
 
-if (clientSlider) {
+if(clientSlider) {
     new Glide(".clients-glide", {
         perView: 5,
         gap: 60,
+        breakpoints: {
+            768: {
+                perView: 4
+            },
+            576: {
+                perView: 3
+            }
+        }
     }).mount();
 }
 
-if (heroSlider) {
+if(heroSlider) {
     new Glide(".hero-glide").mount();
 }
 
-if (testimonialSlider) {
+if(testimonialSlider) {
     new Glide(".testimonial-glide", {
         gap: 30,
     }).mount();
 }
 
-if (aboutTestimonialSlider) {
+if(aboutTestimonialSlider) {
     new Glide(".about-testimonial", {
         gap: 30,
     }).mount();

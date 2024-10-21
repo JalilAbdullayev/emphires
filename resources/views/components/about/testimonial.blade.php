@@ -1,4 +1,4 @@
-<section class="container col-lg-2 grid-cols-1 gap-4 section">
+<section class="container grid lg:grid-cols-2 grid-cols-1 gap-4 section">
     <div class="about-img">
         <img src="{{ asset('storage/about/' . $about->testimonials_img) }}" alt="" />
         @if ($about->testimonials_img_card_status)

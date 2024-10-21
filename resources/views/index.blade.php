@@ -17,7 +17,7 @@
     @endif
     @if ($home->contact_form || $home->skills)
         <section class="max-xl:container section">
-            <div class="flex max-xl:flex-col">
+            <div class="flex max-xl:flex-col justify-center gap-6">
                 @if ($home->contact_form)
                     <x-home.contact-form />
                 @endif

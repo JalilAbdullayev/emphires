@@ -1,6 +1,6 @@
 <footer class="bg-[#F8F8F9] pt-[75px] pb-12 bg-center bg-no-repeat bg-scroll bg-auto">
     <div class="container">
-        <section class="grid-cols-2 pb-10 col-lg-4">
+        <section class="grid lg:grid-cols-4 md:grid-cols-2 gap-10 pb-10">
             <div class="mx-3.5">
                 <img src="{{ asset('storage/' . $settings->logo) }}" alt="" class="mb-5"/>
                 <p class="mt-2.5 mb-4">
@@ -41,7 +41,7 @@
                 </h2>
                 <ul>
                     @foreach ($allBlog as $article)
-                        <li class="gap-4 mb-4 col-3">
+                        <li class="gap-4 mb-4 grid grid-cols-3">
                             <img src="{{ asset('storage/blog/' . $article->image) }}" alt="" class="w-full"/>
                             <div class="col-span-2">
                                 <a href="" class="font-bold hover:text-green-800">
@@ -69,8 +69,8 @@
             </div>
         </section>
         <section
-            class="bg-white flex justify-between items-center py-7 pr-4 pl-6 rounded-lg shadow-[0_9px_30px_0_rgba(26,47,106,0.07)] relative">
-            <p class="text-sm leading-relaxed text-dark">
+            class="bg-white py-7 max-lg:pt-12 pr-4 pl-6 rounded-lg shadow-[0_9px_30px_0_rgba(26,47,106,0.07)] relative">
+            <p class="text-sm leading-relaxed text-dark max-lg:text-center">
                 © {{ $about->year }} @if (date('Y') > $about->year)
                     - {{ date('Y') }}
                 @endif
@@ -83,9 +83,8 @@
                 <i class="fa-solid fa-arrow-up"></i>
             </a>
         </section>
-        <div
-            class="opacity-0 invisible fixed top-0 left-0 size-full bg-[#0C121DE6] duration-300 -translate-y-[30%] z-50"
-            id="search-modal">
+        <div id="search-modal"
+             class="opacity-0 invisible fixed top-0 left-0 size-full bg-[#0C121DE6] duration-300 -translate-y-[30%] z-50">
             <div class="absolute text-white top-[25px] right-[25px] cursor-pointer" id="close-modal">
                 <i class="block text-3xl fa-solid fa-xmark"></i>
             </div>

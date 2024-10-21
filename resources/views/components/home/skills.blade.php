@@ -1,4 +1,4 @@
-<div class="flex flex-col pl-10 pr-8 pt-14 xl:mr-auto gap-7">
+<div class="flex flex-col pt-14 gap-7">
     <div class="relative">
         <img src="{{ asset('storage/home/' . $home->skills_img) }}" alt=""
             class="mr-10 rounded-md max-xl:w-full max-xl:mb-16" />
@@ -9,7 +9,7 @@
             </h4>
         </div>
     </div>
-    <div id="skills">
+    <div>
         @foreach ($skills as $skill)
             <div class="mb-5">
                 <div class="flex justify-between">

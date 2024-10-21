@@ -1,7 +1,7 @@
 <section>
     <div class="bg-center bg-no-repeat bg-primary section"
         style="background-image: url('{{ asset('front/images/bg-map-01.png') }}')">
-        <div class="container items-center justify-between grid-cols-1 gap-12 col-xl-3">
+        <div class="container items-center justify-between grid xl:grid-cols-3 grid-cols-1 gap-12">
             <div>
                 <h4 class="uppercase text-white text-sm font-bold tracking-[3px] mb-2.5">
                     {{ $home->testimonials_subtitle }}

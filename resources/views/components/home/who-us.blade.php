@@ -9,18 +9,17 @@
     </div>
     <div class="col-xl-2">
         <div class="relative">
-            <img src="{{ asset('storage/home/' . $home->who_us_img) }}" alt=""
+            <img src="{{ asset("storage/home/$home->who_us_img") }}" alt=""
                  class="shadow-[0_9px_24px_0_rgba(26,47,106,0.05)] rounded-lg mx-auto w-5/6 max-xl:mb-16"/>
-
-            @if ($home->who_us_img_card_status)
+            @if($home->who_us_img_card_status)
                 <div
-                    class="bg-white flex justify-center items-center gap-4 py-4 pr-10 pl-5 rounded-md shadow-[9px_0_30px_0_rgba(26,47,106,0.09)] w-fit absolute top-12 xl:right-2.5 -right-2">
+                    class="bg-white flex justify-center items-center gap-4 py-4 pr-10 pl-5 rounded-md shadow-[9px_0_30px_0_rgba(26,47,106,0.09)] w-fit absolute top-12 xl:right-2.5 right-0">
                     <div class="relative size-28">
                         <svg class="size-full -rotate-90" viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg">
-                            <circle cx="18" cy="18" r="16" fill="none"
-                                    class="stroke-current text-[#B5E6F9]" stroke-width="2"></circle>
-                            <circle cx="18" cy="18" r="16" fill="none"
-                                    class="stroke-current text-green-800" stroke-width="2" stroke-dasharray="100"
+                            <circle cx="18" cy="18" r="16" fill="none" class="stroke-current text-[#B5E6F9]"
+                                    stroke-width="2"></circle>
+                            <circle cx="18" cy="18" r="16" fill="none" class="stroke-current text-green-800"
+                                    stroke-width="2" stroke-dasharray="100"
                                     stroke-dashoffset="{{ 100 - $home->who_us_percent }}" stroke-linecap="round">
                             </circle>
                         </svg>
@@ -42,11 +41,11 @@
             <p class="text-lg font-semibold leading-7 max-xl:mb-12">
                 {{ $home->who_us_text }}
             </p>
-            @foreach ($advantages as $advantage)
+            @foreach($advantages as $advantage)
                 <div
-                    class="xl:mt-12 xl:mb-7 col-xl-5 grid-cols-8 [&>i]:text-[68px] [&>i]:leading-[68px] [&>i]:text-green-800">
+                    class="xl:mt-12 xl:mb-7 grid xl:grid-cols-5 grid-cols-8 [&>i]:col-span-2 [&>i]:text-[68px] [&>i]:leading-[68px] [&>i]:text-green-800">
                     {!! $advantage->icon !!}
-                    <div class="xl:col-span-4 col-span-7">
+                    <div class="xl:col-span-3 col-span-6">
                         <h2 class="text-lg leading-5">
                             {{ $advantage->title }}
                         </h2>

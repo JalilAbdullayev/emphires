@@ -10,9 +10,9 @@
             {{ $home->qualities_text }}
         </div>
     </div>
-    <div id="approach-qualities" class="col-xl-3 grid-cols-2 items-center">
+    <div id="approach-qualities" class="flex justify-center flex-wrap items-center">
         @foreach ($qualities as $quality)
-            <div @class(['max-xl:col-span-full' => $loop->index === 2])>
+            <div class="xl:w-[30%] md:w-5/12 w-full">
                 <div class="mb-9 relative w-fit mx-auto">
                     <div
                         class="bg-white size-36 shadow-[0_0_24px_0_rgba(26,47,106,0.13)] leading-[110px] rounded-md mx-auto">

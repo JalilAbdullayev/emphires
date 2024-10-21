@@ -22,12 +22,7 @@ input[type="submit"] {
     font-family: "Nunito", sans-serif;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
+h1, h2, h3, h4, h5, h6 {
     font-family: "Nunito", sans-serif;
     @apply font-extrabold text-[#0C121D] text-3xl leading-10 mb-2;
 }
@@ -44,11 +39,7 @@ img {
     @apply align-middle;
 }
 
-button,
-input,
-optgroup,
-select,
-textarea {
+button, input, optgroup, select, textarea {
     font: inherit;
     line-height: inherit;
     @apply m-0;
@@ -74,12 +65,12 @@ a {
     @apply text-[#0C121D];
 }
 
-.bg-dark {
-    @apply bg-[#0C121D];
-}
-
 .text-secondary {
     @apply text-[#6D7A8C];
+}
+
+.bg-dark {
+    @apply bg-[#0C121D];
 }
 
 .bg-primary {
@@ -102,36 +93,16 @@ a {
     @apply uppercase text-sm font-bold tracking-[3px] text-[#B0B6BF] mb-2.5 leading-5;
 }
 
-.selected-primary {
-    @apply text-green-800 not-italic;
-}
-
-.selected-dark {
-    @apply text-[#0C121D] not-italic;
-}
-
 .font-nunito-sans {
     font-family: Nunito, sans-serif;
 }
 
-.col-2 {
-    @apply grid grid-cols-2;
-}
-
-.col-lg-2 {
-    @apply grid lg:grid-cols-2;
+.col-4 {
+    @apply grid grid-cols-4;
 }
 
 .col-md-2 {
     @apply grid md:grid-cols-2;
-}
-
-.col-xl-2 {
-    @apply grid xl:grid-cols-2;
-}
-
-.col-3 {
-    @apply grid grid-cols-3;
 }
 
 .col-md-3 {
@@ -142,20 +113,12 @@ a {
     @apply grid lg:grid-cols-3;
 }
 
-.col-xl-3 {
-    @apply grid xl:grid-cols-3;
-}
-
-.col-4 {
-    @apply grid grid-cols-4;
-}
-
 .col-lg-4 {
     @apply grid lg:grid-cols-4;
 }
 
-.col-xl-5 {
-    @apply grid xl:grid-cols-5;
+.col-xl-2 {
+    @apply grid xl:grid-cols-2;
 }
 
 .img-fluid {
@@ -179,10 +142,10 @@ a {
 }
 
 .contact-cards {
-    @apply pt-24 pb-12 container col-lg-3 lg:gap-7 gap-1;
+    @apply pt-24 pb-12 container flex justify-center flex-wrap lg:gap-7 gap-1;
 
     & > div {
-        @apply mb-5 border border-[#DCE5E7] rounded-md lg:px-[15px] px-[25px] lg:pt-[70px] lg:pb-[60px] py-[30px] shadow-[0_9px_24px_0_rgba(26,47,106,0.05)] flex gap-6;
+        @apply mb-5 border border-[#DCE5E7] rounded-md lg:px-[15px] px-[25px] lg:pt-[70px] lg:pb-[60px] py-[30px] shadow-[0_9px_24px_0_rgba(26,47,106,0.05)] flex gap-6 xl:w-[30%] md:w-5/12 w-full;
 
         h2 {
             @apply text-lg leading-5 mb-[5px];
@@ -223,8 +186,7 @@ a {
         }
     }
 
-    input,
-    textarea {
+    input, textarea {
         @apply border border-[#DCE5E7] text-sm bg-white text-[#888888] rounded-[5px] shadow-[0_9px_24px_0_rgba(26,47,106,0.05)] outline-none duration-500;
 
         &:focus {
@@ -247,7 +209,7 @@ a {
 }
 
 .specialties {
-    @apply grid md:grid-cols-2 gap-7;
+    @apply grid grid-cols-2 gap-7;
 
     div {
         @apply text-center my-5;
@@ -382,8 +344,7 @@ a {
 }
 
 .comment-form {
-    .input,
-    textarea {
+    .input, textarea {
         @apply text-[#848484] px-[15px] bg-[#EFF2F7] shadow-[0_9px_24px_0_rgba(26,47,106,0.05)] duration-150;
 
         &:hover,

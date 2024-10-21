@@ -1,5 +1,5 @@
 <section class="pt-[100px] pb-[90px] bg-[center_left] bg-no-repeat bg-cover"
-    style="background-image: url('{{ asset('storage/about/' . $about->banner_bg) }}')">
+         style="background-image: url('{{ asset("storage/about/$about->banner_bg") }}')">
     <div class="container flex max-lg:flex-col justify-between items-center max-lg:items-start">
         <div class="flex gap-6">
             <div class="text-[80px] leading-[80px] text-white">
@@ -16,7 +16,7 @@
         </div>
         <div class="px-3.5">
             <a href="tel:{{ preg_replace('/[\s\(\)\-]+/', '', $contact->phone) }}"
-                class="py-[17px] px-[45px] text-white border-2 border-white rounded-md uppercase hover:bg-white hover:text-[#0C121D] inline-block [&>*]:mb-0">
+               class="py-[17px] px-[45px] text-white border-2 border-white rounded-md uppercase hover:bg-white hover:text-[#0C121D] inline-block [&>*]:mb-0">
                 {{ $about->banner_button }}
             </a>
         </div>

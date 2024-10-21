@@ -1,12 +1,13 @@
 <section class="bg-no-repeat bg-cover bg-primary bg-[0_-55%]"
-    style="background-image: url('{{ asset('front/images/bg-16.png') }}')">
+         style="background-image: url('{{ asset('front/images/bg-16.png') }}')">
     @if ($home->second_section_services)
-        <div id="qualities" class="container col-md-3 gap-7 xl:-mt-20 max-xl:pt-20 xl:relative xl:z-10">
+        <div id="qualities"
+             class="container flex justify-center flex-wrap gap-7 xl:-mt-20 max-xl:pt-20 xl:relative xl:z-10">
             @foreach ($qualities as $quality)
                 <div
-                    class="mt-4 pt-7 pb-10 pr-14 pl-7 lg:mb-7 rounded-md shadow-[0_9px_24px_0_rgba(26,47,106,0.05)] bg-white overflow-hidden">
+                    class='mt-4 pt-7 pb-10 pr-14 pl-7 lg:mb-7 rounded-md shadow-[0_9px_24px_0_rgba(26,47,106,0.05)] bg-white overflow-hidden xl:w-[30%] md:w-5/12 w-full'>
                     <div class="flex justify-between">
-                        <img src="{{ asset('storage/qualities/' . $quality->icon) }}" alt="" />
+                        <img src="{{ asset("storage/qualities/$quality->icon") }}" alt=""/>
                         <h3 class="text-7xl font-black text-[#E3E4E9]">
                             0{{ $loop->index + 1 }}
                         </h3>
@@ -29,11 +30,11 @@
                     {!! $home->quote !!}
                 </span>
             </div>
-            <cite class="block text-lg pt-1.5 pl-12 mt-4">
+            <cite class="block [&>p]:max-md:text-center text-lg pt-1.5 pl-12 mt-4">
                 {!! $home->quote_author !!}
             </cite>
         </blockquote>
-        <div class="mb-4">
+        <div class="mb-4 max-md:text-center">
             {{ $home->second_section_text }}
         </div>
     </section>

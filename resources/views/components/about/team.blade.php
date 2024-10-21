@@ -7,10 +7,10 @@
             {{ $about->team_title }}
         </h2>
     </div>
-    <div id="team" class="col-lg-4 grid-cols-2 gap-7">
+    <div id="team" class="flex flex-wrap justify-center gap-7">
         @foreach ($team as $member)
             <div
-                class="bg-white rounded-md shadow-[0_0_24px_0_rgba(26,47,106,0.07)] mb-10 border-b-[3px] transform translate-y-0 border-green-800 overflow-hidden relative duration-500 hover:border-[#0C121D] hover:-translate-y-[5px] flex flex-col justify-end">
+                class="bg-white rounded-md shadow-[0_0_24px_0_rgba(26,47,106,0.07)] mb-10 border-b-[3px] transform translate-y-0 border-green-800 overflow-hidden relative duration-500 hover:border-[#0C121D] hover:-translate-y-[5px] flex flex-col justify-end xl:w-[30%] md:w-5/12 w-full">
                 <div class="absolute right-[50px] top-[15px] text-center">
                     <div class="plus-icon">
                         <div
@@ -39,7 +39,7 @@
                     </div>
                 </div>
                 <div>
-                    <img src="{{ asset('storage/team/' . $member->image) }}" alt="" class="mx-auto" />
+                    <img src="{{ asset('storage/team/' . $member->image) }}" alt="" class="mx-auto"/>
                 </div>
                 <div class="py-5 pr-[30px] pl-[25px] text-center">
                     <div>

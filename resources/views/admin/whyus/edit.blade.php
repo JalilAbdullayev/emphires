@@ -1,8 +1,8 @@
 @extends('admin.layouts.master')
 @section('title', __('Edit advantage'))
 @section('css')
-    <link rel="stylesheet" href="{{ asset('back/ckeditor/samples/css/samples.css') }}" />
-    <link rel="stylesheet" href="{{ asset('back/ckeditor/samples/toolbarconfigurator/lib/codemirror/neo.css') }}" />
+    <link rel="stylesheet" href="{{ asset('back/ckeditor/samples/css/samples.css') }}"/>
+    <link rel="stylesheet" href="{{ asset('back/ckeditor/samples/toolbarconfigurator/lib/codemirror/neo.css') }}"/>
     <style>
         textarea {
             display: block;
@@ -51,8 +51,8 @@
                         <div @class(['tab-pane', 'active' => $loop->first]) id="{{ $language }}" role="tabpanel">
                             <div class="form-floating my-3">
                                 <input class="form-control" name="title_{{ $language }}" id="title"
-                                    placeholder="@lang('Title')" type="text"
-                                    value="{{ $advantage->getTranslation('title', $language) }}" required />
+                                       placeholder="@lang('Title')" type="text"
+                                       value="{{ $advantage->getTranslation('title', $language) }}" required/>
                                 <label class="form-label text-white-50" for="title">
                                     @lang('Title')
                                 </label>
@@ -61,18 +61,22 @@
                                 <label class="form-label text-white-50" for="description">
                                     @lang('Description')
                                 </label>
-                                <textarea class="form-control ckeditor" placeholder="@lang('Description')" id="description"
-                                    name="description_{{ $language }}">{!! $advantage->getTranslation('description', $language) !!}</textarea>
+                                <textarea class="form-control ckeditor" placeholder="@lang('Description')"
+                                          id="description"
+                                          name="description_{{ $language }}">{!! $advantage->getTranslation('description', $language) !!}</textarea>
                             </div>
                         </div>
                     @endforeach
                 </div>
                 <div class="form-floating my-3">
-                    <input class="form-control" name="icon" id="icon" placeholder="@lang('Icon')"
-                        type="text" maxlength="255" value="{{ $advantage->icon }}" />
+                    <input class="form-control" name="icon" id="icon" placeholder="@lang('Icon')" type="text"
+                           maxlength="255" value="{{ $advantage->icon }}"/>
                     <label class="form-label text-white-50" for="icon">
                         @lang('Icon')
                     </label>
+                    <a href="https://fontawesome.com/search?o=r&m=free" target="_blank">
+                        @lang('Click to see list of icons').
+                    </a>
                 </div>
                 <div class="form-check form-switch mb-3">
                     <input type="checkbox" class="form-check-input" name="status" id="status" value="1"
