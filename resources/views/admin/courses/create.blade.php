@@ -84,17 +84,17 @@
                 </div>
                 <div class="row">
                     <div class="col-6">
-                        <div class="mb-3">
-                            <label class="form-label text-white-50" for="date">
-                                @lang('Date')
-                            </label>
-                            <input type="date" class="form-control" placeholder="@lang('Date')" id="date"
-                                   name="date"/>
-                        </div>
                         <div class="form-check form-switch mb-3">
                             <input type="checkbox" class="form-check-input" name="status" id="status" value="1"/>
                             <label class="form-check-label text-white-50" for="status">
                                 @lang('Status')
+                            </label>
+                        </div>
+                        <div class="form-check form-switch mb-3">
+                            <input type="checkbox" class="form-check-input" name="bg_status" id="bg_status"
+                                   value="1"/>
+                            <label class="form-check-label text-white-50" for="bg_status">
+                                @lang('Background image status')
                             </label>
                         </div>
                     </div>
@@ -110,13 +110,6 @@
                                     </option>
                                 @endforeach
                             </select>
-                        </div>
-                        <div class="form-check form-switch mb-3">
-                            <input type="checkbox" class="form-check-input" name="bg_status" id="bg_status"
-                                   value="1"/>
-                            <label class="form-check-label text-white-50" for="bg_status">
-                                @lang('Background image status')
-                            </label>
                         </div>
                     </div>
                 </div>

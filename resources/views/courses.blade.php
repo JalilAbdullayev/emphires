@@ -8,13 +8,6 @@
                 <article
                     class="mx-3.5 shadow-[0_30px_50px_rgba(0,0,0,0.03)] rounded-md mb-7 bg-white flex flex-col justify-end relative">
                     <img src="{{ asset('storage/courses/' . $course->image) }}" alt="" class="rounded-md"/>
-                    <span
-                        class="absolute top-2.5 right-2.5 rounded-md bg-primary text-[32px] leading-[34px] py-3 px-4 font-bold text-white uppercase text-center font-nunito-sans">
-                        {{ Carbon\Carbon::parse($course->date)->format('d') }} <div
-                            class="font-normal text-sm tracking-[3px]">
-                            {{ Carbon\Carbon::parse($course->date)->format('M') }}
-                        </div>
-                    </span>
                     <div class="p-8">
                         <div class="mb-4 text-sm tracking-[0.5px] font-semibold">
                             <a href="{{ route('blog_category_' . session('locale'), $course->category->slug) }}"

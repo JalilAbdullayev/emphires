@@ -19,7 +19,6 @@ return new class extends Migration {
             $table->json('description')->nullable();
             $table->json('text')->nullable();
             $table->json('keywords')->nullable();
-            $table->date('date')->nullable();
             $table->string('image')->nullable();
             $table->string('background')->nullable();
             $table->string('video_link')->nullable();
