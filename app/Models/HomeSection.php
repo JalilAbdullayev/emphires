@@ -39,8 +39,6 @@ class HomeSection extends Model {
         'courses_subtitle',
         'phone_title',
         'contact_title',
-        'contact_subtitle',
-        'email_title',
-        'address_title'
+        'contact_subtitle'
     ];
 }

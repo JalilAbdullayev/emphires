@@ -5,7 +5,7 @@
         </div>
         <div>
             <h2>
-                {{ $home->email_title }}
+                @lang('Email')
             </h2>
             <a href="mailto:{{ $contact->email }}">
                 {{ $contact->email }}
@@ -18,7 +18,7 @@
         </div>
         <div>
             <h2>
-                {{ $home->address_title }}
+                @lang('Address')
             </h2>
             {{ $contact->address }}
         </div>
@@ -29,7 +29,7 @@
         </div>
         <div>
             <h2>
-                Hours
+                @lang('Work hours')
             </h2>
             <p>
                 {{ $contact->work_hours }}

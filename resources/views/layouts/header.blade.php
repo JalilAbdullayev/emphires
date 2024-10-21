@@ -7,7 +7,7 @@
         <div class="flex">
             <div class="flex items-center border-x border-[#ffffff21] px-4">
                 <a href="mailto:{{ $contact->email }}" @class(['text-white' => Route::is('home')])>
-                    <i class="mr-3 text-green-800 fa-solid fa-envelope-open-text"></i> {{ $home->email_title }}
+                    <i class="mr-3 text-green-800 fa-solid fa-envelope-open-text"></i> @lang('Email')
                     {{ $contact->email }}
                 </a>
             </div>
@@ -16,7 +16,7 @@
                 'text-white' => Route::is('home'),
             ])>
                 <i class="mr-3 text-green-800 fa-solid fa-map-location-dot"></i> <span
-                    class="mr-3">{{ $home->address_title }}
+                    class="mr-3">@lang('Address')
                 </span> {{ $contact->address }}
             </div>
         </div>
@@ -39,9 +39,9 @@
         </div>
     </nav>
     <nav class="px-12 flex justify-between items-center border-b border-[#ffffff21] tracking-wider h-28 duration-500"
-        id="navbar">
+         id="navbar">
         <a href="/" class="shrink-0">
-            <img src="{{ asset('storage/' . $settings->logo) }}" alt="" class="max-h-14" />
+            <img src="{{ asset("storage/$settings->logo") }}" alt="" class="max-h-14"/>
         </a>
         <div
             class="flex gap-8 font-extrabold [&>a:hover]:text-green-800 [&>a:hover]:duration-500 max-xl:opacity-0 max-xl:hidden">
@@ -50,16 +50,12 @@
             </a>
             @if ($about->status)
                 <a href="{{ route('about_' . session('locale')) }}" @class([
-                    'text-white',
-                    'text-green-800' => Route::is('about_' . session('locale')),
-                ])>
+                    'text-white', 'text-green-800' => Route::is('about_' . session('locale'))])>
                     {{ $about->title }}
                 </a>
             @endif
             <a href="{{ route('services_' . session('locale')) }}" @class([
-                'text-white',
-                'text-green-800' => Route::is('services_' . session('locale')),
-            ])>
+                'text-white', 'text-green-800' => Route::is('services_' . session('locale'))])>
                 @lang('Services')
             </a>
             <a href="{{ route('courses_' . session('locale')) }}" @class([
@@ -69,16 +65,12 @@
                 @lang('Courses')
             </a>
             <a href="{{ route('blog_' . session('locale')) }}" @class([
-                'text-white',
-                'text-green-800' => Route::is('blog_' . session('locale')),
-            ])>
+                'text-white', 'text-green-800' => Route::is('blog_' . session('locale'))])>
                 @lang('Blog')
             </a>
             @if ($contact->status)
                 <a href="{{ route('contact_' . session('locale')) }}" @class([
-                    'text-white',
-                    'text-green-800' => Route::is('contact_' . session('locale')),
-                ])>
+                    'text-white', 'text-green-800' => Route::is('contact_' . session('locale'))])>
                     {{ $contact->title }}
                 </a>
             @endif
@@ -97,7 +89,8 @@
         <i class="text-4xl cursor-pointer fa-solid fa-bars xl:hidden" id="mobile-button"></i>
     </nav>
     <div class="relative">
-        <nav class="bg-white border-t-4 border-green-800 opacity-0 pointer-events-none transform translate-y-[32.3%] transition-all ease-in-out fixed top-0 z-50 w-full"
+        <nav
+            class="bg-white border-t-4 border-green-800 opacity-0 pointer-events-none transform translate-y-[32.3%] transition-all ease-in-out fixed top-8 z-50 w-full"
             id="mobile-nav">
             <ul
                 class="[&>li]:text-[#0C121D] [&>li]:py-2.5 [&>li]:px-4 [&>li]:border-b border-[#09162a26] [&>li]:font-extrabold duration-500">
@@ -108,15 +101,15 @@
                 </li>
                 @if ($about->status)
                     <li>
-                        <a href="{{ route('about_' . session('locale')) }}" @class(['text-green-800' => Route::is('about_' . session('locale'))])>
+                        <a href="{{ route('about_' . session('locale')) }}" @class([
+                            'text-green-800' => Route::is('about_' . session('locale'))])>
                             {{ $about->title }}
                         </a>
                     </li>
                 @endif
                 <li>
                     <a href="{{ route('services_' . session('locale')) }}" @class([
-                        'text-green-800' => Route::is('services_' . session('locale')),
-                    ])>
+                        'text-green-800' => Route::is('services_' . session('locale'))])>
                         Services
                     </a>
                 </li>
@@ -128,8 +121,7 @@
                 @if ($contact->status)
                     <li>
                         <a href="{{ route('contact_' . session('locale')) }}" @class([
-                            'text-green-800' => Route::is('contact_' . session('locale')),
-                        ])>
+                            'text-green-800' => Route::is('contact_' . session('locale'))])>
                             {{ $contact->title }}
                         </a>
                     </li>

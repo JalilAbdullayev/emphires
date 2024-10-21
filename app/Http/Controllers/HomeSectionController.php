@@ -75,8 +75,6 @@ class HomeSectionController extends Controller {
         $this->setTranslated($home, 'phone_title');
         $this->setTranslated($home, 'contact_title');
         $this->setTranslated($home, 'contact_subtitle');
-        $this->setTranslated($home, 'email_title');
-        $this->setTranslated($home, 'address_title');
         $home->save();
         return redirect()->back();
     }

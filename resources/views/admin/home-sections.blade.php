@@ -63,34 +63,34 @@
                                 </div>
                                 <div class="col-4">
                                     <div class="mb-3">
-                                        <label class="text-white form-label" for="address_title">
-                                            @lang('Address title')
-                                        </label>
-                                        <textarea class="form-control" placeholder="@lang('Address title')" id="address_title"
-                                            name="address_title_{{ $language }}">{!! $home->getTranslation('address_title', $language) !!}</textarea>
-                                    </div>
-                                    <div class="mb-3">
                                         <label class="text-white form-label" for="services_subtitle">
                                             @lang('Services subtitle')
                                         </label>
                                         <textarea class="form-control" placeholder="@lang('Services subtitle')" id="services_subtitle"
                                             name="services_subtitle_{{ $language }}">{{ $home->getTranslation('services_subtitle', $language) }}</textarea>
                                     </div>
+                                    <div class="mb-3">
+                                        <label class="text-white form-label" for="services_foot_text">
+                                            @lang('Services foot text')
+                                        </label>
+                                        <textarea class="form-control" placeholder="@lang('Services foot text')" id="services_foot_text"
+                                                  name="services_foot_text_{{ $language }}">{!! $home->getTranslation('services_foot_text', $language) !!}</textarea>
+                                    </div>
                                 </div>
                                 <div class="col-4">
-                                    <div class="mb-3">
-                                        <label class="text-white form-label" for="email_title">
-                                            @lang('Email title')
-                                        </label>
-                                        <textarea class="form-control" placeholder="@lang('Email title')" id="email_title"
-                                            name="email_title_{{ $language }}">{!! $home->getTranslation('email_title', $language) !!}</textarea>
-                                    </div>
                                     <div class="mb-3">
                                         <label class="text-white form-label" for="services_link_text">
                                             @lang('Services link text')
                                         </label>
                                         <textarea class="form-control" placeholder="@lang('Services link text')" id="services_link_text"
                                             name="services_link_text_{{ $language }}">{!! $home->getTranslation('services_link_text', $language) !!}</textarea>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="text-white form-label" for="services_foot_link_text">
+                                            @lang('Services foot link text')
+                                        </label>
+                                        <textarea class="form-control" placeholder="@lang('Services foot link text')" id="services_foot_link_text"
+                                                  name="services_foot_link_text_{{ $language }}">{!! $home->getTranslation('services_foot_link_text', $language) !!}</textarea>
                                     </div>
                                 </div>
                                 <div class="col-6">
@@ -100,13 +100,6 @@
                                         </label>
                                         <textarea class="form-control" placeholder="@lang('Services text')" id="services_text"
                                             name="services_text_{{ $language }}">{!! $home->getTranslation('services_text', $language) !!}</textarea>
-                                    </div>
-                                    <div class="mb-3">
-                                        <label class="text-white form-label" for="services_foot_link_text">
-                                            @lang('Services foot link text')
-                                        </label>
-                                        <textarea class="form-control" placeholder="@lang('Services foot link text')" id="services_foot_link_text"
-                                            name="services_foot_link_text_{{ $language }}">{!! $home->getTranslation('services_foot_link_text', $language) !!}</textarea>
                                     </div>
                                     <div class="mb-3">
                                         <label class="text-white form-label" for="who_us_subtitle">
@@ -187,13 +180,6 @@
                                     </div>
                                 </div>
                                 <div class="col-6">
-                                    <div class="mb-3">
-                                        <label class="text-white form-label" for="services_foot_text">
-                                            @lang('Services foot text')
-                                        </label>
-                                        <textarea class="form-control" placeholder="@lang('Services foot text')" id="services_foot_text"
-                                            name="services_foot_text_{{ $language }}">{!! $home->getTranslation('services_foot_text', $language) !!}</textarea>
-                                    </div>
                                     <div class="mb-3">
                                         <label class="text-white form-label" for="who_us_title">
                                             {{ __('Who us title') }}
