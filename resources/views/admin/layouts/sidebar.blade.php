@@ -1,4 +1,3 @@
-@php use Illuminate\Support\Facades\Auth; @endphp
 <aside class="left-sidebar">
     <!-- Sidebar scroll-->
     <div class="scroll-sidebar">

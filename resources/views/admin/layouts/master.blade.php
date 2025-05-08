@@ -1,5 +1,4 @@
-@php use Illuminate\Support\Facades\Route;@endphp
-    <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="{{ Str::replace('_', '-', App::getLocale()) }}">
 <head>
     <meta charset="utf-8"/>
